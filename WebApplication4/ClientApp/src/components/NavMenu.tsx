@@ -13,18 +13,27 @@ export default class NavMenu extends React.PureComponent<{}, { isOpen: boolean }
             <header>
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" light>
                     <Container>
-                        <NavbarBrand tag={Link} to="/">WebApplication4</NavbarBrand>
+                        <NavbarBrand tag={Link} to="/">Boardwalk Insurance</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} className="mr-2"/>
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={this.state.isOpen} navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/">Home</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/">Policy Information</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/counter">Counter</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/counter">Policy Documents</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/fetch-data">Fetch data</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/fetch-data">Make a Request</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" to="/fetch-data">Help</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" to="/fetch-data">Account</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" to="/fetch-data">Log out</NavLink>
                                 </NavItem>
                             </ul>
                         </Collapse>
