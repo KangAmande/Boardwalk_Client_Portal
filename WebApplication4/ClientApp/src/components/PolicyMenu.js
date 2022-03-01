@@ -25,14 +25,17 @@ var PolicyMenu = /** @class */ (function (_super) {
     }
     PolicyMenu.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
-            React.createElement(Sidebar_1.default, null),
-            React.createElement("h1", null, "Policy"),
-            React.createElement("a", null, "Document 1"),
-            React.createElement("br", null),
-            React.createElement("a", null, "Document 2"),
-            React.createElement("br", null),
-            React.createElement("a", null, "Document 3"),
-            React.createElement("br", null)));
+            React.createElement("div", { className: 'row' },
+                React.createElement("div", { className: 'col-4' },
+                    React.createElement(Sidebar_1.default, null)),
+                React.createElement("div", { className: 'col-8' },
+                    React.createElement("h1", null, "Policy"),
+                    React.createElement("a", null, "Document 1"),
+                    React.createElement("br", null),
+                    React.createElement("a", null, "Document 2"),
+                    React.createElement("br", null),
+                    React.createElement("a", null, "Document 3"),
+                    React.createElement("br", null)))));
     };
     return PolicyMenu;
 }(React.Component));
