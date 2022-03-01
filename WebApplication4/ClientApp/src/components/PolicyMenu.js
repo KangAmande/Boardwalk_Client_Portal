@@ -18,17 +18,24 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Sidebar_1 = require("./Sidebar");
-var PolicyDoc = /** @class */ (function (_super) {
-    __extends(PolicyDoc, _super);
-    function PolicyDoc() {
+var PolicyMenu = /** @class */ (function (_super) {
+    __extends(PolicyMenu, _super);
+    function PolicyMenu() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    PolicyDoc.prototype.render = function () {
+    PolicyMenu.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
-            React.createElement(Sidebar_1.default, null)));
+            React.createElement(Sidebar_1.default, null),
+            React.createElement("h1", null, "Policy"),
+            React.createElement("a", null, "Document 1"),
+            React.createElement("br", null),
+            React.createElement("a", null, "Document 2"),
+            React.createElement("br", null),
+            React.createElement("a", null, "Document 3"),
+            React.createElement("br", null)));
     };
-    return PolicyDoc;
+    return PolicyMenu;
 }(React.Component));
 ;
-exports.default = (0, react_redux_1.connect)()(PolicyDoc);
-//# sourceMappingURL=PolicyDoc.js.map
+exports.default = (0, react_redux_1.connect)()(PolicyMenu);
+//# sourceMappingURL=PolicyMenu.js.map
