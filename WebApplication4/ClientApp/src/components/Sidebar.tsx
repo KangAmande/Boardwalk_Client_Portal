@@ -1,12 +1,10 @@
 ﻿import * as React from 'react';
 import { Container } from 'reactstrap';
-import { slide as Menu } from 'react-burger-menu';
-import './Sidebar.css';
 export default class Sidebar extends React.PureComponent{
     public render() {
         return (
             <Container>
-                <a className="menu-item" href="/">
+                <a className="menu-item" href="/policy-menu">
                     Policy
                 </a><br/>
                 <a className="menu-item" href="/">

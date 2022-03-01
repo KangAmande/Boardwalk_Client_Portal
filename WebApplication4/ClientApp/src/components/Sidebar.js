@@ -17,7 +17,6 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var reactstrap_1 = require("reactstrap");
-require("./Sidebar.css");
 var Sidebar = /** @class */ (function (_super) {
     __extends(Sidebar, _super);
     function Sidebar() {
@@ -25,7 +24,7 @@ var Sidebar = /** @class */ (function (_super) {
     }
     Sidebar.prototype.render = function () {
         return (React.createElement(reactstrap_1.Container, null,
-            React.createElement("a", { className: "menu-item", href: "/" }, "Policy"),
+            React.createElement("a", { className: "menu-item", href: "/policy-menu" }, "Policy"),
             React.createElement("br", null),
             React.createElement("a", { className: "menu-item", href: "/" }, "Signed Documents"),
             React.createElement("br", null),
