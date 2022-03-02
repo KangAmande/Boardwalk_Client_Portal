@@ -3,7 +3,6 @@ import { Route } from 'react-router';
 import Layout from './components/Layout';
 import Home from './components/Home';
 import Counter from './components/Counter';
-import PolicyDoc from './components/PolicyDoc';
 import FetchData from './components/FetchData';
 import PolicyMenu from './components/PolicyMenu';
 import './custom.css'
