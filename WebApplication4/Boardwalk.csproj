@@ -33,16 +33,23 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\components\CertInsur.tsx" />
+    <None Remove="ClientApp\src\components\Invoices.tsx" />
+    <None Remove="ClientApp\src\components\PinkSlips.tsx" />
     <None Remove="ClientApp\src\components\PolicyDoc.js" />
     <None Remove="ClientApp\src\components\PolicyDoc.js.map" />
     <None Remove="ClientApp\src\components\PolicyDoc.tsx" />
     <None Remove="ClientApp\src\components\PolicyMenu.tsx" />
+    <None Remove="ClientApp\src\components\Popup.tsx" />
     <None Remove="ClientApp\src\components\Sidebar.css" />
     <None Remove="ClientApp\src\components\Sidebar.tsx" />
+    <None Remove="ClientApp\src\components\signDoc.tsx" />
+    <None Remove="ClientApp\src\components\SignDocs.tsx" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Remove="ClientApp\src\components\PolicyDoc.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\signDoc.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

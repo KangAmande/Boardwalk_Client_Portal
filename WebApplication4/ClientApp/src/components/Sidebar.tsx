@@ -1,24 +1,25 @@
 ﻿import * as React from 'react';
-import { Container } from 'reactstrap';
+import { Container, NavLink } from 'reactstrap';
+import { Link } from 'react-router-dom';
 export default class Sidebar extends React.PureComponent{
     public render() {
         return (
             <Container>
-                <a className="menu-item" href="/policy-menu">
+                <NavLink className="menu-item" tag={Link} to="/policy-menu">
                     Policy
-                </a><br/>
-                <a className="menu-item" href="/">
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/sign-docs">
                     Signed Documents
-                </a><br />
-                <a className="menu-item" href="/">
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/pink-slips">
                     Auto Insurance pink slips
-                </a><br />
-                <a className="menu-item" href="/">
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/cert-insur">
                     Certificate of Insurance
-                </a><br />
-                <a className="menu-item" href="/">
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/invoices">
                     Invoices
-                </a>
+                </NavLink>
             </Container>
         );
     }
