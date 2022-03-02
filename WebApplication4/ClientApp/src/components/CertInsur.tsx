@@ -5,7 +5,7 @@ import Popup from './Popup';
 import { Container, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-class PolicyMenu extends React.Component {
+class CertInsur extends React.Component {
     private togglePopup() {
 
     }
@@ -20,16 +20,16 @@ class PolicyMenu extends React.Component {
                         <Sidebar />
                     </div>
                     <div className='col-8'>
-                        <h1>Policy</h1>
+                        <h1>Certificate of Insurance</h1>
                         <p>Click on a document to view or download it</p>
                         <a onClick={this.showPopup}>Document 1</a><br />
                         <a>Document 2</a><br />
                         <a>Document 3</a><br />
-                        <Popup content={<p>Hello</p> } handleClose={this.togglePopup}/>
+                        <Popup content={<p>Hello</p>} handleClose={this.togglePopup} />
                     </div>
                 </div>
             </React.Fragment>
         );
     }
 };
-export default connect()(PolicyMenu);
+export default connect()(CertInsur);

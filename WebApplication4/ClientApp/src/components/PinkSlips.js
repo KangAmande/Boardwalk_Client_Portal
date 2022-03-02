@@ -19,22 +19,22 @@ var React = require("react");
 var react_redux_1 = require("react-redux");
 var Sidebar_1 = require("./Sidebar");
 var Popup_1 = require("./Popup");
-var PolicyMenu = /** @class */ (function (_super) {
-    __extends(PolicyMenu, _super);
-    function PolicyMenu() {
+var PinkSlips = /** @class */ (function (_super) {
+    __extends(PinkSlips, _super);
+    function PinkSlips() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    PolicyMenu.prototype.togglePopup = function () {
+    PinkSlips.prototype.togglePopup = function () {
     };
-    PolicyMenu.prototype.showPopup = function () {
+    PinkSlips.prototype.showPopup = function () {
     };
-    PolicyMenu.prototype.render = function () {
+    PinkSlips.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(Sidebar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
-                    React.createElement("h1", null, "Policy"),
+                    React.createElement("h1", null, "Pink Slips"),
                     React.createElement("p", null, "Click on a document to view or download it"),
                     React.createElement("a", { onClick: this.showPopup }, "Document 1"),
                     React.createElement("br", null),
@@ -44,8 +44,8 @@ var PolicyMenu = /** @class */ (function (_super) {
                     React.createElement("br", null),
                     React.createElement(Popup_1.default, { content: React.createElement("p", null, "Hello"), handleClose: this.togglePopup })))));
     };
-    return PolicyMenu;
+    return PinkSlips;
 }(React.Component));
 ;
-exports.default = (0, react_redux_1.connect)()(PolicyMenu);
-//# sourceMappingURL=PolicyMenu.js.map
+exports.default = (0, react_redux_1.connect)()(PinkSlips);
+//# sourceMappingURL=PinkSlips.js.map
