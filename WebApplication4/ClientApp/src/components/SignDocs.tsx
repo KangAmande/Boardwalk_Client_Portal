@@ -1,18 +1,29 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebar from './Sidebar';
-import Popup from './Popup';
-import { Container, NavLink } from 'reactstrap';
+import { Popup } from './Popup';
+import { NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-class SignDocs extends React.Component {
-    private togglePopup() {
-
+class SignDocs extends React.Component<{}, { shown: boolean }> {
+    constructor() {
+        super({}, {});
+        this.state = {
+            shown: false
+        };
+        this.showModal = this.showModal.bind(this);
+        this.hideModal = this.hideModal.bind(this);
     }
-    private showPopup() {
 
-    }
+    showModal = () => {
+        this.setState({ shown: true });
+    };
+
+    hideModal = () => {
+        this.setState({ shown: false });
+    };
     public render() {
+
         return (
             <React.Fragment>
                 <div className='row'>
@@ -22,10 +33,12 @@ class SignDocs extends React.Component {
                     <div className='col-8'>
                         <h1>Signed Documents</h1>
                         <p>Click on a document to view or download it</p>
-                        <a onClick={this.showPopup}>Document 1</a><br />
-                        <a>Document 2</a><br />
-                        <a>Document 3</a><br />
-                        <Popup content={<p>Hello</p>} handleClose={this.togglePopup} />
+                        <NavLink tag={Link} onClick={this.showModal}>Document 1</NavLink><br />
+                        <NavLink tag={Link} onClick={this.showModal}>Document 2</NavLink><br />
+                        <NavLink tag={Link} onClick={this.showModal}>Document 3</NavLink><br />
+                        <Popup show={this.state.shown} handleClose={this.hideModal}>
+                            <p>Modal</p>
+                        </Popup>
                     </div>
                 </div>
             </React.Fragment>

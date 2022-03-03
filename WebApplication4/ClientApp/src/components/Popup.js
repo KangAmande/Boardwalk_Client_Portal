@@ -1,11 +1,15 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.Popup = void 0;
 var React = require("react");
-var Popup = function (props) {
-    return (React.createElement("div", { className: "popup-box" },
-        React.createElement("div", { className: "box" },
-            React.createElement("span", { className: "close-icon", onClick: props.handleClose }, "x"),
-            props.content)));
+require("./Popup.css");
+var Popup = function (_a) {
+    var handleClose = _a.handleClose, show = _a.show, children = _a.children;
+    var showHideClassName = show ? "modal display-block" : "modal display-none";
+    return (React.createElement("div", { className: showHideClassName },
+        React.createElement("section", { className: "modal-main" },
+            children,
+            React.createElement("button", { type: "button", onClick: handleClose }, "Close"))));
 };
-exports.default = Popup;
+exports.Popup = Popup;
 //# sourceMappingURL=Popup.js.map
