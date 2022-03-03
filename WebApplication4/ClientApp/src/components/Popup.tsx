@@ -1,7 +1,11 @@
 ﻿import * as React from 'react';
 import './Popup.css';
-
-export const Popup = ({ handleClose, show, children }) => {
+type Props = {
+    handleClose: any;
+    show: any;
+    children: any;
+}
+export const Popup:React.FC<Props> = ({ handleClose, show, children }) => {
     const showHideClassName = show ? "modal display-block" : "modal display-none";
 
     return (
