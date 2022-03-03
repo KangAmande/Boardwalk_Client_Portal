@@ -19,15 +19,25 @@ var React = require("react");
 var react_redux_1 = require("react-redux");
 var Sidebar_1 = require("./Sidebar");
 var Popup_1 = require("./Popup");
+var reactstrap_1 = require("reactstrap");
+var react_router_dom_1 = require("react-router-dom");
 var Invoices = /** @class */ (function (_super) {
     __extends(Invoices, _super);
     function Invoices() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super.call(this, {}, {}) || this;
+        _this.showModal = function () {
+            _this.setState({ shown: true });
+        };
+        _this.hideModal = function () {
+            _this.setState({ shown: false });
+        };
+        _this.state = {
+            shown: false
+        };
+        _this.showModal = _this.showModal.bind(_this);
+        _this.hideModal = _this.hideModal.bind(_this);
+        return _this;
     }
-    Invoices.prototype.togglePopup = function () {
-    };
-    Invoices.prototype.showPopup = function () {
-    };
     Invoices.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'row' },
@@ -36,13 +46,14 @@ var Invoices = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("h1", null, "Invoices"),
                     React.createElement("p", null, "Click on a document to view or download it"),
-                    React.createElement("a", { onClick: this.showPopup }, "Document 1"),
+                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 1"),
                     React.createElement("br", null),
-                    React.createElement("a", null, "Document 2"),
+                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 2"),
                     React.createElement("br", null),
-                    React.createElement("a", null, "Document 3"),
+                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 3"),
                     React.createElement("br", null),
-                    React.createElement(Popup_1.default, { content: React.createElement("p", null, "Hello"), handleClose: this.togglePopup })))));
+                    React.createElement(Popup_1.Popup, { show: this.state.shown, handleClose: this.hideModal },
+                        React.createElement("p", null, "Modal"))))));
     };
     return Invoices;
 }(React.Component));

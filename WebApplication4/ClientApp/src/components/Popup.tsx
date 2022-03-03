@@ -1,14 +1,17 @@
-﻿import * as React from "react";
+﻿import * as React from 'react';
+import './Popup.css';
 
-const Popup = props => {
+export const Popup = ({ handleClose, show, children }) => {
+    const showHideClassName = show ? "modal display-block" : "modal display-none";
+
     return (
-        <div className="popup-box">
-            <div className="box">
-                <span className="close-icon" onClick={props.handleClose}>x</span>
-                {props.content}
-            </div>
+        <div className={showHideClassName}>
+            <section className="modal-main">
+                {children}
+                <button type="button" onClick={handleClose}>
+                    Close
+                </button>
+            </section>
         </div>
     );
 };
-
-export default Popup;
