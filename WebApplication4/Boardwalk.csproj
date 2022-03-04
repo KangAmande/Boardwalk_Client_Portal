@@ -34,6 +34,8 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
+    <None Remove="ClientApp\src\components\Counter.tsx" />
+    <None Remove="ClientApp\src\components\FetchData.tsx" />
     <None Remove="ClientApp\src\components\Invoices.tsx" />
     <None Remove="ClientApp\src\components\PinkSlips.tsx" />
     <None Remove="ClientApp\src\components\PolicyDoc.js" />
@@ -48,6 +50,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\components\Counter.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\FetchData.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\PolicyDoc.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\signDoc.tsx" />
   </ItemGroup>
