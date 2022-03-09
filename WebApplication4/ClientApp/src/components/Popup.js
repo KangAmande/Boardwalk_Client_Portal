@@ -9,6 +9,7 @@ var Popup = function (_a) {
     return (React.createElement("div", { className: showHideClassName },
         React.createElement("section", { className: "modal-main" },
             children,
+            React.createElement("button", { type: "button" }, "Download"),
             React.createElement("button", { type: "button", onClick: handleClose }, "Close"))));
 };
 exports.Popup = Popup;

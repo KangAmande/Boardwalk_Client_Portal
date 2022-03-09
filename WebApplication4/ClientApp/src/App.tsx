@@ -7,6 +7,12 @@ import SignDocs from './components/SignDocs';
 import PinkSlips from './components/PinkSlips';
 import CertInsur from './components/CertInsur';
 import Invoices from './components/Invoices';
+import PolicyLimits from './components/PolicyLimits';
+import VehicleInsured from './components/VehicleInsured';
+import DriverInsured from './components/DriverInsured';
+import EquipInsured from './components/EquipInsured';
+import RiskAddr from './components/RiskAddr';
+import MailAddr from './components/MailAddr';
 
 import './custom.css'
 
@@ -18,5 +24,11 @@ export default () => (
         <Route path='/pink-slips' component={PinkSlips} />
         <Route path='/cert-insur' component={CertInsur} />
         <Route path='/invoices' component={Invoices} />
+        <Route path='/policy-limits' component={PolicyLimits} />
+        <Route path='/vehicle-insured' component={VehicleInsured} />
+        <Route path='/driver-insured' component={DriverInsured} />
+        <Route path='/equip-insured' component={EquipInsured} />
+        <Route path='/risk-addr' component={RiskAddr} />
+        <Route path='/mail-addr' component={MailAddr} />
     </Layout>
 );
