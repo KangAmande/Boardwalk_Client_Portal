@@ -36,13 +36,16 @@
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />
     <None Remove="ClientApp\src\components\FetchData.tsx" />
+    <None Remove="ClientApp\src\components\InfoBar.tsx" />
     <None Remove="ClientApp\src\components\Invoices.tsx" />
+    <None Remove="ClientApp\src\components\MailAddr.tsx" />
     <None Remove="ClientApp\src\components\PinkSlips.tsx" />
     <None Remove="ClientApp\src\components\PolicyDoc.js" />
     <None Remove="ClientApp\src\components\PolicyDoc.js.map" />
     <None Remove="ClientApp\src\components\PolicyDoc.tsx" />
     <None Remove="ClientApp\src\components\PolicyMenu.tsx" />
     <None Remove="ClientApp\src\components\Popup.tsx" />
+    <None Remove="ClientApp\src\components\RiskAddr.tsx" />
     <None Remove="ClientApp\src\components\Sidebar.css" />
     <None Remove="ClientApp\src\components\Sidebar.tsx" />
     <None Remove="ClientApp\src\components\signDoc.tsx" />
@@ -51,9 +54,13 @@
 
   <ItemGroup>
     <TypeScriptCompile Remove="ClientApp\src\components\Counter.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\DriverInsured.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\EquipInsured.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\FetchData.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\PolicyDoc.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\PolicyLimits.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\signDoc.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\components\VehicleInsured.tsx" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

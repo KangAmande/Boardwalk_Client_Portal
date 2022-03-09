@@ -12,6 +12,9 @@ export const Popup:React.FC<Props> = ({ handleClose, show, children }) => {
         <div className={showHideClassName}>
             <section className="modal-main">
                 {children}
+                <button type="button">
+                    Download
+                </button>
                 <button type="button" onClick={handleClose}>
                     Close
                 </button>
