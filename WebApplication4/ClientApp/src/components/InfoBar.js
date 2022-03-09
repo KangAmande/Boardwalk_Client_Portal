@@ -34,6 +34,7 @@ var InfoBar = /** @class */ (function (_super) {
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/equip-insured" }, "List of Equipments insured under commercial policy"),
             React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/risk-addr" }, "Risk Address"),
+            React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/mail-addr" }, "Mailing Address")));
     };
     return InfoBar;

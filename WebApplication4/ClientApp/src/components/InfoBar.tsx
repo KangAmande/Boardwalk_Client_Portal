@@ -20,7 +20,7 @@ export default class InfoBar extends React.PureComponent {
                 </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/risk-addr">
                     Risk Address
-                </NavLink>
+                </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/mail-addr">
                     Mailing Address
                 </NavLink>

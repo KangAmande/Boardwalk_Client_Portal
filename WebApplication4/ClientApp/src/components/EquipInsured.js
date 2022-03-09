@@ -18,18 +18,26 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var InfoBar_1 = require("./InfoBar");
+var Accordion_1 = require("./Accordion");
 var EquipInsured = /** @class */ (function (_super) {
     __extends(EquipInsured, _super);
     function EquipInsured() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     EquipInsured.prototype.render = function () {
+        var i = 1;
+        var a = [];
+        while (i < 5) {
+            a.push(React.createElement(Accordion_1.CustomAccordion, { title: "Title " + i.toString(), content: "Content " + i.toString() }));
+            i++;
+        }
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(InfoBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
-                    React.createElement("h1", null, "List of Equipments insured under commercial policy")))));
+                    React.createElement("h1", null, "List of Equipments insured under commercial policy"),
+                    React.createElement("div", null, a)))));
     };
     return EquipInsured;
 }(React.Component));

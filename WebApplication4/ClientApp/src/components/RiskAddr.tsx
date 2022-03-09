@@ -1,13 +1,9 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
 import InfoBar from './InfoBar';
-import { Popup } from './Popup';
-import { NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
 
 class RiskAddr extends React.Component {
     public render() {
-
         return (
             <React.Fragment>
                 <div className='row'>

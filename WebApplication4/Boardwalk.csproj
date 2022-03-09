@@ -53,6 +53,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Remove="ClientApp\src\components\Accordion.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\Counter.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\DriverInsured.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\EquipInsured.tsx" />
