@@ -36,6 +36,12 @@ class SignDocs extends React.Component<{}, { shown: boolean }> {
                         <NavLink tag={Link} onClick={this.showModal}>Document 1</NavLink><br />
                         <NavLink tag={Link} onClick={this.showModal}>Document 2</NavLink><br />
                         <NavLink tag={Link} onClick={this.showModal}>Document 3</NavLink><br />
+                        <button>Upload new Document</button>
+                        <br /><br /><br />
+                        <h1>New Uploaded Documents</h1>
+                        <NavLink tag={Link} onClick={this.showModal}>Document 1</NavLink> - Under Review<br />
+                        <NavLink tag={Link} onClick={this.showModal}>Document 2</NavLink> - Accepted <button>x</button><br />
+                        <NavLink tag={Link} onClick={this.showModal}>Document 3</NavLink> - Rejected <button>x</button><br />
                         <Popup show={this.state.shown} handleClose={this.hideModal}>
                             <p>Modal</p>
                         </Popup>

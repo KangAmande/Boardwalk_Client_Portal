@@ -9,7 +9,7 @@ class PolicyLimits extends React.Component {
         let i:number = 1;
         let a = [];
         while (i < 5) {
-            a.push(<CustomAccordion title={"Title " + i.toString()} content={"Content " + i.toString()} />);
+            a.push(<div><CustomAccordion title={"Policy Limit " + i.toString()} content={<div><p>Insurance Company</p><p>Policy Effective Date</p><p>Policy Expiry Date</p></div>} /><br /></div>);
             i++;
         }
         return (
@@ -20,6 +20,7 @@ class PolicyLimits extends React.Component {
                     </div>
                     <div className='col-8'>
                         <h1>Primary Policy Limits and Deductibles</h1>
+                        <br />
                         <div>{a}</div>
                     </div>
                 </div>

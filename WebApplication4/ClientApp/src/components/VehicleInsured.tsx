@@ -8,7 +8,7 @@ class VehicleInsured extends React.Component {
         let i: number = 1;
         let a = [];
         while (i < 5) {
-            a.push(<CustomAccordion title={"Title " + i.toString()} content={"Content " + i.toString()} />);
+            a.push(<div><CustomAccordion title={"Vehicle " + i.toString()} content={<div><p>Type</p><p>Year</p><p>Make</p><p>Model</p></div>} /><br/></div>);
             i++;
         }
         return (
@@ -19,6 +19,7 @@ class VehicleInsured extends React.Component {
                     </div>
                     <div className='col-8'>
                         <h1>List of Vehicles insured under auto policy</h1>
+                        <br/>
                         <div>{a}</div>
                     </div>
                 </div>

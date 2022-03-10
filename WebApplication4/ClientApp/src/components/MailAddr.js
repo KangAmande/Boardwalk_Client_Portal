@@ -29,7 +29,28 @@ var MailAddr = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(InfoBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
-                    React.createElement("h1", null, "Mailing Address")))));
+                    React.createElement("h1", null, "Mailing Address"),
+                    React.createElement("br", null),
+                    React.createElement("div", { className: 'row' },
+                        React.createElement("div", { className: 'col-5' },
+                            React.createElement("h4", null, "Address")),
+                        React.createElement("div", { className: 'col-7' },
+                            React.createElement("p", null, "123 Main Street"))),
+                    React.createElement("div", { className: 'row' },
+                        React.createElement("div", { className: 'col-5' },
+                            React.createElement("h4", null, "City")),
+                        React.createElement("div", { className: 'col-7' },
+                            React.createElement("p", null, "Hamilton"))),
+                    React.createElement("div", { className: 'row' },
+                        React.createElement("div", { className: 'col-5' },
+                            React.createElement("h4", null, "Province")),
+                        React.createElement("div", { className: 'col-7' },
+                            React.createElement("p", null, "ON"))),
+                    React.createElement("div", { className: 'row' },
+                        React.createElement("div", { className: 'col-5' },
+                            React.createElement("h4", null, "Postal Code")),
+                        React.createElement("div", { className: 'col-7' },
+                            React.createElement("p", null, "L7J8T5")))))));
     };
     return MailAddr;
 }(React.Component));

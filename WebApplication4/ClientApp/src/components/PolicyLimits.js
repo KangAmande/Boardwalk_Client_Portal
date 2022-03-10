@@ -28,7 +28,12 @@ var PolicyLimits = /** @class */ (function (_super) {
         var i = 1;
         var a = [];
         while (i < 5) {
-            a.push(React.createElement(Accordion_1.CustomAccordion, { title: "Title " + i.toString(), content: "Content " + i.toString() }));
+            a.push(React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { title: "Policy Limit " + i.toString(), content: React.createElement("div", null,
+                        React.createElement("p", null, "Insurance Company"),
+                        React.createElement("p", null, "Policy Effective Date"),
+                        React.createElement("p", null, "Policy Expiry Date")) }),
+                React.createElement("br", null)));
             i++;
         }
         return (React.createElement(React.Fragment, null,
@@ -37,6 +42,7 @@ var PolicyLimits = /** @class */ (function (_super) {
                     React.createElement(InfoBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("h1", null, "Primary Policy Limits and Deductibles"),
+                    React.createElement("br", null),
                     React.createElement("div", null, a)))));
     };
     return PolicyLimits;

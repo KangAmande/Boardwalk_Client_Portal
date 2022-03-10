@@ -28,7 +28,13 @@ var DriverInsured = /** @class */ (function (_super) {
         var i = 1;
         var a = [];
         while (i < 5) {
-            a.push(React.createElement(Accordion_1.CustomAccordion, { title: "Title " + i.toString(), content: "Content " + i.toString() }));
+            a.push(React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { title: "Driver " + i.toString(), content: React.createElement("div", null,
+                        React.createElement("p", null, "Full name"),
+                        React.createElement("p", null, "Birth Date"),
+                        React.createElement("p", null, "Drivers License"),
+                        React.createElement("p", null, "License Year")) }),
+                React.createElement("br", null)));
             i++;
         }
         return (React.createElement(React.Fragment, null,
@@ -37,6 +43,7 @@ var DriverInsured = /** @class */ (function (_super) {
                     React.createElement(InfoBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("h1", null, "List of Drivers insured under auto policy"),
+                    React.createElement("br", null),
                     React.createElement("div", null, a)))));
     };
     return DriverInsured;

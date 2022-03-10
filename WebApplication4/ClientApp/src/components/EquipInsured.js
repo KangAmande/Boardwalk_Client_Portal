@@ -28,7 +28,14 @@ var EquipInsured = /** @class */ (function (_super) {
         var i = 1;
         var a = [];
         while (i < 5) {
-            a.push(React.createElement(Accordion_1.CustomAccordion, { title: "Title " + i.toString(), content: "Content " + i.toString() }));
+            a.push(React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { title: "Equipment " + i.toString(), content: React.createElement("div", null,
+                        React.createElement("p", null, "Make"),
+                        React.createElement("p", null, "Model"),
+                        React.createElement("p", null, "Year"),
+                        React.createElement("p", null, "Serial Number"),
+                        React.createElement("p", null, "Value")) }),
+                React.createElement("br", null)));
             i++;
         }
         return (React.createElement(React.Fragment, null,
@@ -37,6 +44,7 @@ var EquipInsured = /** @class */ (function (_super) {
                     React.createElement(InfoBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("h1", null, "List of Equipments insured under commercial policy"),
+                    React.createElement("br", null),
                     React.createElement("div", null, a)))));
     };
     return EquipInsured;
