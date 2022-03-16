@@ -1,5 +1,5 @@
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var React = require("react");
 var react_router_1 = require("react-router");
 var Layout_1 = require("./components/Layout");
@@ -16,18 +16,27 @@ var EquipInsured_1 = require("./components/EquipInsured");
 var RiskAddr_1 = require("./components/RiskAddr");
 var MailAddr_1 = require("./components/MailAddr");
 require("./custom.css");
-exports.default = (function () { return (React.createElement("div", null,
-    React.createElement(Layout_1.default, null,
-        React.createElement(react_router_1.Route, { exact: true, path: '/', component: Home_1.default }),
-        React.createElement(react_router_1.Route, { path: '/policy-menu', component: PolicyMenu_1.default }),
-        React.createElement(react_router_1.Route, { path: '/sign-docs', component: SignDocs_1.default }),
-        React.createElement(react_router_1.Route, { path: '/pink-slips', component: PinkSlips_1.default }),
-        React.createElement(react_router_1.Route, { path: '/cert-insur', component: CertInsur_1.default }),
-        React.createElement(react_router_1.Route, { path: '/invoices', component: Invoices_1.default }),
-        React.createElement(react_router_1.Route, { path: '/policy-limits', component: PolicyLimits_1.default }),
-        React.createElement(react_router_1.Route, { path: '/vehicle-insured', component: VehicleInsured_1.default }),
-        React.createElement(react_router_1.Route, { path: '/driver-insured', component: DriverInsured_1.default }),
-        React.createElement(react_router_1.Route, { path: '/equip-insured', component: EquipInsured_1.default }),
-        React.createElement(react_router_1.Route, { path: '/risk-addr', component: RiskAddr_1.default }),
-        React.createElement(react_router_1.Route, { path: '/mail-addr', component: MailAddr_1.default })))); });
-//# sourceMappingURL=App.js.map
+var makeRequest_1 = require("./components/makeRequest");
+var scheduleCall_1 = require("./components/scheduleCall");
+var underReview_1 = require("./components/underReview");
+var scheduledEquipments_1 = require("./components/scheduledEquipments");
+exports["default"] = (function () {
+    return (React.createElement("div", null,
+        React.createElement(Layout_1["default"], null,
+            React.createElement(react_router_1.Route, { exact: true, path: '/', component: Home_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/policy-menu', component: PolicyMenu_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/sign-docs', component: SignDocs_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/pink-slips', component: PinkSlips_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/cert-insur', component: CertInsur_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/invoices', component: Invoices_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/policy-limits', component: PolicyLimits_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/vehicle-insured', component: VehicleInsured_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/driver-insured', component: DriverInsured_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/equip-insured', component: EquipInsured_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/risk-addr', component: RiskAddr_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/mail-addr', component: MailAddr_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/make-request', component: makeRequest_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/sched-equip', component: scheduledEquipments_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/sched-call', component: scheduleCall_1["default"] }),
+            React.createElement(react_router_1.Route, { path: '/under-review', component: underReview_1["default"] }))));
+});

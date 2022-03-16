@@ -14,6 +14,10 @@ import EquipInsured from './components/EquipInsured';
 import RiskAddr from './components/RiskAddr';
 import MailAddr from './components/MailAddr';
 import './custom.css';
+import makeRequest from './components/makeRequest';
+import scheduleCall from './components/scheduleCall';
+import underReview from './components/underReview';
+import scheduledEquipments from './components/scheduledEquipments';
 
 export default () => (
     <div>
@@ -30,6 +34,10 @@ export default () => (
             <Route path='/equip-insured' component={EquipInsured} />
             <Route path='/risk-addr' component={RiskAddr} />
             <Route path='/mail-addr' component={MailAddr} />
+            <Route path='/make-request' component={makeRequest} />
+            <Route path='/sched-equip' component={scheduledEquipments}/>
+            <Route path='/sched-call' component={scheduleCall}/>
+            <Route path='/under-review' component={underReview}/>
         </Layout>
         
     </div>
