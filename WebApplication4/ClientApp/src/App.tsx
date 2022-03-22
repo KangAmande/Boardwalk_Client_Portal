@@ -1,44 +1,50 @@
 import * as React from 'react';
 import { Route } from 'react-router';
-import Layout from './components/Layout';
-import Home from './components/Home';
-import PolicyMenu from './components/PolicyMenu';
-import SignDocs from './components/SignDocs';
-import PinkSlips from './components/PinkSlips';
-import CertInsur from './components/CertInsur';
-import Invoices from './components/Invoices';
-import PolicyLimits from './components/PolicyLimits';
-import VehicleInsured from './components/VehicleInsured';
-import DriverInsured from './components/DriverInsured';
-import EquipInsured from './components/EquipInsured';
-import RiskAddr from './components/RiskAddr';
-import MailAddr from './components/MailAddr';
+
 import './custom.css';
-import makeRequest from './components/makeRequest';
-import scheduleCall from './components/scheduleCall';
-import underReview from './components/underReview';
-import scheduledEquipments from './components/scheduledEquipments';
+
+import { BrowserRouter } from 'react-router-dom';
+import LoginForm from './components/LoginForm';
+import HomePage from './Routes/HomePage';
+import pmr from './Routes/pmr';
+import sdr from './Routes/sdr';
+import pinkSlipRoute from './Routes/pinkSlipRoute';
+import centinsRoute from './Routes/centinsRoute';
+import invoiceRoute from './Routes/invoiceRoute';
+import policylimitRoute from './Routes/policylimitRoute';
+import vehicleInsuredRoute from './Routes/vehicle-insuredRoute';
+import driverInsuredRoute from './Routes/driver-insuredRoute';
+import equipInsured from './Routes/equip-insuredRoutes';
+import riskAddrRoutes from './Routes/risk-addrRoutes';
+import mailAddrRoute from './Routes/mail-addrRoute';
+import makeRequestRoute from './Routes/make-requestRoute';
+import schedEquip from './Routes/sched-equipRoute';
+import schedCallRoute from './Routes/sched-callRoute';
+import underReviewRoute from './Routes/under-reviewRoute';
+
+
 
 export default () => (
     <div>
-        <Layout>
-            <Route exact path='/' component={Home} />
-            <Route path='/policy-menu' component={PolicyMenu} />
-            <Route path='/sign-docs' component={SignDocs} />
-            <Route path='/pink-slips' component={PinkSlips} />
-            <Route path='/cert-insur' component={CertInsur} />
-            <Route path='/invoices' component={Invoices} />
-            <Route path='/policy-limits' component={PolicyLimits} />
-            <Route path='/vehicle-insured' component={VehicleInsured} />
-            <Route path='/driver-insured' component={DriverInsured} />
-            <Route path='/equip-insured' component={EquipInsured} />
-            <Route path='/risk-addr' component={RiskAddr} />
-            <Route path='/mail-addr' component={MailAddr} />
-            <Route path='/make-request' component={makeRequest} />
-            <Route path='/sched-equip' component={scheduledEquipments}/>
-            <Route path='/sched-call' component={scheduleCall}/>
-            <Route path='/under-review' component={underReview}/>
-        </Layout>
-        
+      <BrowserRouter>     
+                <Route exact path="/" component={LoginForm} />
+                <Route path="/home" component={HomePage} />
+                <Route path='/policy-menu' component={pmr} />
+                <Route path='/sign-docs' component={sdr} />
+                <Route path='/pink-slips' component={pinkSlipRoute} />
+                <Route path='/cert-insur' component={centinsRoute} />
+                <Route path='/invoices' component={invoiceRoute} />
+                <Route path='/policy-limits' component={policylimitRoute} />
+                <Route path='/vehicle-insured' component={vehicleInsuredRoute} />
+                <Route path='/driver-insured' component={driverInsuredRoute} />
+                <Route path='/equip-insured' component={equipInsured} />
+                <Route path='/risk-addr' component={riskAddrRoutes} />
+                <Route path='/mail-addr' component={mailAddrRoute} />
+                <Route path='/make-request' component={makeRequestRoute} />
+                <Route path='/sched-equip' component={schedEquip}/>
+                <Route path='/sched-call' component={schedCallRoute}/>
+                <Route path='/under-review' component={underReviewRoute}/>
+
+         </BrowserRouter>
     </div>
 );

@@ -19,9 +19,9 @@ var Sidebar_1 = require("./Sidebar");
 var Popup_1 = require("./Popup");
 var reactstrap_1 = require("reactstrap");
 var react_router_dom_1 = require("react-router-dom");
-var SignDocs = /** @class */ (function (_super) {
-    __extends(SignDocs, _super);
-    function SignDocs() {
+var PolicyMenu = /** @class */ (function (_super) {
+    __extends(PolicyMenu, _super);
+    function PolicyMenu() {
         var _this = _super.call(this, {}, {}) || this;
         _this.showModal = function () {
             _this.setState({ shown: true });
@@ -36,13 +36,13 @@ var SignDocs = /** @class */ (function (_super) {
         _this.hideModal = _this.hideModal.bind(_this);
         return _this;
     }
-    SignDocs.prototype.render = function () {
+    PolicyMenu.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(Sidebar_1["default"], null)),
                 React.createElement("div", { className: 'col-8' },
-                    React.createElement("h1", null, "Signed Documents"),
+                    React.createElement("h1", null, "Policy"),
                     React.createElement("p", null, "Click on a document to view or download it"),
                     React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 1"),
                     React.createElement("br", null),
@@ -50,26 +50,10 @@ var SignDocs = /** @class */ (function (_super) {
                     React.createElement("br", null),
                     React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 3"),
                     React.createElement("br", null),
-                    React.createElement("button", null, "Upload new Document"),
-                    React.createElement("br", null),
-                    React.createElement("br", null),
-                    React.createElement("br", null),
-                    React.createElement("h1", null, "New Uploaded Documents"),
-                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 1"),
-                    " - Under Review",
-                    React.createElement("br", null),
-                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 2"),
-                    " - Accepted ",
-                    React.createElement("button", null, "x"),
-                    React.createElement("br", null),
-                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 3"),
-                    " - Rejected ",
-                    React.createElement("button", null, "x"),
-                    React.createElement("br", null),
                     React.createElement(Popup_1.Popup, { show: this.state.shown, handleClose: this.hideModal },
                         React.createElement("p", null, "Modal"))))));
     };
-    return SignDocs;
+    return PolicyMenu;
 }(React.Component));
 ;
-exports["default"] = react_redux_1.connect()(SignDocs);
+exports["default"] = react_redux_1.connect()(PolicyMenu);
