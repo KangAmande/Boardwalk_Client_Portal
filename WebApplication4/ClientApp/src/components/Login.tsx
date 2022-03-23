@@ -1,7 +1,7 @@
 ﻿import * as React from 'react';
 import { Link, Switch,Route } from 'react-router-dom';
 import { Container, NavLink } from 'reactstrap';
-import HomePageLayout from './homepageLayout';
+
 
 
 import './login.css'
@@ -26,7 +26,7 @@ export default class Login extends React.PureComponent {
                     </label>
                     <br/><br/>
                     
-                    <Link to="/">Login</Link>
+                    <Link to="/home">Login</Link>
                    
                 </div>
             </Container>
