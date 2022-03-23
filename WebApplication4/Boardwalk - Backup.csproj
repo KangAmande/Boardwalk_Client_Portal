@@ -34,9 +34,12 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\components\Account.tsx" />
+    <None Remove="ClientApp\src\components\AccountSidebar.tsx" />
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
+    <None Remove="ClientApp\src\components\Changepassword.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />
     <None Remove="ClientApp\src\components\FetchData.tsx" />
+    <None Remove="ClientApp\src\components\helppage.tsx" />
     <None Remove="ClientApp\src\components\InfoBar.tsx" />
     <None Remove="ClientApp\src\components\Invoices.tsx" />
     <None Remove="ClientApp\src\components\MailAddr.tsx" />

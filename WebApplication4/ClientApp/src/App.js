@@ -1,8 +1,39 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_router_1 = require("react-router");
 require("./custom.css");
+<<<<<<< HEAD
+var makeRequest_1 = require("./components/makeRequest");
+var scheduleCall_1 = require("./components/scheduleCall");
+var underReview_1 = require("./components/underReview");
+var scheduledEquipments_1 = require("./components/scheduledEquipments");
+var helppage_1 = require("./components/helppage");
+var Account_1 = require("./components/Account");
+var Changepassword_1 = require("./components/Changepassword");
+exports.default = (function () { return (React.createElement("div", null,
+    React.createElement(Layout_1.default, null,
+        React.createElement(react_router_1.Route, { exact: true, path: '/', component: Home_1.default }),
+        React.createElement(react_router_1.Route, { path: '/policy-menu', component: PolicyMenu_1.default }),
+        React.createElement(react_router_1.Route, { path: '/sign-docs', component: SignDocs_1.default }),
+        React.createElement(react_router_1.Route, { path: '/pink-slips', component: PinkSlips_1.default }),
+        React.createElement(react_router_1.Route, { path: '/cert-insur', component: CertInsur_1.default }),
+        React.createElement(react_router_1.Route, { path: '/invoices', component: Invoices_1.default }),
+        React.createElement(react_router_1.Route, { path: '/policy-limits', component: PolicyLimits_1.default }),
+        React.createElement(react_router_1.Route, { path: '/vehicle-insured', component: VehicleInsured_1.default }),
+        React.createElement(react_router_1.Route, { path: '/driver-insured', component: DriverInsured_1.default }),
+        React.createElement(react_router_1.Route, { path: '/equip-insured', component: EquipInsured_1.default }),
+        React.createElement(react_router_1.Route, { path: '/risk-addr', component: RiskAddr_1.default }),
+        React.createElement(react_router_1.Route, { path: '/mail-addr', component: MailAddr_1.default }),
+        React.createElement(react_router_1.Route, { path: '/make-request', component: makeRequest_1.default }),
+        React.createElement(react_router_1.Route, { path: '/sched-equip', component: scheduledEquipments_1.default }),
+        React.createElement(react_router_1.Route, { path: '/sched-call', component: scheduleCall_1.default }),
+        React.createElement(react_router_1.Route, { path: '/under-review', component: underReview_1.default }),
+        React.createElement(react_router_1.Route, { path: '/help-page', component: helppage_1.default }),
+        React.createElement(react_router_1.Route, { path: '/Account-page', component: Account_1.default }),
+        React.createElement(react_router_1.Route, { path: '/Changepassword', component: Changepassword_1.default })))); });
+//# sourceMappingURL=App.js.map
+=======
 var react_router_dom_1 = require("react-router-dom");
 var LoginForm_1 = require("./components/LoginForm");
 var HomePage_1 = require("./Routes/HomePage");
@@ -40,3 +71,4 @@ exports["default"] = (function () { return (React.createElement("div", null,
         React.createElement(react_router_1.Route, { path: '/sched-equip', component: sched_equipRoute_1["default"] }),
         React.createElement(react_router_1.Route, { path: '/sched-call', component: sched_callRoute_1["default"] }),
         React.createElement(react_router_1.Route, { path: '/under-review', component: under_reviewRoute_1["default"] })))); });
+>>>>>>> parent of 95a8812 (Revert "Merge pull request #10 from Hruthvikk/master")
