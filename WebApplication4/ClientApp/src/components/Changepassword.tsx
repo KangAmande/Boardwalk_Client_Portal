@@ -7,7 +7,6 @@ import AccountSidebar from './AccountSidebar'
 import { alpha } from '@material-ui/core';
 import { Modal, Form, Input, notification } from 'antd'
 const nodemailer = require('nodemailer')
-
 class Changepassword extends React.Component {
 
     render() {
@@ -62,7 +61,7 @@ function send() {
 
     const mail = {
         from: 'huang <694210383@qq.com>',
-        subject: '激活验证码',
+        subject: 'verify code',
         to: 'jackhuang0330@gmail.com',
         text: num,
     };

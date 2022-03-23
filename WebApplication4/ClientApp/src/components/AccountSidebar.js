@@ -28,8 +28,6 @@ var AccountSidebar = /** @class */ (function (_super) {
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/Account-page" }, "Account info"),
             React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/Changepassword" }, "change password"),
-            React.createElement("br", null),
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/" }, "change e-mail"),
             React.createElement("br", null)));
     };
     return AccountSidebar;
