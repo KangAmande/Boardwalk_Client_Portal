@@ -3,16 +3,18 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Sidebarmr_1 = require("./Sidebarmr");
@@ -25,7 +27,7 @@ var scheduleCall = /** @class */ (function (_super) {
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
-                    React.createElement(Sidebarmr_1["default"], null)),
+                    React.createElement(Sidebarmr_1.default, null)),
                 React.createElement("div", { className: 'col-8', id: 'mr1add' },
                     React.createElement("h1", null, "Schedule a call with Broker"),
                     React.createElement("br", null),
@@ -37,4 +39,5 @@ var scheduleCall = /** @class */ (function (_super) {
     return scheduleCall;
 }(React.Component));
 ;
-exports["default"] = react_redux_1.connect()(scheduleCall);
+exports.default = (0, react_redux_1.connect)()(scheduleCall);
+//# sourceMappingURL=scheduleCall.js.map

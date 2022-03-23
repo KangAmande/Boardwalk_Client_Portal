@@ -6,7 +6,19 @@ export default class Sidebar extends React.PureComponent{
     public render() {
         return (
             <Container>
-                <NavLink className="menu-item" tag={Link} to="/make-request">
+                <NavLink className="menu-item" tag={Link} to="/Make-Request">
+                    Request Insurance Certificate
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/changeMailingAddress">
+                    Change Maling Address
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/addVehicles">
+                    Add/Remove Vehicles
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/addDriver">
+                    Add/Remove Drivers
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/request">
                     Add/Remove Locations and Buildings
                 </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/sched-equip">
