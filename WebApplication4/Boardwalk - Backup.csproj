@@ -11,18 +11,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.SpaServices.Extensions" Version="3.1.12" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.23" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.23">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
     <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.5.3">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.2" />
-    <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
   </ItemGroup>
 
   <ItemGroup>
@@ -42,9 +34,12 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\components\Account.tsx" />
+    <None Remove="ClientApp\src\components\AccountSidebar.tsx" />
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
+    <None Remove="ClientApp\src\components\Changepassword.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />
     <None Remove="ClientApp\src\components\FetchData.tsx" />
+    <None Remove="ClientApp\src\components\helppage.tsx" />
     <None Remove="ClientApp\src\components\InfoBar.tsx" />
     <None Remove="ClientApp\src\components\Invoices.tsx" />
     <None Remove="ClientApp\src\components\MailAddr.tsx" />
@@ -59,25 +54,16 @@
     <None Remove="ClientApp\src\components\Sidebar.tsx" />
     <None Remove="ClientApp\src\components\signDoc.tsx" />
     <None Remove="ClientApp\src\components\SignDocs.tsx" />
-    <None Remove="ClientApp\src\Routes\addDriver.tsx" />
-    <None Remove="ClientApp\src\Routes\addVehicle.tsx" />
-    <None Remove="ClientApp\src\Routes\changeMailingAddress.tsx" />
-    <None Remove="ClientApp\src\Routes\RequestRoute.tsx" />
   </ItemGroup>
 
   <ItemGroup>
     <TypeScriptCompile Remove="ClientApp\src\components\Accordion.tsx" />
-    <TypeScriptCompile Remove="ClientApp\src\components\addDriver.tsx" />
-    <TypeScriptCompile Remove="ClientApp\src\components\addVehicles.tsx" />
-    <TypeScriptCompile Remove="ClientApp\src\components\changeMailingAddress.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\Counter.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\DriverInsured.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\EquipInsured.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\FetchData.tsx" />
-    <TypeScriptCompile Remove="ClientApp\src\components\Make-Request.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\PolicyDoc.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\PolicyLimits.tsx" />
-    <TypeScriptCompile Remove="ClientApp\src\components\requestsidebar.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\signDoc.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\VehicleInsured.tsx" />
   </ItemGroup>
@@ -107,7 +93,5 @@
       </ResolvedFileToPublish>
     </ItemGroup>
   </Target>
-
-  <ProjectExtensions><VisualStudio><UserProperties /></VisualStudio></ProjectExtensions>
 
 </Project>
