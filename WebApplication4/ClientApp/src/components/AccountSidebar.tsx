@@ -12,9 +12,13 @@ export default class AccountSidebar extends React.PureComponent {
                 <NavLink className="menu-item" tag={Link} to="/Changepassword">
                     change password
                 </NavLink><br />
+<<<<<<< Updated upstream
                 <NavLink className="menu-item" tag={Link} to="/">
                     change e-mail
                 </NavLink><br />
+=======
+
+>>>>>>> Stashed changes
             </Container>
         );
     }
