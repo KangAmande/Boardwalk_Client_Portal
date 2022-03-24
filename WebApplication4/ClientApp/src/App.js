@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_router_1 = require("react-router");
 require("./custom.css");
@@ -21,22 +21,31 @@ var make_requestRoute_1 = require("./Routes/make-requestRoute");
 var sched_equipRoute_1 = require("./Routes/sched-equipRoute");
 var sched_callRoute_1 = require("./Routes/sched-callRoute");
 var under_reviewRoute_1 = require("./Routes/under-reviewRoute");
-exports["default"] = (function () { return (React.createElement("div", null,
+var RequestRoute_1 = require("./Routes/RequestRoute");
+var addVehicle_1 = require("./Routes/addVehicle");
+var addDriver_1 = require("./Routes/addDriver");
+var changeMailingAddress_1 = require("./Routes/changeMailingAddress");
+exports.default = (function () { return (React.createElement("div", null,
     React.createElement(react_router_dom_1.BrowserRouter, null,
-        React.createElement(react_router_1.Route, { exact: true, path: "/", component: LoginForm_1["default"] }),
-        React.createElement(react_router_1.Route, { path: "/home", component: HomePage_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/policy-menu', component: pmr_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/sign-docs', component: sdr_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/pink-slips', component: pinkSlipRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/cert-insur', component: centinsRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/invoices', component: invoiceRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/policy-limits', component: policylimitRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/vehicle-insured', component: vehicle_insuredRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/driver-insured', component: driver_insuredRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/equip-insured', component: equip_insuredRoutes_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/risk-addr', component: risk_addrRoutes_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/mail-addr', component: mail_addrRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/make-request', component: make_requestRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/sched-equip', component: sched_equipRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/sched-call', component: sched_callRoute_1["default"] }),
-        React.createElement(react_router_1.Route, { path: '/under-review', component: under_reviewRoute_1["default"] })))); });
+        React.createElement(react_router_1.Route, { exact: true, path: "/", component: LoginForm_1.default }),
+        React.createElement(react_router_1.Route, { path: "/home", component: HomePage_1.default }),
+        React.createElement(react_router_1.Route, { path: '/policy-menu', component: pmr_1.default }),
+        React.createElement(react_router_1.Route, { path: '/sign-docs', component: sdr_1.default }),
+        React.createElement(react_router_1.Route, { path: '/pink-slips', component: pinkSlipRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/cert-insur', component: centinsRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/invoices', component: invoiceRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/policy-limits', component: policylimitRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/vehicle-insured', component: vehicle_insuredRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/driver-insured', component: driver_insuredRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/equip-insured', component: equip_insuredRoutes_1.default }),
+        React.createElement(react_router_1.Route, { path: '/risk-addr', component: risk_addrRoutes_1.default }),
+        React.createElement(react_router_1.Route, { path: '/mail-addr', component: mail_addrRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/request', component: make_requestRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/sched-equip', component: sched_equipRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/sched-call', component: sched_callRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/under-review', component: under_reviewRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/Make-request', component: RequestRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/addVehicles', component: addVehicle_1.default }),
+        React.createElement(react_router_1.Route, { path: '/addDriver', component: addDriver_1.default }),
+        React.createElement(react_router_1.Route, { path: '/changeMailingAddress', component: changeMailingAddress_1.default })))); });
+//# sourceMappingURL=App.js.map
