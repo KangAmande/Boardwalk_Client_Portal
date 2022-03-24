@@ -24,7 +24,7 @@ namespace WebApplication4
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<insuranceContext>(options =>
-            options.UseMySQL(Configuration.GetConnectionString("BloggingDatabase")));
+            options.UseMySQL(Configuration.GetConnectionString("insurance")));
             services.AddControllersWithViews();
 
             // In production, the React files will be served from this directory
