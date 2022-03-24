@@ -1,7 +1,11 @@
 ﻿import * as React from 'react';
 import { Link, Switch,Route } from 'react-router-dom';
 import { Container, NavLink } from 'reactstrap';
+<<<<<<< HEAD
+import HomePageLayout from './Layout';
+=======
 
+>>>>>>> parent of 95a8812 (Revert "Merge pull request #10 from Hruthvikk/master")
 
 
 import './login.css'
