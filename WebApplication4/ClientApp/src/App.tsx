@@ -25,32 +25,37 @@ import MakeRequest from './Routes/RequestRoute';
 import addVehicles from './Routes/addVehicle';
 import addDriver from './Routes/addDriver';
 import changeMailingAddress from './Routes/changeMailingAddress';
-
+import helppage from './components/Helppage';
+import Account from './components/Account';
+import Changepassword from './components/Changepassword';
 
 export default () => (
     <div>
       <BrowserRouter>     
-                <Route exact path="/" component={LoginForm} />
-                <Route path="/home" component={HomePage} />
-                <Route path='/policy-menu' component={pmr} />
-                <Route path='/sign-docs' component={sdr} />
-                <Route path='/pink-slips' component={pinkSlipRoute} />
-                <Route path='/cert-insur' component={centinsRoute} />
-                <Route path='/invoices' component={invoiceRoute} />
-                <Route path='/policy-limits' component={policylimitRoute} />
-                <Route path='/vehicle-insured' component={vehicleInsuredRoute} />
-                <Route path='/driver-insured' component={driverInsuredRoute} />
-                <Route path='/equip-insured' component={equipInsured} />
-                <Route path='/risk-addr' component={riskAddrRoutes} />
-                <Route path='/mail-addr' component={mailAddrRoute} />
-                <Route path='/request' component={makeRequestRoute} />
-                <Route path='/sched-equip' component={schedEquip}/>
-                <Route path='/sched-call' component={schedCallRoute}/>
-                <Route path='/under-review' component={underReviewRoute}/>
-                <Route path='/Make-request' component={MakeRequest} />
-                <Route path='/addVehicles' component={addVehicles} />
-                <Route path='/addDriver' component={addDriver} />
-                <Route path='/changeMailingAddress' component={changeMailingAddress} />
+            <Route exact path="/" component={LoginForm} />
+            <Route path="/home" component={HomePage} />
+            <Route path='/policy-menu' component={pmr} />
+            <Route path='/sign-docs' component={sdr} />
+            <Route path='/pink-slips' component={pinkSlipRoute} />
+            <Route path='/cert-insur' component={centinsRoute} />
+            <Route path='/invoices' component={invoiceRoute} />
+            <Route path='/policy-limits' component={policylimitRoute} />
+            <Route path='/vehicle-insured' component={vehicleInsuredRoute} />
+            <Route path='/driver-insured' component={driverInsuredRoute} />
+            <Route path='/equip-insured' component={equipInsured} />
+            <Route path='/risk-addr' component={riskAddrRoutes} />
+            <Route path='/mail-addr' component={mailAddrRoute} />
+            <Route path='/request' component={makeRequestRoute} />
+            <Route path='/sched-equip' component={schedEquip}/>
+            <Route path='/sched-call' component={schedCallRoute}/>
+            <Route path='/under-review' component={underReviewRoute}/>
+            <Route path='/Make-request' component={MakeRequest} />
+            <Route path='/addVehicles' component={addVehicles} />
+            <Route path='/addDriver' component={addDriver} />
+            <Route path='/changeMailingAddress' component={changeMailingAddress} />
+            <Route path='/help' component={helppage} />
+            <Route path='/Account' component={Account} />
+            <Route path='/Changepassword' component={Changepassword} />
          </BrowserRouter>
     </div>
 );
