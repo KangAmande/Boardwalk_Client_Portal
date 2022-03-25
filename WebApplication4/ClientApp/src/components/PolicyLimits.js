@@ -32,12 +32,10 @@ var PolicyLimits = /** @class */ (function (_super) {
         this.ensureDataFetched();
     };
     PolicyLimits.prototype.ensureDataFetched = function () {
-        this.props.Policy.map(function (pol) {
-            return console.log(pol.Description);
-        });
         this.props.requestPolicies();
     };
     PolicyLimits.prototype.render = function () {
+        console.log(this.props.Policy);
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },

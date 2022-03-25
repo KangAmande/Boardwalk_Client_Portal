@@ -23,6 +23,7 @@ exports.actionCreators = {
             fetch("api/Policies/Index")
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
+                console.log(JSON.stringify(data));
                 dispatch({ type: 'RECEIVE_POLICIES', Policy: data });
             });
             dispatch({ type: 'REQUEST_POLICIES' });

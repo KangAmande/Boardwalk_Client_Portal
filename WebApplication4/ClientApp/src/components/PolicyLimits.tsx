@@ -20,12 +20,10 @@ class PolicyLimits extends React.PureComponent<PoliciesProps> {
         this.ensureDataFetched();
     }
     private ensureDataFetched() {
-        this.props.Policy.map((pol: PoliciesStore.Policies) =>
-            console.log(pol.Description)
-        );
         this.props.requestPolicies();
     }
     public render() {
+        console.log(this.props.Policy);
         return (
             <React.Fragment>
                 <div className='row'>
