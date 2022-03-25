@@ -25,9 +25,8 @@ import MakeRequest from './Routes/RequestRoute';
 import addVehicles from './Routes/addVehicle';
 import addDriver from './Routes/addDriver';
 import changeMailingAddress from './Routes/changeMailingAddress';
-import helppage from './components/Helppage';
-import Account from './components/Account';
-import Changepassword from './components/Changepassword';
+import helppage from './Routes/Helppage';
+import Account from './Routes/AccountRoute';
 
 export default () => (
     <div>
@@ -55,7 +54,6 @@ export default () => (
             <Route path='/changeMailingAddress' component={changeMailingAddress} />
             <Route path='/help' component={helppage} />
             <Route path='/Account' component={Account} />
-            <Route path='/Changepassword' component={Changepassword} />
          </BrowserRouter>
     </div>
 );

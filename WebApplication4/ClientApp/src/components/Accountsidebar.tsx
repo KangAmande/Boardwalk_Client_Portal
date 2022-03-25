@@ -9,10 +9,7 @@ export default class Accountsidebar extends React.PureComponent {
                 <NavLink className="menu-item" tag={Link} to="/Account">
                     Account info
                 </NavLink><br />
-                <NavLink className="menu-item" tag={Link} to="/Changepassword">
-                    change password
-                </NavLink><br />
-
+                
             </Container>
         );
     }

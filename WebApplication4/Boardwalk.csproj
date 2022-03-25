@@ -44,7 +44,6 @@
     <None Remove="ClientApp\src\components\Account.tsx" />
     <None Remove="ClientApp\src\components\Accountsidebar.tsx" />
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
-    <None Remove="ClientApp\src\components\Changepassword.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />
     <None Remove="ClientApp\src\components\FetchData.tsx" />
     <None Remove="ClientApp\src\components\Helppage.tsx" />
@@ -84,6 +83,7 @@
     <TypeScriptCompile Remove="ClientApp\src\components\requestsidebar.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\signDoc.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\VehicleInsured.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\Routes\Helppage.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\store\Policies.ts" />
   </ItemGroup>
 
