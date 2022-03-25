@@ -41,9 +41,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\src\components\Account.tsx" />
+    <None Remove="ClientApp\src\components\Accountsidebar.tsx" />
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
+    <None Remove="ClientApp\src\components\Changepassword.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />
     <None Remove="ClientApp\src\components\FetchData.tsx" />
+    <None Remove="ClientApp\src\components\Helppage.tsx" />
     <None Remove="ClientApp\src\components\InfoBar.tsx" />
     <None Remove="ClientApp\src\components\Invoices.tsx" />
     <None Remove="ClientApp\src\components\MailAddr.tsx" />
@@ -58,6 +62,7 @@
     <None Remove="ClientApp\src\components\Sidebar.tsx" />
     <None Remove="ClientApp\src\components\signDoc.tsx" />
     <None Remove="ClientApp\src\components\SignDocs.tsx" />
+    <None Remove="ClientApp\src\Routes\AccountRoute.tsx" />
     <None Remove="ClientApp\src\Routes\addDriver.tsx" />
     <None Remove="ClientApp\src\Routes\addVehicle.tsx" />
     <None Remove="ClientApp\src\Routes\changeMailingAddress.tsx" />
@@ -79,6 +84,7 @@
     <TypeScriptCompile Remove="ClientApp\src\components\requestsidebar.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\signDoc.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\VehicleInsured.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\store\Policies.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
