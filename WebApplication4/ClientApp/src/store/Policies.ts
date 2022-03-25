@@ -45,6 +45,7 @@ export const actionCreators = {
             fetch(`api/Policies/Index`)
                 .then(response => response.json() as Promise<Policies[]>)
                 .then(data => {
+                    console.log(JSON.stringify(data));
                     dispatch({ type: 'RECEIVE_POLICIES', Policy: data });
                 });
 
