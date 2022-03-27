@@ -2,11 +2,9 @@
 import { connect } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
-import homepageLayout from './Layout';
-
 
 class helppage extends React.Component {
-    render() {
+    public render() {
         return (
             <React.Fragment>
                 <div>

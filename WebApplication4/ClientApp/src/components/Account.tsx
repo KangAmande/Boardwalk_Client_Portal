@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
 import homepageLayout from './Layout';
-import AccountSidebar from './AccountSidebar'
+import Accountsidebar from './Accountsidebar'
 
 class Account extends React.Component {
     render() {
@@ -11,7 +11,7 @@ class Account extends React.Component {
             <React.Fragment>
                 <div className='row'>
                     <div className='col-4'>
-                        <AccountSidebar />
+                        <Accountsidebar />
                     </div>
                     <div className='col-8'>
                         <p>user name:</p>

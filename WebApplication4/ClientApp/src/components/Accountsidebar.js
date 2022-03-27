@@ -18,21 +18,17 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var reactstrap_1 = require("reactstrap");
 var react_router_dom_1 = require("react-router-dom");
-var AccountSidebar = /** @class */ (function (_super) {
-    __extends(AccountSidebar, _super);
-    function AccountSidebar() {
+var Accountsidebar = /** @class */ (function (_super) {
+    __extends(Accountsidebar, _super);
+    function Accountsidebar() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    AccountSidebar.prototype.render = function () {
+    Accountsidebar.prototype.render = function () {
         return (React.createElement(reactstrap_1.Container, null,
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/Account-page" }, "Account info"),
-            React.createElement("br", null),
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/Changepassword" }, "change password"),
-            React.createElement("br", null),
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/" }, "change e-mail"),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/Account" }, "Account info"),
             React.createElement("br", null)));
     };
-    return AccountSidebar;
+    return Accountsidebar;
 }(React.PureComponent));
-exports.default = AccountSidebar;
-//# sourceMappingURL=AccountSidebar.js.map
+exports.default = Accountsidebar;
+//# sourceMappingURL=Accountsidebar.js.map

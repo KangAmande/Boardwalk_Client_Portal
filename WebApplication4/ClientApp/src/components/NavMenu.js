@@ -48,9 +48,9 @@ var NavMenu = /** @class */ (function (_super) {
                             React.createElement(reactstrap_1.NavItem, null,
                                 React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "/Make-request" }, "Make a Request")),
                             React.createElement(reactstrap_1.NavItem, null,
-                                React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "/help-page" }, "Help page")),
+                                React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "/help" }, "Help")),
                             React.createElement(reactstrap_1.NavItem, null,
-                                React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "/Account-page" }, "Account")),
+                                React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "/Account" }, "Account")),
                             React.createElement(reactstrap_1.NavItem, null,
                                 React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, className: "text-dark", to: "/" }, "Log out"))))))));
     };

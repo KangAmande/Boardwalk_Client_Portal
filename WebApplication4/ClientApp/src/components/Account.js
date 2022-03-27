@@ -17,7 +17,7 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
-var AccountSidebar_1 = require("./AccountSidebar");
+var Accountsidebar_1 = require("./Accountsidebar");
 var Account = /** @class */ (function (_super) {
     __extends(Account, _super);
     function Account() {
@@ -27,7 +27,7 @@ var Account = /** @class */ (function (_super) {
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
-                    React.createElement(AccountSidebar_1.default, null)),
+                    React.createElement(Accountsidebar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("p", null, "user name:"),
                     React.createElement("p", null, "city")))));
