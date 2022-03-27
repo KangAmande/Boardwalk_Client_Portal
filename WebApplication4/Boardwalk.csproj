@@ -44,6 +44,7 @@
     <None Remove="ClientApp\src\components\Account.tsx" />
     <None Remove="ClientApp\src\components\Accountsidebar.tsx" />
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
+    <None Remove="ClientApp\src\components\Changepassword.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />
     <None Remove="ClientApp\src\components\FetchData.tsx" />
     <None Remove="ClientApp\src\components\Helppage.tsx" />
@@ -65,7 +66,9 @@
     <None Remove="ClientApp\src\Routes\addDriver.tsx" />
     <None Remove="ClientApp\src\Routes\addVehicle.tsx" />
     <None Remove="ClientApp\src\Routes\changeMailingAddress.tsx" />
+    <None Remove="ClientApp\src\Routes\Changepwd.tsx" />
     <None Remove="ClientApp\src\Routes\RequestRoute.tsx" />
+    <None Remove="ClientApp\src\store\Account.tsx" />
   </ItemGroup>
 
   <ItemGroup>

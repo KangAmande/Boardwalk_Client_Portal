@@ -27,6 +27,7 @@ import addDriver from './Routes/addDriver';
 import changeMailingAddress from './Routes/changeMailingAddress';
 import helppage from './Routes/Helppage';
 import Account from './Routes/AccountRoute';
+import Changepwd from './Routes/Changepwd';
 
 export default () => (
     <div>
@@ -54,6 +55,7 @@ export default () => (
             <Route path='/changeMailingAddress' component={changeMailingAddress} />
             <Route path='/help' component={helppage} />
             <Route path='/Account' component={Account} />
+            <Route path='/Changepassword' component={Changepwd} />
          </BrowserRouter>
     </div>
 );

@@ -26,6 +26,8 @@ var Accountsidebar = /** @class */ (function (_super) {
     Accountsidebar.prototype.render = function () {
         return (React.createElement(reactstrap_1.Container, null,
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/Account" }, "Account info"),
+            React.createElement("br", null),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/Changepassword" }, "Change Password"),
             React.createElement("br", null)));
     };
     return Accountsidebar;
