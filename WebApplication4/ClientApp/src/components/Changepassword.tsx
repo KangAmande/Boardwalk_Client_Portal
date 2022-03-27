@@ -1,6 +1,11 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
+import { Link, Route } from 'react-router-dom';
+import { NavLink } from 'reactstrap';
+import homepageLayout from './Layout';
 import AccountSidebar from './AccountSidebar'
+import { alpha } from '@material-ui/core';
+import { Modal, Form, Input, notification } from 'antd'
 const nodemailer = require('nodemailer')
 
 class Changepassword extends React.Component {
