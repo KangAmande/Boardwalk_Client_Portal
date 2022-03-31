@@ -16,39 +16,39 @@ exports.reducer = exports.actionCreators = void 0;
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 exports.actionCreators = {
-    requestPolicies: function (startDateIndex) { return function (dispatch, getState) {
+    requestDrivers: function (startDateIndex) { return function (dispatch, getState) {
         // Only load data if it's something we don't already have (and are not already loading)
         var appState = getState();
-        if (appState && appState.Policies && startDateIndex !== appState.Policies.startDateIndex) {
-            fetch("api/Policies/Index")
+        if (appState && appState.Drivers && startDateIndex !== appState.Drivers.startDateIndex) {
+            fetch("api/Drivers/Index")
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
-                dispatch({ type: 'RECEIVE_POLICIES', startDateIndex: startDateIndex, Policy: data });
+                dispatch({ type: 'RECEIVE_DRIVERS', startDateIndex: startDateIndex, Driver: data });
             });
-            dispatch({ type: 'REQUEST_POLICIES', startDateIndex: startDateIndex });
+            dispatch({ type: 'REQUEST_DRIVERS', startDateIndex: startDateIndex });
         }
     }; }
 };
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
-var unloadedState = { Policy: [], isLoading: false };
+var unloadedState = { Driver: [], isLoading: false };
 var reducer = function (state, incomingAction) {
     if (state === undefined) {
         return unloadedState;
     }
     var action = incomingAction;
     switch (action.type) {
-        case 'REQUEST_POLICIES':
-            return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { Policy: state.Policy, isLoading: true });
-        case 'RECEIVE_POLICIES':
+        case 'REQUEST_DRIVERS':
+            return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { Driver: state.Driver, isLoading: true });
+        case 'RECEIVE_DRIVERS':
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
             if (action.startDateIndex === state.startDateIndex) {
-                return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { Policy: action.Policy, isLoading: false });
+                return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { Driver: action.Driver, isLoading: false });
             }
             break;
     }
     return state;
 };
 exports.reducer = reducer;
-//# sourceMappingURL=Policies.js.map
+//# sourceMappingURL=Drivers.js.map
