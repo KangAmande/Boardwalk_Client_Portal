@@ -1,9 +1,10 @@
 import * as Policies from './Policies';
+import * as Accounts from './Accounts';
 import * as Drivers from './Drivers';
-
 
 // The top-level state object
 export interface ApplicationState {
+    Accounts: Accounts.AccountsState | undefined;
     Policies: Policies.PoliciesState | undefined;
     Drivers: Drivers.DriversState | undefined;
 }
@@ -13,6 +14,7 @@ export interface ApplicationState {
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
     Policies: Policies.reducer,
+    Accounts: Accounts.reducer,
     Drivers:Drivers.reducer
 };
 

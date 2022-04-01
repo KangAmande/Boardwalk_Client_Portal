@@ -7,13 +7,14 @@ import { AppThunkAction } from './';
 export interface AccountsState {
     isLoading: boolean;
     Account: Accounts[];
+    startDateIndex?: number;
 }
 
 export interface Accounts {
-    Id: number;
-    AccountNumber: String;
-    BusinessType: number;
-    ClientType: string;
+    id: number;
+    accountNumber: String;
+    businessType: number;
+    clientType: string;
 }
 
 // -----------------
@@ -22,11 +23,13 @@ export interface Accounts {
 
 interface RequestAccountsAction {
     type: 'REQUEST_ACCOUNTS';
+    startDateIndex?: number;
 }
 
 interface ReceiveAcountsAction {
     type: 'RECEIVE_ACCOUNT';
     Account: Accounts[];
+    startDateIndex?: number;
 }
 
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
@@ -38,18 +41,18 @@ type KnownAction = RequestAccountsAction | ReceiveAcountsAction;
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    requestAccounts: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestAccounts: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
         const appState = getState();
-        if (appState && appState.Policies) {
+        if (appState && appState.Accounts && startDateIndex !== appState.Accounts.startDateIndex) {
             fetch(`api/ClientInfos/Index`)
                 .then(response => response.json() as Promise<Accounts[]>)
                 .then(data => {
                     console.log(JSON.stringify(data));
-                    dispatch({ type: 'RECEIVE_ACCOUNT', Account: data });
+                    dispatch({ type: 'RECEIVE_ACCOUNT', startDateIndex: startDateIndex, Account: data });
                 });
 
-            dispatch({ type: 'REQUEST_ACCOUNTS' });
+            dispatch({ type: 'REQUEST_ACCOUNTS', startDateIndex: startDateIndex });
         }
     }
 };
@@ -68,6 +71,7 @@ export const reducer: Reducer<AccountsState> = (state: AccountsState | undefined
     switch (action.type) {
         case 'REQUEST_ACCOUNTS':
             return {
+                startDateIndex: action.startDateIndex,
                 ...state,
                 Account: state.Account,
                 isLoading: true
@@ -75,12 +79,15 @@ export const reducer: Reducer<AccountsState> = (state: AccountsState | undefined
         case 'RECEIVE_ACCOUNT':
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
-            return {
-                ...state,
-                Account: action.Account,
-                isLoading: false
-            };
-        default:
-            return state;
+            if (action.startDateIndex === state.startDateIndex) {
+                return {
+                    startDateIndex: action.startDateIndex,
+                    ...state,
+                    Account: action.Account,
+                    isLoading: false
+                };
+            }
+            break;
     }
+    return state;
 };

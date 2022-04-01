@@ -68,7 +68,7 @@
     <None Remove="ClientApp\src\Routes\changeMailingAddress.tsx" />
     <None Remove="ClientApp\src\Routes\Changepwd.tsx" />
     <None Remove="ClientApp\src\Routes\RequestRoute.tsx" />
-    <None Remove="ClientApp\src\store\Account.tsx" />
+    <None Remove="ClientApp\src\store\Accounts.ts" />
   </ItemGroup>
 
   <ItemGroup>

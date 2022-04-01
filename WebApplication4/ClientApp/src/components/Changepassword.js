@@ -18,7 +18,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Accountsidebar_1 = require("./Accountsidebar");
-var AccountsStore = require("../store/Account");
+var AccountsStore = require("../store/Accounts");
 var nodemailer = require('nodemailer');
 var Changepassword = /** @class */ (function (_super) {
     __extends(Changepassword, _super);
@@ -32,10 +32,11 @@ var Changepassword = /** @class */ (function (_super) {
                     React.createElement(Accountsidebar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("div", null,
+                        "New Password:",
                         React.createElement("form", { action: "/", method: "get" },
-                            "New Password: ",
                             React.createElement("input", { id: "newpwd", type: "password", name: "password" }),
                             React.createElement("input", { type: "submit", value: "Submit" }))),
+                    React.createElement("div", null),
                     React.createElement("div", null,
                         "Verification Code:",
                         React.createElement("form", { action: "/", method: "get" },
@@ -44,7 +45,7 @@ var Changepassword = /** @class */ (function (_super) {
                             React.createElement("input", { id: "checkcode", type: "button", value: "checkcode", onClick: checkverfy })))))));
     };
     return Changepassword;
-}(React.Component));
+}(React.PureComponent));
 var num = 0;
 function checkverfy() {
     var userinput = document.getElementById("inputcode").value;
@@ -56,7 +57,7 @@ function verificationcode() {
         str += Math.round(Math.random() * 9);
     }
     num = Math.round(parseInt(str));
-    //alert(num);
+    alert(num);
 }
 function send() {
     verificationcode();

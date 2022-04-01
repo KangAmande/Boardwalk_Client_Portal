@@ -16,17 +16,17 @@ exports.reducer = exports.actionCreators = void 0;
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 exports.actionCreators = {
-    requestAccounts: function () { return function (dispatch, getState) {
+    requestAccounts: function (startDateIndex) { return function (dispatch, getState) {
         // Only load data if it's something we don't already have (and are not already loading)
         var appState = getState();
-        if (appState && appState.Policies) {
+        if (appState && appState.Accounts && startDateIndex !== appState.Accounts.startDateIndex) {
             fetch("api/ClientInfos/Index")
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
                 console.log(JSON.stringify(data));
-                dispatch({ type: 'RECEIVE_ACCOUNT', Account: data });
+                dispatch({ type: 'RECEIVE_ACCOUNT', startDateIndex: startDateIndex, Account: data });
             });
-            dispatch({ type: 'REQUEST_ACCOUNTS' });
+            dispatch({ type: 'REQUEST_ACCOUNTS', startDateIndex: startDateIndex });
         }
     }; }
 };
@@ -40,14 +40,16 @@ var reducer = function (state, incomingAction) {
     var action = incomingAction;
     switch (action.type) {
         case 'REQUEST_ACCOUNTS':
-            return __assign(__assign({}, state), { Account: state.Account, isLoading: true });
+            return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { Account: state.Account, isLoading: true });
         case 'RECEIVE_ACCOUNT':
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
-            return __assign(__assign({}, state), { Account: action.Account, isLoading: false });
-        default:
-            return state;
+            if (action.startDateIndex === state.startDateIndex) {
+                return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { Account: action.Account, isLoading: false });
+            }
+            break;
     }
+    return state;
 };
 exports.reducer = reducer;
-//# sourceMappingURL=Account.js.map
+//# sourceMappingURL=Accounts.js.map

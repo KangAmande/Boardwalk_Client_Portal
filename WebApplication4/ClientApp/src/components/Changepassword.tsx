@@ -6,14 +6,14 @@ import homepageLayout from './Layout';
 import Accountsidebar from './Accountsidebar';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
-import * as AccountsStore from '../store/Account';
+import * as AccountsStore from '../store/Accounts';
 
 var nodemailer = require('nodemailer');
 type AccountsProps =
     AccountsStore.AccountsState// ... state we've requested from the Redux store
     & typeof AccountsStore.actionCreators // ... plus action creators we've requested
     & RouteComponentProps<{}>;
-class Changepassword extends React.Component {
+class Changepassword extends React.PureComponent<AccountsProps> {
 
     render() {
         return (
@@ -24,10 +24,14 @@ class Changepassword extends React.Component {
                     </div>
                     <div className='col-8'>
                         <div>
+                            New Password:
                             <form action="/" method="get">
-                                New Password: < input id="newpwd" type="password" name="password" />
+                                 < input id="newpwd" type="password" name="password" />
                                 <input type="submit" value="Submit" />
                             </form>
+                        </div>
+                        <div>
+
                         </div>
                         <div>
                             Verification Code:
@@ -56,7 +60,7 @@ function verificationcode() {
     }
     num = Math.round(parseInt(str));
 
-    //alert(num);
+    alert(num);
 }
 
 function send() {
