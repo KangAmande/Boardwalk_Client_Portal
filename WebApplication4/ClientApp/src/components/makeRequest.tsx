@@ -3,28 +3,11 @@ import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';
 import { Popup } from './Popup';
 import { NavLink } from 'reactstrap';
-import * as ClientBuildingInfoStore from '../store/ClientBuildingInfo';
-
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CustomAccordion } from './Accordion';
-import { ApplicationState } from '../store';
-import { ClientBuildingInfo } from '../store/ClientBuildingInfo';
-type ClientBuildingInfoProps =
-ClientBuildingInfoStore.ClientBuildingInfoState // ... state we've requested from the Redux store
-    & typeof ClientBuildingInfoStore.actionCreators // ... plus action creators we've requested
-    & RouteComponentProps<{}>;
-class makeRequest extends React.Component<ClientBuildingInfoProps> {
-    public componentDidMount() {
-        this.ensureDataFetched();
-    }
 
-    // This method is called when the route parameters change
-    public componentDidUpdate() {
-        this.ensureDataFetched();
-    }
-    private ensureDataFetched() {
-        this.props.requestClientBuildingInfo();
-    }
+class makeRequest extends React.Component<{}, { shown: boolean }> {
+    
     public render() {
         let i:number = 1;
         let a = [];
@@ -84,15 +67,7 @@ class makeRequest extends React.Component<ClientBuildingInfoProps> {
                         <br/>
                         <br/>
                         {a}
-                        
-                        {this.props.ClientBuildingInfo.map((pol: ClientBuildingInfoStore.ClientBuildingInfo) =>
-                                <p key={pol.Id}>
-                                    {pol.street}
-                                    {pol.City}
-                                    {pol.PostalCode}
-                                    {pol.PrimaryOperation}
-                                </p>
-                            )}
+
                     </div>
                     
                 </div>
@@ -100,5 +75,4 @@ class makeRequest extends React.Component<ClientBuildingInfoProps> {
         );
     }
 };
-export default connect((state: ApplicationState) => state.ClientBuildingInfo, // Selects which state properties are merged into the component's props
-ClientBuildingInfoStore.actionCreators)(makeRequest as any);
+export default connect()(makeRequest);
