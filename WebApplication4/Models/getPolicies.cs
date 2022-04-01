@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace Boardwalk.Models
 {
@@ -20,7 +19,17 @@ namespace Boardwalk.Models
                 throw;
             }
         }
-    
+        public IEnumerable<Drivers> GetAllDrivers()
+        {
+            try
+            {
+                return db.Drivers.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public Policies GetPolicy(int id)
         {
             try

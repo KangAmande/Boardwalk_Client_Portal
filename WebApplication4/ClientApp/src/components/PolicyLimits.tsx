@@ -4,12 +4,13 @@ import InfoBar from './InfoBar';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
 import * as PoliciesStore from '../store/Policies';
+import { CustomAccordion } from './Accordion';
 
 // At runtime, Redux will merge together...
 type PoliciesProps =
     PoliciesStore.PoliciesState // ... state we've requested from the Redux store
     & typeof PoliciesStore.actionCreators // ... plus action creators we've requested
-    & RouteComponentProps<{}>;
+    & RouteComponentProps<{ startDateIndex: string}>;
 class PolicyLimits extends React.PureComponent<PoliciesProps> {
     public componentDidMount() {
         this.ensureDataFetched();
@@ -20,10 +21,23 @@ class PolicyLimits extends React.PureComponent<PoliciesProps> {
         this.ensureDataFetched();
     }
     private ensureDataFetched() {
-        this.props.requestPolicies();
+        const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestPolicies(startDateIndex);
+    }
+    private showPolicies() {
+        console.log(this.props.Policy);
+        return (
+            <div>
+                {this.props.Policy.map((d: PoliciesStore.Policies) =>
+                    <div>
+                        <CustomAccordion key={d.id} title={"Policy " + d.description.toString()} content={<div><p>Created By {d.createdBy}</p></div>} />
+                        <br />
+                    </div>
+                )}
+            </div>
+        );
     }
     public render() {
-        console.log(this.props.Policy);
         return (
             <React.Fragment>
                 <div className='row'>
@@ -34,11 +48,7 @@ class PolicyLimits extends React.PureComponent<PoliciesProps> {
                         <h1>Primary Policy Limits and Deductibles</h1>
                         <br />
                         <div>
-                            {this.props.Policy.map((pol: PoliciesStore.Policies) =>
-                                <p key={pol.Id}>
-                                    {pol.Description}
-                                </p>
-                            )}
+                            {this.showPolicies()}
                         </div>
                     </div>
                 </div>
@@ -47,6 +57,6 @@ class PolicyLimits extends React.PureComponent<PoliciesProps> {
     }
 };
 export default connect(
-    (state: ApplicationState) => state.Policies, // Selects which state properties are merged into the component's props
-    PoliciesStore.actionCreators // Selects which action creators are merged into the component's props
+    (state: ApplicationState) => state.Policies,
+    PoliciesStore.actionCreators
 )(PolicyLimits as any);

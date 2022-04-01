@@ -19,6 +19,7 @@ var React = require("react");
 var react_redux_1 = require("react-redux");
 var InfoBar_1 = require("./InfoBar");
 var PoliciesStore = require("../store/Policies");
+var Accordion_1 = require("./Accordion");
 var PolicyLimits = /** @class */ (function (_super) {
     __extends(PolicyLimits, _super);
     function PolicyLimits() {
@@ -32,10 +33,21 @@ var PolicyLimits = /** @class */ (function (_super) {
         this.ensureDataFetched();
     };
     PolicyLimits.prototype.ensureDataFetched = function () {
-        this.props.requestPolicies();
+        var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestPolicies(startDateIndex);
+    };
+    PolicyLimits.prototype.showPolicies = function () {
+        console.log(this.props.Policy);
+        return (React.createElement("div", null, this.props.Policy.map(function (d) {
+            return React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: d.id, title: "Policy " + d.description.toString(), content: React.createElement("div", null,
+                        React.createElement("p", null,
+                            "Created By ",
+                            d.createdBy)) }),
+                React.createElement("br", null));
+        })));
     };
     PolicyLimits.prototype.render = function () {
-        console.log(this.props.Policy);
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
@@ -43,14 +55,10 @@ var PolicyLimits = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("h1", null, "Primary Policy Limits and Deductibles"),
                     React.createElement("br", null),
-                    React.createElement("div", null, this.props.Policy.map(function (pol) {
-                        return React.createElement("p", { key: pol.Id }, pol.Description);
-                    }))))));
+                    React.createElement("div", null, this.showPolicies())))));
     };
     return PolicyLimits;
 }(React.PureComponent));
 ;
-exports.default = (0, react_redux_1.connect)(function (state) { return state.Policies; }, // Selects which state properties are merged into the component's props
-PoliciesStore.actionCreators // Selects which action creators are merged into the component's props
-)(PolicyLimits);
+exports.default = (0, react_redux_1.connect)(function (state) { return state.Policies; }, PoliciesStore.actionCreators)(PolicyLimits);
 //# sourceMappingURL=PolicyLimits.js.map
