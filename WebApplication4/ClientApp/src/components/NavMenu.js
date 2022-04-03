@@ -37,7 +37,7 @@ var NavMenu = /** @class */ (function (_super) {
         return (React.createElement("header", null,
             React.createElement(reactstrap_1.Navbar, { className: "navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3", light: true },
                 React.createElement(reactstrap_1.Container, null,
-                    React.createElement(reactstrap_1.NavbarBrand, { tag: react_router_dom_1.Link, to: "/home" }, "Boardwalk Insurance"),
+                    React.createElement(reactstrap_1.NavbarBrand, { tag: react_router_dom_1.Link, to: "/policy-limits" }, "Boardwalk Insurance"),
                     React.createElement(reactstrap_1.NavbarToggler, { onClick: this.toggle, className: "mr-2" }),
                     React.createElement(reactstrap_1.Collapse, { className: "d-sm-inline-flex flex-sm-row-reverse", isOpen: this.state.isOpen, navbar: true },
                         React.createElement("ul", { className: "navbar-nav flex-grow" },

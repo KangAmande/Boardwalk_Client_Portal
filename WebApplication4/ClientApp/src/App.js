@@ -5,7 +5,6 @@ var react_router_1 = require("react-router");
 require("./custom.css");
 var react_router_dom_1 = require("react-router-dom");
 var LoginForm_1 = require("./components/LoginForm");
-var HomePage_1 = require("./Routes/HomePage");
 var pmr_1 = require("./Routes/pmr");
 var sdr_1 = require("./Routes/sdr");
 var pinkSlipRoute_1 = require("./Routes/pinkSlipRoute");
@@ -30,7 +29,6 @@ var AccountRoute_1 = require("./Routes/AccountRoute");
 exports.default = (function () { return (React.createElement("div", null,
     React.createElement(react_router_dom_1.BrowserRouter, null,
         React.createElement(react_router_1.Route, { exact: true, path: "/", component: LoginForm_1.default }),
-        React.createElement(react_router_1.Route, { path: "/home", component: HomePage_1.default }),
         React.createElement(react_router_1.Route, { path: '/policy-menu', component: pmr_1.default }),
         React.createElement(react_router_1.Route, { path: '/sign-docs', component: sdr_1.default }),
         React.createElement(react_router_1.Route, { path: '/pink-slips', component: pinkSlipRoute_1.default }),

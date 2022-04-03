@@ -5,7 +5,6 @@ import './custom.css';
 
 import { BrowserRouter } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
-import HomePage from './Routes/HomePage';
 import pmr from './Routes/pmr';
 import sdr from './Routes/sdr';
 import pinkSlipRoute from './Routes/pinkSlipRoute';
@@ -32,7 +31,6 @@ export default () => (
     <div>
       <BrowserRouter>     
             <Route exact path="/" component={LoginForm} />
-            <Route path="/home" component={HomePage} />
             <Route path='/policy-menu' component={pmr} />
             <Route path='/sign-docs' component={sdr} />
             <Route path='/pink-slips' component={pinkSlipRoute} />

@@ -26,7 +26,7 @@ export default class Login extends React.PureComponent {
                     </label>
                     <br/><br/>
                     
-                    <Link to="/home">Login</Link>
+                    <Link to="/policy-limits">Login</Link>
                    
                 </div>
             </Container>

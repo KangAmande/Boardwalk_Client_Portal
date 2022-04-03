@@ -3,16 +3,18 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_router_dom_1 = require("react-router-dom");
 var reactstrap_1 = require("reactstrap");
@@ -38,11 +40,12 @@ var Login = /** @class */ (function (_super) {
                     React.createElement("input", { type: "text", name: "password", placeholder: "" })),
                 React.createElement("br", null),
                 React.createElement("br", null),
-                React.createElement(react_router_dom_1.Link, { to: "/home" }, "Login"))));
+                React.createElement(react_router_dom_1.Link, { to: "/policy-limits" }, "Login"))));
     };
     return Login;
 }(React.PureComponent));
-exports["default"] = Login;
+exports.default = Login;
 function useHistory() {
     throw new Error('Function not implemented.');
 }
+//# sourceMappingURL=Login.js.map
