@@ -6,6 +6,7 @@ import { AppThunkAction } from './';
 
 export interface ClientBuildingInfoState {
     isLoading: boolean;
+    startDateIndex?: number;
     ClientBuildingInfo: ClientBuildingInfo[];
 }
 
@@ -25,10 +26,12 @@ export interface ClientBuildingInfo {
 
 interface RequestClientBuildingInfoAction {
     type: 'REQUEST_CLIENTBUILDINGINFO';
+    startDateIndex: number;
 }
 
 interface ReceiveClientBuildingInfoAction {
     type: 'RECEIVE_CLIENTBUILDINGINFO';
+    startDateIndex: number;
     ClientBuildingInfo: ClientBuildingInfo[];
 }
 
@@ -41,18 +44,18 @@ type KnownAction = RequestClientBuildingInfoAction | ReceiveClientBuildingInfoAc
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    requestClientBuildingInfo: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestClientBuildingInfo: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
         const appState = getState();
-        if (appState && appState.ClientBuildingInfo) {
+        if (appState && appState.ClientBuildingInfo && startDateIndex !== appState.ClientBuildingInfo.startDateIndex) {
             fetch(`api/ClientBuildingInfo/Index`)
                 .then(response => response.json() as Promise<ClientBuildingInfo[]>)
                 .then(data => {
                     console.log(JSON.stringify(data));
-                    dispatch({ type: 'RECEIVE_CLIENTBUILDINGINFO', ClientBuildingInfo: data });
+                    dispatch({ type: 'RECEIVE_CLIENTBUILDINGINFO',startDateIndex: startDateIndex, ClientBuildingInfo: data });
                 });
 
-            dispatch({ type: 'REQUEST_CLIENTBUILDINGINFO'});
+            dispatch({ type: 'REQUEST_CLIENTBUILDINGINFO',startDateIndex: startDateIndex});
         }
     }
 };
@@ -71,6 +74,7 @@ export const reducer: Reducer<ClientBuildingInfoState> = (state: ClientBuildingI
     switch (action.type) {
         case 'REQUEST_CLIENTBUILDINGINFO':
             return {
+                startDateIndex: action.startDateIndex,
                 ...state,
                 ClientBuildingInfo: state.ClientBuildingInfo,
                 isLoading: true
@@ -78,12 +82,16 @@ export const reducer: Reducer<ClientBuildingInfoState> = (state: ClientBuildingI
         case 'RECEIVE_CLIENTBUILDINGINFO':
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
+            if (action.startDateIndex === state.startDateIndex){
             return {
+                startDateIndex: action.startDateIndex,
                 ...state,
                 ClientBuildingInfo: action.ClientBuildingInfo,
                 isLoading: false
             };
-        default:
-            return state;
+        }
+        break;
+           
     }
+    return state;
 };
