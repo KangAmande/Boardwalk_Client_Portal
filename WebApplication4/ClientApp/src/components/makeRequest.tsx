@@ -1,19 +1,17 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';
-import { Popup } from './Popup';
-import { NavLink } from 'reactstrap';
 import * as ClientBuildingInfoStore from '../store/ClientBuildingInfo';
-
-import { Link, RouteComponentProps } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
 import { CustomAccordion } from './Accordion';
 import { ApplicationState } from '../store';
-import { ClientBuildingInfo } from '../store/ClientBuildingInfo';
+
 
 type ClientBuildingInfoProps =
     ClientBuildingInfoStore.ClientBuildingInfoState // ... state we've requested from the Redux store
     & typeof ClientBuildingInfoStore.actionCreators // ... plus action creators we've requested
     & RouteComponentProps<{ startDateIndex: string}>;
+
 class makeRequest extends React.PureComponent<ClientBuildingInfoProps> {
     public componentDidMount() {
         this.ensureDataFetched();
@@ -33,7 +31,13 @@ class makeRequest extends React.PureComponent<ClientBuildingInfoProps> {
         <div>
                 {this.props.ClientBuildingInfo.map((d: ClientBuildingInfoStore.ClientBuildingInfo, index) =>
                     <div>
-                        <CustomAccordion key={index} title={"Location:"+ d.City} content={<div><p>City: {d.City}</p><p>Postal Code: {d.PostalCode}</p></div>} />
+                        <CustomAccordion key={index} title={"Locations"} content={<div>
+                            <p>Building Type: {d.buildingType}</p>
+                            <p>Primary Operation: {d.primaryOperation}</p>
+                            <p>Street: {d.street}</p>
+                            <p>City: {d.city}</p>
+                            <p>Postal Code: {d.postalCode}</p>
+                            </div>} />
                         <br/>
                     </div>
                 )}

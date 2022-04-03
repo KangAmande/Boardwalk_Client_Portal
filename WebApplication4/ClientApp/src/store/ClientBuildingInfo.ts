@@ -11,13 +11,12 @@ export interface ClientBuildingInfoState {
 }
 
 export interface ClientBuildingInfo {
-    Id: number;
+    ClientId: number;
     street: String;
-    IsActive: boolean;
-    CreatedBy: string;
-    City:string;
-    PostalCode:string;
-    PrimaryOperation:string;
+    city:string;
+    buildingType:string;
+    postalCode:string;
+    primaryOperation:string;
 }
 
 // -----------------

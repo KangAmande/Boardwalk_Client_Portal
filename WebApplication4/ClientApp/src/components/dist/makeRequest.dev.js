@@ -66,8 +66,8 @@ function (_super) {
     return React.createElement("div", null, this.props.ClientBuildingInfo.map(function (d, index) {
       return React.createElement("div", null, React.createElement(Accordion_1.CustomAccordion, {
         key: index,
-        title: "Location:" + d.City,
-        content: React.createElement("div", null, React.createElement("p", null, "City: ", d.City), React.createElement("p", null, "Postal Code: ", d.PostalCode))
+        title: "Locations",
+        content: React.createElement("div", null, React.createElement("p", null, "Building Type: ", d.buildingType), React.createElement("p", null, "Primary Operation: ", d.primaryOperation), React.createElement("p", null, "Street: ", d.street), React.createElement("p", null, "City: ", d.city), React.createElement("p", null, "Postal Code: ", d.postalCode))
       }), React.createElement("br", null));
     }));
   };
