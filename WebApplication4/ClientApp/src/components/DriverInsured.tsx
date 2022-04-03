@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
 import * as DriversStore from '../store/Drivers';
 import { CustomAccordion } from './Accordion';
-
+import NavMenu from './NavMenu';
 // At runtime, Redux will merge together...
 type DriversProps =
     DriversStore.DriversState // ... state we've requested from the Redux store
@@ -40,6 +40,7 @@ class DriverInsured extends React.PureComponent<DriversProps> {
     public render() {
         return (
             <React.Fragment>
+                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <InfoBar />

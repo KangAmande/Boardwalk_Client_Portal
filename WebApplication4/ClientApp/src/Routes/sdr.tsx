@@ -3,7 +3,7 @@ import { Route } from 'react-router';
 import Layout from '../components/Layout';
 
 
-import signDoc from '../components/signDoc';
+import signDoc from '../components/SignDocs';
 
 
 export default () => (

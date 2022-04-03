@@ -19,6 +19,7 @@ var React = require("react");
 var react_redux_1 = require("react-redux");
 var Sidebarmr_1 = require("./Sidebarmr");
 require("./form.css");
+var NavMenu_1 = require("./NavMenu");
 var changeMailingAddress = /** @class */ (function (_super) {
     __extends(changeMailingAddress, _super);
     function changeMailingAddress() {
@@ -26,6 +27,7 @@ var changeMailingAddress = /** @class */ (function (_super) {
     }
     changeMailingAddress.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
+            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(Sidebarmr_1.default, null)),

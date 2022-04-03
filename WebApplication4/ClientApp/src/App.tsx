@@ -26,7 +26,7 @@ import addDriver from './Routes/addDriver';
 import changeMailingAddress from './Routes/changeMailingAddress';
 import helppage from './Routes/Helppage';
 import Account from './Routes/AccountRoute';
-
+import AdminCertRequests from './components/AdminCertRequests';
 export default () => (
     <div>
       <BrowserRouter>     
@@ -52,6 +52,7 @@ export default () => (
             <Route path='/changeMailingAddress' component={changeMailingAddress} />
             <Route path='/help' component={helppage} />
             <Route path='/Account' component={Account} />
+            <Route path='/admin-cert-requests' component={AdminCertRequests} />
          </BrowserRouter>
     </div>
 );

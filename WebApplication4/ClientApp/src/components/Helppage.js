@@ -17,29 +17,23 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
-var Sidebarmr_1 = require("./Sidebarmr");
 var NavMenu_1 = require("./NavMenu");
-var scheduleCall = /** @class */ (function (_super) {
-    __extends(scheduleCall, _super);
-    function scheduleCall() {
+var helppage = /** @class */ (function (_super) {
+    __extends(helppage, _super);
+    function helppage() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    scheduleCall.prototype.render = function () {
+    helppage.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement(NavMenu_1.default, null),
-            React.createElement("div", { className: 'row' },
-                React.createElement("div", { className: 'col-4' },
-                    React.createElement(Sidebarmr_1.default, null)),
-                React.createElement("div", { className: 'col-8', id: 'mr1add' },
-                    React.createElement("h1", null, "Schedule a call with Broker"),
-                    React.createElement("br", null),
-                    React.createElement("br", null),
-                    React.createElement("p", null,
-                        "A call can be booked with our Broker ",
-                        React.createElement("a", { href: "" }, "Here"))))));
+            React.createElement("div", null,
+                React.createElement("h3", null,
+                    "Email address: ",
+                    React.createElement("a", { href: "mailto:andrew@bwinsco.com" }, "andrew@bwinsco.com"),
+                    " "),
+                React.createElement("h3", null, "phone number:(123)456-7890"))));
     };
-    return scheduleCall;
+    return helppage;
 }(React.Component));
-;
-exports.default = (0, react_redux_1.connect)()(scheduleCall);
-//# sourceMappingURL=scheduleCall.js.map
+exports.default = (0, react_redux_1.connect)()(helppage);
+//# sourceMappingURL=Helppage.js.map

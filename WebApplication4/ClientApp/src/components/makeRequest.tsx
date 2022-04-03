@@ -5,7 +5,7 @@ import { Popup } from './Popup';
 import { NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import { CustomAccordion } from './Accordion';
-
+import NavMenu from './NavMenu';
 class makeRequest extends React.Component<{}, { shown: boolean }> {
     
     public render() {
@@ -21,6 +21,7 @@ class makeRequest extends React.Component<{}, { shown: boolean }> {
         }
         return (
             <React.Fragment>
+                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebarmr/>

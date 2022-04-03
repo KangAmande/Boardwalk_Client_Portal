@@ -26,6 +26,7 @@ var addDriver_1 = require("./Routes/addDriver");
 var changeMailingAddress_1 = require("./Routes/changeMailingAddress");
 var Helppage_1 = require("./Routes/Helppage");
 var AccountRoute_1 = require("./Routes/AccountRoute");
+var AdminCertRequests_1 = require("./components/AdminCertRequests");
 exports.default = (function () { return (React.createElement("div", null,
     React.createElement(react_router_dom_1.BrowserRouter, null,
         React.createElement(react_router_1.Route, { exact: true, path: "/", component: LoginForm_1.default }),
@@ -49,5 +50,6 @@ exports.default = (function () { return (React.createElement("div", null,
         React.createElement(react_router_1.Route, { path: '/addDriver', component: addDriver_1.default }),
         React.createElement(react_router_1.Route, { path: '/changeMailingAddress', component: changeMailingAddress_1.default }),
         React.createElement(react_router_1.Route, { path: '/help', component: Helppage_1.default }),
-        React.createElement(react_router_1.Route, { path: '/Account', component: AccountRoute_1.default })))); });
+        React.createElement(react_router_1.Route, { path: '/Account', component: AccountRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/admin-cert-requests', component: AdminCertRequests_1.default })))); });
 //# sourceMappingURL=App.js.map

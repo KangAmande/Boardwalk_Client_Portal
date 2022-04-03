@@ -20,6 +20,7 @@ var react_redux_1 = require("react-redux");
 var InfoBar_1 = require("./InfoBar");
 var EquipmentsStore = require("../store/Equipments");
 var Accordion_1 = require("./Accordion");
+var NavMenu_1 = require("./NavMenu");
 var EquipInsured = /** @class */ (function (_super) {
     __extends(EquipInsured, _super);
     function EquipInsured() {
@@ -50,6 +51,7 @@ var EquipInsured = /** @class */ (function (_super) {
     };
     EquipInsured.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
+            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(InfoBar_1.default, null)),

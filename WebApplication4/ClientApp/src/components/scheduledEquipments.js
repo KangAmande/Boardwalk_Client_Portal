@@ -19,6 +19,7 @@ var React = require("react");
 var react_redux_1 = require("react-redux");
 var Sidebarmr_1 = require("./Sidebarmr");
 var Accordion_1 = require("./Accordion");
+var NavMenu_1 = require("./NavMenu");
 var scheduledEquipments = /** @class */ (function (_super) {
     __extends(scheduledEquipments, _super);
     function scheduledEquipments() {
@@ -39,6 +40,7 @@ var scheduledEquipments = /** @class */ (function (_super) {
             i++;
         }
         return (React.createElement(React.Fragment, null,
+            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(Sidebarmr_1.default, null)),

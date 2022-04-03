@@ -5,7 +5,7 @@ import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
 import * as EquipmentsStore from '../store/Equipments';
 import { CustomAccordion } from './Accordion';
-
+import NavMenu from './NavMenu';
 // At runtime, Redux will merge together...
 type EquipmentsProps =
     EquipmentsStore.EquipmentsState // ... state we've requested from the Redux store
@@ -40,6 +40,7 @@ class EquipInsured extends React.PureComponent<EquipmentsProps> {
     public render() {
         return (
             <React.Fragment>
+                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <InfoBar />

@@ -1,11 +1,12 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
 import InfoBar from './InfoBar';
-
+import NavMenu from './NavMenu';
 class MailAddr extends React.Component {
     public render() {
         return (
             <React.Fragment>
+                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <InfoBar />

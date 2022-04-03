@@ -2,7 +2,7 @@
 import { connect } from 'react-redux';
 import { CustomAccordion } from './Accordion';
 import Sidebarmr from './Sidebarmr';
-
+import NavMenu from './NavMenu';
 class addDriver extends React.Component<{}, { shown: boolean }> {
 
     public render() {
@@ -18,6 +18,7 @@ class addDriver extends React.Component<{}, { shown: boolean }> {
         }
         return (
             <React.Fragment>
+                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebarmr />

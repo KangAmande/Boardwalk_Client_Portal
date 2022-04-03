@@ -27,6 +27,7 @@ export default class Login extends React.PureComponent {
                     <br/><br/>
                     
                     <Link to="/policy-limits">Login</Link>
+                    <Link to="/admin-cert-requests">Admin</Link>
                    
                 </div>
             </Container>

@@ -40,7 +40,8 @@ var Login = /** @class */ (function (_super) {
                     React.createElement("input", { type: "text", name: "password", placeholder: "" })),
                 React.createElement("br", null),
                 React.createElement("br", null),
-                React.createElement(react_router_dom_1.Link, { to: "/policy-limits" }, "Login"))));
+                React.createElement(react_router_dom_1.Link, { to: "/policy-limits" }, "Login"),
+                React.createElement(react_router_dom_1.Link, { to: "/admin-cert-requests" }, "Admin"))));
     };
     return Login;
 }(React.PureComponent));

@@ -3,12 +3,13 @@ import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';
 import { CustomAccordion } from './Accordion';
 import './form.css';
-
+import NavMenu from './NavMenu';
 
 class changeMailingAddress extends React.Component {
     public render() {
         return (
             < React.Fragment >
+                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebarmr />

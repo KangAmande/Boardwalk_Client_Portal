@@ -20,6 +20,7 @@ var react_redux_1 = require("react-redux");
 var InfoBar_1 = require("./InfoBar");
 var PoliciesStore = require("../store/Policies");
 var Accordion_1 = require("./Accordion");
+var NavMenu_1 = require("./NavMenu");
 var PolicyLimits = /** @class */ (function (_super) {
     __extends(PolicyLimits, _super);
     function PolicyLimits() {
@@ -49,6 +50,7 @@ var PolicyLimits = /** @class */ (function (_super) {
     };
     PolicyLimits.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
+            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(InfoBar_1.default, null)),

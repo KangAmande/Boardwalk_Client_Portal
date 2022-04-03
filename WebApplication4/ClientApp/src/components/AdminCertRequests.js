@@ -17,24 +17,19 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
-var Accountsidebar_1 = require("./Accountsidebar");
-var NavMenu_1 = require("./NavMenu");
-var Account = /** @class */ (function (_super) {
-    __extends(Account, _super);
-    function Account() {
+var AdminNavMenu_1 = require("./AdminNavMenu");
+var AdminCertRequests = /** @class */ (function (_super) {
+    __extends(AdminCertRequests, _super);
+    function AdminCertRequests() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Account.prototype.render = function () {
+    AdminCertRequests.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
-            React.createElement(NavMenu_1.default, null),
-            React.createElement("div", { className: 'row' },
-                React.createElement("div", { className: 'col-4' },
-                    React.createElement(Accountsidebar_1.default, null)),
-                React.createElement("div", { className: 'col-8' },
-                    React.createElement("p", null, "user name:"),
-                    React.createElement("p", null, "city")))));
+            React.createElement(AdminNavMenu_1.default, null),
+            React.createElement("div", null,
+                React.createElement("h1", null, "Insurance Certificate Requests"))));
     };
-    return Account;
-}(React.Component));
-exports.default = (0, react_redux_1.connect)()(Account);
-//# sourceMappingURL=Account.js.map
+    return AdminCertRequests;
+}(React.PureComponent));
+exports.default = (0, react_redux_1.connect)()(AdminCertRequests);
+//# sourceMappingURL=AdminCertRequests.js.map
