@@ -85,7 +85,9 @@
     <TypeScriptCompile Remove="ClientApp\src\components\VehicleInsured.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\Routes\Helppage.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\store\Drivers.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\store\Equipments.ts" />
     <TypeScriptCompile Remove="ClientApp\src\store\Policies.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\store\Vehicles.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">

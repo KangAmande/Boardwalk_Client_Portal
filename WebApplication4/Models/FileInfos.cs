@@ -19,6 +19,8 @@ namespace Boardwalk.Models
         public int? InsurerId { get; set; }
         public int? BindingId { get; set; }
         public int? NotesId { get; set; }
+        public DateTime? DateOfcreated { get; set; }
+        public DateTime? Modified { get; set; }
         public string CreatedBy { get; set; }
         public string ModifiedBy { get; set; }
         public int? CertificateId { get; set; }

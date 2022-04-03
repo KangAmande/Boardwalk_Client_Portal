@@ -15,10 +15,13 @@ namespace Boardwalk.Models
         public string Notes1 { get; set; }
         public int? CreateUser { get; set; }
         public int? AssignedUser { get; set; }
+        public DateTime? NoteDate { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public string CreatedBy { get; set; }
         public int? ClientId { get; set; }
         public int? PolicyId { get; set; }
         public bool? IsAction { get; set; }
+        public DateTime? Dueon { get; set; }
         public bool? IsDelete { get; set; }
         public string DocumentCode { get; set; }
         public string PolicyType { get; set; }

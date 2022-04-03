@@ -7,12 +7,14 @@ using System.Collections.Generic;
 
 namespace Boardwalk.Models
 {
-    public partial class Status
+    public partial class Equipments
     {
         public int Id { get; set; }
-        public string Description { get; set; }
-        public bool? IsActive { get; set; }
-        public DateTime? DateOfCreated { get; set; }
-        public string CreatedBy { get; set; }
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public int? Year { get; set; }
+        public string SerialNumber { get; set; }
+        public double? Value { get; set; }
+        public int ClientId { get; set; }
     }
 }

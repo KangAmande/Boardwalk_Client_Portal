@@ -15,8 +15,8 @@ namespace Boardwalk.Models
         public int? CoveragedId { get; set; }
         public string FullName { get; set; }
         public string DriverLicense { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public DateTime? Birthdate { get; set; }
-        public short? LicenseYear { get; set; }
         public string DriverTrain { get; set; }
         public string Conviction { get; set; }
     }

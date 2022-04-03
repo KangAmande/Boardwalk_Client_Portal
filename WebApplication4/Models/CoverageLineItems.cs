@@ -15,9 +15,10 @@ namespace Boardwalk.Models
         public int? LineInputType { get; set; }
         public int? LimitInputType { get; set; }
         public int? DeductableInputType { get; set; }
-        public byte? IsLimit { get; set; }
-        public byte? IsDeductible { get; set; }
+        public sbyte? IsLimit { get; set; }
+        public sbyte? IsDeductible { get; set; }
         public string CreatedByUser { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public string GroupName { get; set; }
 
         public virtual Coverages Coverage { get; set; }
