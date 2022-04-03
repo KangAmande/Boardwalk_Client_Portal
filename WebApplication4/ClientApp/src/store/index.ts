@@ -1,11 +1,14 @@
 import * as Policies from './Policies';
 import * as Drivers from './Drivers';
+import * as Equipments from './Equipments';
 import * as ClientBuildingInfo from './ClientBuildingInfo'; 
+
 
 
 
 // The top-level state object
 export interface ApplicationState {
+    Equipments: Equipments.EquipmentsState | undefined;
     Policies: Policies.PoliciesState | undefined;
     Drivers: Drivers.DriversState | undefined;
     ClientBuildingInfo: ClientBuildingInfo.ClientBuildingInfoState | undefined;
@@ -16,6 +19,7 @@ export interface ApplicationState {
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
     Policies: Policies.reducer,
+    Equipments:Equipments.reducer,
     Drivers:Drivers.reducer,
     ClientBuildingInfo:ClientBuildingInfo.reducer
 };

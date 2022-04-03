@@ -15,26 +15,26 @@ var __extends = (this && this.__extends) || (function () {
 exports.__esModule = true;
 var React = require("react");
 var react_redux_1 = require("react-redux");
-var Sidebarmr_1 = require("./Sidebarmr");
+var InfoBar_1 = require("./InfoBar");
 var EquipmentsStore = require("../store/Equipments");
 var Accordion_1 = require("./Accordion");
-var scheduledEquipments = /** @class */ (function (_super) {
-    __extends(scheduledEquipments, _super);
-    function scheduledEquipments() {
+var EquipInsured = /** @class */ (function (_super) {
+    __extends(EquipInsured, _super);
+    function EquipInsured() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    scheduledEquipments.prototype.componentDidMount = function () {
+    EquipInsured.prototype.componentDidMount = function () {
         this.ensureDataFetched();
     };
     // This method is called when the route parameters change
-    scheduledEquipments.prototype.componentDidUpdate = function () {
+    EquipInsured.prototype.componentDidUpdate = function () {
         this.ensureDataFetched();
     };
-    scheduledEquipments.prototype.ensureDataFetched = function () {
+    EquipInsured.prototype.ensureDataFetched = function () {
         var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
         this.props.requestEquipments(startDateIndex);
     };
-    scheduledEquipments.prototype.showEquipments = function () {
+    EquipInsured.prototype.showEquipments = function () {
         console.log(this.props.Equipments);
         return (React.createElement("div", null, this.props.Equipments.map(function (d, index) {
             return React.createElement("div", null,
@@ -57,35 +57,17 @@ var scheduledEquipments = /** @class */ (function (_super) {
                 React.createElement("br", null));
         })));
     };
-    scheduledEquipments.prototype.render = function () {
+    EquipInsured.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
-                    React.createElement(Sidebarmr_1["default"], null)),
-                React.createElement("div", { className: 'col-8', id: 'mr1add' },
-                    React.createElement("h1", null, "Add New Equipment"),
-                    React.createElement("form", null,
-                        React.createElement("input", { type: 'text', placeholder: 'Year' }),
-                        React.createElement("br", null),
-                        React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Make' }),
-                        React.createElement("br", null),
-                        React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Model' }),
-                        React.createElement("br", null),
-                        React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Value   ' }),
-                        React.createElement("br", null),
-                        React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Serial Number' }),
-                        React.createElement("br", null),
-                        React.createElement("br", null),
-                        React.createElement("input", { type: 'submit', value: 'submit' })),
+                    React.createElement(InfoBar_1["default"], null)),
+                React.createElement("div", { className: 'col-8' },
+                    React.createElement("h1", null, "List of Equipments insured under commercial policy"),
                     React.createElement("br", null),
-                    React.createElement("br", null),
-                    this.showEquipments()))));
+                    React.createElement("div", null, this.showEquipments())))));
     };
-    return scheduledEquipments;
+    return EquipInsured;
 }(React.PureComponent));
 ;
-exports["default"] = react_redux_1.connect(function (state) { return state.Equipments; }, EquipmentsStore.actionCreators)(scheduledEquipments);
+exports["default"] = react_redux_1.connect(function (state) { return state.Equipments; }, EquipmentsStore.actionCreators)(EquipInsured);

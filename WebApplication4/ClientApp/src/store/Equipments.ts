@@ -4,58 +4,58 @@ import { AppThunkAction } from './';
 // -----------------
 // STATE - This defines the type of data maintained in the Redux store.
 
-export interface ClientBuildingInfoState {
+export interface EquipmentsState {
     isLoading: boolean;
     startDateIndex?: number;
-    ClientBuildingInfo: ClientBuildingInfo[];
+    Equipments: Equipments[];
 }
 
-export interface ClientBuildingInfo {
-    ClientId: number;
-    street: String;
-    city:string;
-    buildingType:string;
-    postalCode:string;
-    primaryOperation:string;
-    
+export interface Equipments {
+    id:number;
+    clientId: number;
+    make:string;
+    model:string;
+    year:number;
+    serialNumber:number;
+    value:number;
 }
 
 // -----------------
 // ACTIONS - These are serializable (hence replayable) descriptions of state transitions.
 // They do not themselves have any side-effects; they just describe something that is going to happen.
 
-interface RequestClientBuildingInfoAction {
-    type: 'REQUEST_CLIENTBUILDINGINFO';
+interface RequestEquipmentsAction {
+    type: 'REQUEST_EQUIPMENTS';
     startDateIndex: number;
 }
 
-interface ReceiveClientBuildingInfoAction {
-    type: 'RECEIVE_CLIENTBUILDINGINFO';
+interface ReceiveEquipmentsAction {
+    type: 'RECEIVE_EQUIPMENTS';
     startDateIndex: number;
-    ClientBuildingInfo: ClientBuildingInfo[];
+    Equipments: Equipments[];
 }
 
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
 // declared type strings (and not any other arbitrary string).
-type KnownAction = RequestClientBuildingInfoAction | ReceiveClientBuildingInfoAction;
+type KnownAction = RequestEquipmentsAction | ReceiveEquipmentsAction;
 
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    requestClientBuildingInfo: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestEquipments: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
         const appState = getState();
-        if (appState && appState.ClientBuildingInfo && startDateIndex !== appState.ClientBuildingInfo.startDateIndex) {
-            fetch(`api/ClientBuildingInfo/Index`)
-                .then(response => response.json() as Promise<ClientBuildingInfo[]>)
+        if (appState && appState.Equipments && startDateIndex !== appState.Equipments.startDateIndex) {
+            fetch(`api/Equipments/Index`)
+                .then(response => response.json() as Promise<Equipments[]>)
                 .then(data => {
                     console.log(JSON.stringify(data));
-                    dispatch({ type: 'RECEIVE_CLIENTBUILDINGINFO',startDateIndex: startDateIndex, ClientBuildingInfo: data });
+                    dispatch({ type: 'RECEIVE_EQUIPMENTS',startDateIndex: startDateIndex, Equipments: data });
                 });
 
-            dispatch({ type: 'REQUEST_CLIENTBUILDINGINFO',startDateIndex: startDateIndex});
+            dispatch({ type: 'REQUEST_EQUIPMENTS',startDateIndex: startDateIndex});
         }
     }
 };
@@ -63,30 +63,30 @@ export const actionCreators = {
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
 
-const unloadedState: ClientBuildingInfoState = { ClientBuildingInfo: [], isLoading: false };
+const unloadedState: EquipmentsState = { Equipments: [], isLoading: false };
 
-export const reducer: Reducer<ClientBuildingInfoState> = (state: ClientBuildingInfoState | undefined, incomingAction: Action): ClientBuildingInfoState => {
+export const reducer: Reducer<EquipmentsState> = (state: EquipmentsState | undefined, incomingAction: Action): EquipmentsState => {
     if (state === undefined) {
         return unloadedState;
     }
 
     const action = incomingAction as KnownAction;
     switch (action.type) {
-        case 'REQUEST_CLIENTBUILDINGINFO':
+        case 'REQUEST_EQUIPMENTS':
             return {
                 startDateIndex: action.startDateIndex,
                 ...state,
-                ClientBuildingInfo: state.ClientBuildingInfo,
+                Equipments: state.Equipments,
                 isLoading: true
             };
-        case 'RECEIVE_CLIENTBUILDINGINFO':
+        case 'RECEIVE_EQUIPMENTS':
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
             if (action.startDateIndex === state.startDateIndex){
             return {
                 startDateIndex: action.startDateIndex,
                 ...state,
-                ClientBuildingInfo: action.ClientBuildingInfo,
+                Equipments: action.Equipments,
                 isLoading: false
             };
         }
