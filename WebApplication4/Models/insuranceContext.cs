@@ -28,7 +28,6 @@ namespace Boardwalk.Models
         public virtual DbSet<CoverageVehicleTypes> CoverageVehicleTypes { get; set; }
         public virtual DbSet<Coverages> Coverages { get; set; }
         public virtual DbSet<Drivers> Drivers { get; set; }
-        public virtual DbSet<Equipments> Equipments { get; set; }
         public virtual DbSet<FileInfos> FileInfos { get; set; }
         public virtual DbSet<InforceInfos> InforceInfos { get; set; }
         public virtual DbSet<InsurerInfos> InsurerInfos { get; set; }

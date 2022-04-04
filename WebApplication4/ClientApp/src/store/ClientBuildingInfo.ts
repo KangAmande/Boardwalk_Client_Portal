@@ -17,7 +17,6 @@ export interface ClientBuildingInfo {
     buildingType:string;
     postalCode:string;
     primaryOperation:string;
-    
 }
 
 // -----------------
