@@ -1,10 +1,7 @@
 ﻿import * as React from 'react';
 import { Link, Switch,Route } from 'react-router-dom';
 import { Container, NavLink } from 'reactstrap';
-
-
-
-import './login.css'
+import './login.css';
 
 export default class Login extends React.PureComponent {
 
@@ -17,16 +14,16 @@ export default class Login extends React.PureComponent {
                 <div className='login'>
                     <h1>Welcome to Client Portal</h1>
                     <br />
-                    <label>Email:
+                    <label>Email:</label>
                         <input type="email" name="email" placeholder="abc@abc.com" />
-                    </label>
+                    
                     <br/><br/>
-                    <label>Password:
+                    <label>Password:</label>
                         <input type="text" name="password" placeholder="" />
-                    </label>
+                    
                     <br/><br/>
                     
-                    <Link to="/policy-limits">Login</Link>
+                    <button><Link to="/policy-limits">Login</Link></button><br/>
                     <Link to="/admin-cert-requests">Admin</Link>
                    
                 </div>

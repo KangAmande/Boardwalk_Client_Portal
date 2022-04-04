@@ -45,6 +45,7 @@
     <None Remove="ClientApp\src\components\Accountsidebar.tsx" />
     <None Remove="ClientApp\src\components\AdminCertRequests.tsx" />
     <None Remove="ClientApp\src\components\AdminChangeMailAdd.tsx" />
+    <None Remove="ClientApp\src\components\AdminChangeRequestBar.tsx" />
     <None Remove="ClientApp\src\components\AdminNavMenu.tsx" />
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />

@@ -13,15 +13,18 @@ export default class NavMenu extends React.PureComponent<{}, { isOpen: boolean }
             <header>
                 <Navbar className="navbar-expand-sm navbar-toggleable-sm border-bottom box-shadow mb-3" light>
                     <Container>
-                        <NavbarBrand tag={Link} to="/policy-limits">Boardwalk Insurance</NavbarBrand>
+                        <NavbarBrand tag={Link} to="/admin-cert-requests">Boardwalk Insurance</NavbarBrand>
                         <NavbarToggler onClick={this.toggle} className="mr-2" />
                         <Collapse className="d-sm-inline-flex flex-sm-row-reverse" isOpen={this.state.isOpen} navbar>
                             <ul className="navbar-nav flex-grow">
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/help">Help</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/admin-cert-requests">Review Change Requests</NavLink>
                                 </NavItem>
                                 <NavItem>
-                                    <NavLink tag={Link} className="text-dark" to="/Account">Account</NavLink>
+                                    <NavLink tag={Link} className="text-dark" to="/admin-cert-requests">Uploaded Client Documents</NavLink>
+                                </NavItem>
+                                <NavItem>
+                                    <NavLink tag={Link} className="text-dark" to="/admin-cert-requests">Account</NavLink>
                                 </NavItem>
                                 <NavItem>
                                     <NavLink tag={Link} className="text-dark" to="/">Log out</NavLink>

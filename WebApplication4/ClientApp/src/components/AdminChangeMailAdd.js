@@ -31,9 +31,9 @@ var AdminCertRequests = /** @class */ (function (_super) {
                 React.createElement("div", { className: "col-4" },
                     React.createElement(AdminChangeRequestBar_1.default, null)),
                 React.createElement("div", { className: "col-8" },
-                    React.createElement("h1", null, "Insurance Certificate Requests")))));
+                    React.createElement("h1", null, "Change Mailing Address")))));
     };
     return AdminCertRequests;
 }(React.PureComponent));
 exports.default = (0, react_redux_1.connect)()(AdminCertRequests);
-//# sourceMappingURL=AdminCertRequests.js.map
+//# sourceMappingURL=AdminChangeMailAdd.js.map

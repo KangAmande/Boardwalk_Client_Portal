@@ -1,8 +1,6 @@
 import * as React from 'react';
 import { Route } from 'react-router';
-
 import './custom.css';
-
 import { BrowserRouter } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
 import pmr from './Routes/pmr';
@@ -27,6 +25,7 @@ import changeMailingAddress from './Routes/changeMailingAddress';
 import helppage from './Routes/Helppage';
 import Account from './Routes/AccountRoute';
 import AdminCertRequests from './components/AdminCertRequests';
+import AdminChangeMailAdd from './components/AdminChangeMailAdd';
 export default () => (
     <div>
       <BrowserRouter>     
@@ -53,6 +52,7 @@ export default () => (
             <Route path='/help' component={helppage} />
             <Route path='/Account' component={Account} />
             <Route path='/admin-cert-requests' component={AdminCertRequests} />
+            <Route path='/admin-change-mail-add' component={AdminChangeMailAdd} />
          </BrowserRouter>
     </div>
 );
