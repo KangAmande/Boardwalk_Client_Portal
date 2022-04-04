@@ -18,6 +18,11 @@ namespace Boardwalk.Controllers
         {
             return getClientBuildingInfo.getAllClientBuildingInfo();
         }
-        
-    }
+         [HttpGet]
+        [Route("api/ClientBuildingInfo/Details/{id}")]
+        public ClientBuildingInfo Details(int id)
+        {
+            return getClientBuildingInfo.GetClientBuildingInfo(id);
+        }
+}
 }

@@ -4,11 +4,12 @@ import { Link, Route } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
 import homepageLayout from './Layout';
 import Accountsidebar from './Accountsidebar'
-
+import NavMenu from './NavMenu';
 class Account extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Accountsidebar />

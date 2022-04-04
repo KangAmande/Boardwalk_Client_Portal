@@ -18,6 +18,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var InfoBar_1 = require("./InfoBar");
+var NavMenu_1 = require("./NavMenu");
 var RiskAddr = /** @class */ (function (_super) {
     __extends(RiskAddr, _super);
     function RiskAddr() {
@@ -25,6 +26,7 @@ var RiskAddr = /** @class */ (function (_super) {
     }
     RiskAddr.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
+            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(InfoBar_1.default, null)),

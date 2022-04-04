@@ -6,17 +6,17 @@ import { AppThunkAction } from './';
 
 export interface ClientBuildingInfoState {
     isLoading: boolean;
-    startDateIndex?: number;
     ClientBuildingInfo: ClientBuildingInfo[];
 }
 
 export interface ClientBuildingInfo {
-    ClientId: number;
+    Id: number;
     street: String;
-    city:string;
-    buildingType:string;
-    postalCode:string;
-    primaryOperation:string;
+    IsActive: boolean;
+    CreatedBy: string;
+    City:string;
+    PostalCode:string;
+    PrimaryOperation:string;
 }
 
 // -----------------
@@ -25,12 +25,10 @@ export interface ClientBuildingInfo {
 
 interface RequestClientBuildingInfoAction {
     type: 'REQUEST_CLIENTBUILDINGINFO';
-    startDateIndex: number;
 }
 
 interface ReceiveClientBuildingInfoAction {
     type: 'RECEIVE_CLIENTBUILDINGINFO';
-    startDateIndex: number;
     ClientBuildingInfo: ClientBuildingInfo[];
 }
 
@@ -43,18 +41,18 @@ type KnownAction = RequestClientBuildingInfoAction | ReceiveClientBuildingInfoAc
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    requestClientBuildingInfo: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestClientBuildingInfo: (): AppThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
         const appState = getState();
-        if (appState && appState.ClientBuildingInfo && startDateIndex !== appState.ClientBuildingInfo.startDateIndex) {
+        if (appState && appState.ClientBuildingInfo) {
             fetch(`api/ClientBuildingInfo/Index`)
                 .then(response => response.json() as Promise<ClientBuildingInfo[]>)
                 .then(data => {
                     console.log(JSON.stringify(data));
-                    dispatch({ type: 'RECEIVE_CLIENTBUILDINGINFO',startDateIndex: startDateIndex, ClientBuildingInfo: data });
+                    dispatch({ type: 'RECEIVE_CLIENTBUILDINGINFO', ClientBuildingInfo: data });
                 });
 
-            dispatch({ type: 'REQUEST_CLIENTBUILDINGINFO',startDateIndex: startDateIndex});
+            dispatch({ type: 'REQUEST_CLIENTBUILDINGINFO'});
         }
     }
 };
@@ -73,7 +71,6 @@ export const reducer: Reducer<ClientBuildingInfoState> = (state: ClientBuildingI
     switch (action.type) {
         case 'REQUEST_CLIENTBUILDINGINFO':
             return {
-                startDateIndex: action.startDateIndex,
                 ...state,
                 ClientBuildingInfo: state.ClientBuildingInfo,
                 isLoading: true
@@ -81,16 +78,12 @@ export const reducer: Reducer<ClientBuildingInfoState> = (state: ClientBuildingI
         case 'RECEIVE_CLIENTBUILDINGINFO':
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
-            if (action.startDateIndex === state.startDateIndex){
             return {
-                startDateIndex: action.startDateIndex,
                 ...state,
                 ClientBuildingInfo: action.ClientBuildingInfo,
                 isLoading: false
             };
-        }
-        break;
-           
+        default:
+            return state;
     }
-    return state;
 };

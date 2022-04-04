@@ -4,7 +4,7 @@ import Sidebar from './Sidebar';
 import { Popup } from './Popup';
 import { NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-
+import NavMenu from './NavMenu';
 class SignDocs extends React.Component<{}, { shown: boolean }> {
     constructor() {
         super({}, {});
@@ -26,6 +26,7 @@ class SignDocs extends React.Component<{}, { shown: boolean }> {
 
         return (
             <React.Fragment>
+                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebar />

@@ -21,6 +21,7 @@ var Sidebar_1 = require("./Sidebar");
 var Popup_1 = require("./Popup");
 var reactstrap_1 = require("reactstrap");
 var react_router_dom_1 = require("react-router-dom");
+var NavMenu_1 = require("./NavMenu");
 var CertInsur = /** @class */ (function (_super) {
     __extends(CertInsur, _super);
     function CertInsur() {
@@ -40,6 +41,7 @@ var CertInsur = /** @class */ (function (_super) {
     }
     CertInsur.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
+            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(Sidebar_1.default, null)),

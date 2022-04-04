@@ -16,17 +16,17 @@ exports.reducer = exports.actionCreators = void 0;
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 exports.actionCreators = {
-    requestClientBuildingInfo: function (startDateIndex) { return function (dispatch, getState) {
+    requestClientBuildingInfo: function () { return function (dispatch, getState) {
         // Only load data if it's something we don't already have (and are not already loading)
         var appState = getState();
-        if (appState && appState.ClientBuildingInfo && startDateIndex !== appState.ClientBuildingInfo.startDateIndex) {
+        if (appState && appState.ClientBuildingInfo) {
             fetch("api/ClientBuildingInfo/Index")
                 .then(function (response) { return response.json(); })
                 .then(function (data) {
                 console.log(JSON.stringify(data));
-                dispatch({ type: 'RECEIVE_CLIENTBUILDINGINFO', startDateIndex: startDateIndex, ClientBuildingInfo: data });
+                dispatch({ type: 'RECEIVE_CLIENTBUILDINGINFO', ClientBuildingInfo: data });
             });
-            dispatch({ type: 'REQUEST_CLIENTBUILDINGINFO', startDateIndex: startDateIndex });
+            dispatch({ type: 'REQUEST_CLIENTBUILDINGINFO' });
         }
     }; }
 };
@@ -40,14 +40,12 @@ exports.reducer = function (state, incomingAction) {
     var action = incomingAction;
     switch (action.type) {
         case 'REQUEST_CLIENTBUILDINGINFO':
-            return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { ClientBuildingInfo: state.ClientBuildingInfo, isLoading: true });
+            return __assign(__assign({}, state), { ClientBuildingInfo: state.ClientBuildingInfo, isLoading: true });
         case 'RECEIVE_CLIENTBUILDINGINFO':
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
-            if (action.startDateIndex === state.startDateIndex) {
-                return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { ClientBuildingInfo: action.ClientBuildingInfo, isLoading: false });
-            }
-            break;
+            return __assign(__assign({}, state), { ClientBuildingInfo: action.ClientBuildingInfo, isLoading: false });
+        default:
+            return state;
     }
-    return state;
 };

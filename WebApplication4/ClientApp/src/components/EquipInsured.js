@@ -18,37 +18,50 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var InfoBar_1 = require("./InfoBar");
+var EquipmentsStore = require("../store/Equipments");
 var Accordion_1 = require("./Accordion");
+var NavMenu_1 = require("./NavMenu");
 var EquipInsured = /** @class */ (function (_super) {
     __extends(EquipInsured, _super);
     function EquipInsured() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    EquipInsured.prototype.componentDidMount = function () {
+        this.ensureDataFetched();
+    };
+    // This method is called when the route parameters change
+    EquipInsured.prototype.componentDidUpdate = function () {
+        this.ensureDataFetched();
+    };
+    EquipInsured.prototype.ensureDataFetched = function () {
+        var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestEquipments(startDateIndex);
+    };
+    EquipInsured.prototype.showEquipments = function () {
+        console.log(this.props.Equipment);
+        return (React.createElement("div", null, this.props.Equipment.map(function (d, index) {
+            return React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: index, title: d.model.toString(), content: React.createElement("div", null,
+                        React.createElement("p", null, d.model),
+                        React.createElement("p", null, d.serialNumber),
+                        React.createElement("p", null, d.value),
+                        React.createElement("p", null, d.year)) }),
+                React.createElement("br", null));
+        })));
+    };
     EquipInsured.prototype.render = function () {
-        var i = 1;
-        var a = [];
-        while (i < 5) {
-            a.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Equipment " + i.toString(), content: React.createElement("div", null,
-                        React.createElement("p", null, "Make"),
-                        React.createElement("p", null, "Model"),
-                        React.createElement("p", null, "Year"),
-                        React.createElement("p", null, "Serial Number"),
-                        React.createElement("p", null, "Value")) }),
-                React.createElement("br", null)));
-            i++;
-        }
         return (React.createElement(React.Fragment, null,
+            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(InfoBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
-                    React.createElement("h1", null, "List of Equipments insured under commercial policy"),
+                    React.createElement("h1", null, "List of Equipments insured under the commercial policy"),
                     React.createElement("br", null),
-                    React.createElement("div", null, a)))));
+                    React.createElement("div", null, this.showEquipments())))));
     };
     return EquipInsured;
-}(React.Component));
+}(React.PureComponent));
 ;
-exports.default = (0, react_redux_1.connect)()(EquipInsured);
+exports.default = (0, react_redux_1.connect)(function (state) { return state.Equipments; }, EquipmentsStore.actionCreators)(EquipInsured);
 //# sourceMappingURL=EquipInsured.js.map
