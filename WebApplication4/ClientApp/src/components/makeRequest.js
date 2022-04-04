@@ -3,47 +3,66 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Sidebarmr_1 = require("./Sidebarmr");
+var ClientBuildingInfoStore = require("../store/ClientBuildingInfo");
 var Accordion_1 = require("./Accordion");
-var NavMenu_1 = require("./NavMenu");
 var makeRequest = /** @class */ (function (_super) {
     __extends(makeRequest, _super);
     function makeRequest() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    makeRequest.prototype.componentDidMount = function () {
+        this.ensureDataFetched();
+    };
+    // This method is called when the route parameters change
+    makeRequest.prototype.componentDidUpdate = function () {
+        this.ensureDataFetched();
+    };
+    makeRequest.prototype.ensureDataFetched = function () {
+        var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestClientBuildingInfo(startDateIndex);
+    };
+    makeRequest.prototype.showClientbuildingInfo = function () {
+        console.log(this.props.ClientBuildingInfo);
+        return (React.createElement("div", null, this.props.ClientBuildingInfo.map(function (d, index) {
+            return React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: index, title: "Location:" + d.City, content: React.createElement("div", null,
+                        React.createElement("p", null,
+                            "City: ",
+                            d.City),
+                        React.createElement("p", null,
+                            "Postal Code: ",
+                            d.PostalCode)) }),
+                React.createElement("br", null));
+        })));
+    };
     makeRequest.prototype.render = function () {
-        var i = 1;
-        var a = [];
-        while (i < 3) {
-            a.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Location " + i.toString(), content: React.createElement("div", null,
-                        React.createElement("p", null, "Building Type"),
-                        React.createElement("p", null, "Primary Operation"),
-                        React.createElement("p", null, "Street"),
-                        React.createElement("p", null, "City"),
-                        React.createElement("p", null, "Postal Code")) }),
-                React.createElement("br", null)));
-            i++;
-        }
+        // let i:number = 1;
+        // let a = [];
+        // while (i < 3) {
+        //     a.push(<div><CustomAccordion 
+        //         title={"Location " + i.toString()}
+        //         content={<div><p>Building Type</p><p>Primary Operation</p><p>Street</p><p>City</p><p>Postal Code</p></div>} />
+        //         <br />
+        //         </div>);
+        //     i++;
+        // }
         return (React.createElement(React.Fragment, null,
-            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
-                    React.createElement(Sidebarmr_1.default, null)),
+                    React.createElement(Sidebarmr_1["default"], null)),
                 React.createElement("div", { className: 'col-8', id: 'mr1add' },
                     React.createElement("h1", null, "Add New Location/Building"),
                     React.createElement("form", null,
@@ -101,10 +120,9 @@ var makeRequest = /** @class */ (function (_super) {
                         React.createElement("input", { type: 'submit', value: 'submit' })),
                     React.createElement("br", null),
                     React.createElement("br", null),
-                    a))));
+                    this.showClientbuildingInfo()))));
     };
     return makeRequest;
-}(React.Component));
+}(React.PureComponent));
 ;
-exports.default = (0, react_redux_1.connect)()(makeRequest);
-//# sourceMappingURL=makeRequest.js.map
+exports["default"] = react_redux_1.connect(function (state) { return state.ClientBuildingInfo; }, ClientBuildingInfoStore.actionCreators)(makeRequest);
