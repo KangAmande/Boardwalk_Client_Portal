@@ -23,13 +23,14 @@ namespace Boardwalk.Models
         public string RoofCovering { get; set; }
         public string SizeSqft { get; set; }
         public string NoOfStoreys { get; set; }
-        public short? YearBuilt { get; set; }
         public string TypeConstiction { get; set; }
         public string Alarm { get; set; }
         public string Mortgaee { get; set; }
         public string Sprinklered { get; set; }
         public bool? IsDelete { get; set; }
+        public DateTime? DateOfDelete { get; set; }
         public string CreatedByUser { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public string Location { get; set; }
         public string Province { get; set; }
         public string Basement { get; set; }

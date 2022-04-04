@@ -1,11 +1,8 @@
 import * as React from 'react';
 import { Route } from 'react-router';
-
 import './custom.css';
-
 import { BrowserRouter } from 'react-router-dom';
 import LoginForm from './components/LoginForm';
-import HomePage from './Routes/HomePage';
 import pmr from './Routes/pmr';
 import sdr from './Routes/sdr';
 import pinkSlipRoute from './Routes/pinkSlipRoute';
@@ -27,12 +24,12 @@ import addDriver from './Routes/addDriver';
 import changeMailingAddress from './Routes/changeMailingAddress';
 import helppage from './Routes/Helppage';
 import Account from './Routes/AccountRoute';
-
+import AdminCertRequests from './components/AdminCertRequests';
+import AdminChangeMailAdd from './components/AdminChangeMailAdd';
 export default () => (
     <div>
       <BrowserRouter>     
             <Route exact path="/" component={LoginForm} />
-            <Route path="/home" component={HomePage} />
             <Route path='/policy-menu' component={pmr} />
             <Route path='/sign-docs' component={sdr} />
             <Route path='/pink-slips' component={pinkSlipRoute} />
@@ -54,6 +51,8 @@ export default () => (
             <Route path='/changeMailingAddress' component={changeMailingAddress} />
             <Route path='/help' component={helppage} />
             <Route path='/Account' component={Account} />
+            <Route path='/admin-cert-requests' component={AdminCertRequests} />
+            <Route path='/admin-change-mail-add' component={AdminChangeMailAdd} />
          </BrowserRouter>
     </div>
 );

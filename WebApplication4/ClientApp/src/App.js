@@ -5,7 +5,6 @@ var react_router_1 = require("react-router");
 require("./custom.css");
 var react_router_dom_1 = require("react-router-dom");
 var LoginForm_1 = require("./components/LoginForm");
-var HomePage_1 = require("./Routes/HomePage");
 var pmr_1 = require("./Routes/pmr");
 var sdr_1 = require("./Routes/sdr");
 var pinkSlipRoute_1 = require("./Routes/pinkSlipRoute");
@@ -27,10 +26,11 @@ var addDriver_1 = require("./Routes/addDriver");
 var changeMailingAddress_1 = require("./Routes/changeMailingAddress");
 var Helppage_1 = require("./Routes/Helppage");
 var AccountRoute_1 = require("./Routes/AccountRoute");
+var AdminCertRequests_1 = require("./components/AdminCertRequests");
+var AdminChangeMailAdd_1 = require("./components/AdminChangeMailAdd");
 exports.default = (function () { return (React.createElement("div", null,
     React.createElement(react_router_dom_1.BrowserRouter, null,
         React.createElement(react_router_1.Route, { exact: true, path: "/", component: LoginForm_1.default }),
-        React.createElement(react_router_1.Route, { path: "/home", component: HomePage_1.default }),
         React.createElement(react_router_1.Route, { path: '/policy-menu', component: pmr_1.default }),
         React.createElement(react_router_1.Route, { path: '/sign-docs', component: sdr_1.default }),
         React.createElement(react_router_1.Route, { path: '/pink-slips', component: pinkSlipRoute_1.default }),
@@ -51,5 +51,7 @@ exports.default = (function () { return (React.createElement("div", null,
         React.createElement(react_router_1.Route, { path: '/addDriver', component: addDriver_1.default }),
         React.createElement(react_router_1.Route, { path: '/changeMailingAddress', component: changeMailingAddress_1.default }),
         React.createElement(react_router_1.Route, { path: '/help', component: Helppage_1.default }),
-        React.createElement(react_router_1.Route, { path: '/Account', component: AccountRoute_1.default })))); });
+        React.createElement(react_router_1.Route, { path: '/Account', component: AccountRoute_1.default }),
+        React.createElement(react_router_1.Route, { path: '/admin-cert-requests', component: AdminCertRequests_1.default }),
+        React.createElement(react_router_1.Route, { path: '/admin-change-mail-add', component: AdminChangeMailAdd_1.default })))); });
 //# sourceMappingURL=App.js.map

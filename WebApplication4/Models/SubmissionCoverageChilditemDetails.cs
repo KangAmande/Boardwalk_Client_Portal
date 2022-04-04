@@ -14,6 +14,7 @@ namespace Boardwalk.Models
         public int? ChildItemId { get; set; }
         public string ValData { get; set; }
         public string CreatedByUser { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public string LocationId { get; set; }
     }
 }

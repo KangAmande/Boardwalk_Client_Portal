@@ -30,6 +30,28 @@ namespace Boardwalk.Models
                 throw;
             }
         }
+        public IEnumerable<Vehicles> GetAllVehicles()
+        {
+            try
+            {
+                return db.Vehicles.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<Equipments> GetAllEquipments()
+        {
+            try
+            {
+                return db.Equipments.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public Policies GetPolicy(int id)
         {
             try

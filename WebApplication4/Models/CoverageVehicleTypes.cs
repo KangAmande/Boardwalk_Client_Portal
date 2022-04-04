@@ -17,6 +17,7 @@ namespace Boardwalk.Models
         public string PhysicalDamage { get; set; }
         public string TranspotationReplacement { get; set; }
         public string WaiverDepreciation { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public int? SubmissionId { get; set; }
         public string PhysicalDamageDeductable { get; set; }
     }

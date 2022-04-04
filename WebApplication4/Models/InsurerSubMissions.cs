@@ -14,6 +14,7 @@ namespace Boardwalk.Models
         public string PolicyNo { get; set; }
         public int? ClientSubmissionId { get; set; }
         public string InsurerQuotationNo { get; set; }
+        public DateTime? SubmissionCreateDate { get; set; }
         public int? StatusId { get; set; }
         public int? ClientInfoId { get; set; }
         public bool? IsBound { get; set; }

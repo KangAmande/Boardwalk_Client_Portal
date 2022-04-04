@@ -13,7 +13,12 @@ namespace Boardwalk.Models
         public int? ClientId { get; set; }
         public string PolicyNo { get; set; }
         public string SubmissionNo { get; set; }
+        public DateTime? SubmissionCreateDate { get; set; }
+        public DateTime? SubmittedDate { get; set; }
+        public DateTime? PolicyEffectiveDate { get; set; }
+        public DateTime? PolicyExpiryDate { get; set; }
         public int? StatusId { get; set; }
+        public DateTime? PolicyQuoteDate { get; set; }
         public string Insurer { get; set; }
         public bool? IsActive { get; set; }
     }

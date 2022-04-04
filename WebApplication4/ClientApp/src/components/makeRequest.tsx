@@ -2,16 +2,13 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';
 import { Popup } from './Popup';
-import { NavLink } from 'reactstrap';
-import * as ClientBuildingInfoStore from '../store/ClientBuildingInfo';
-
-import { Link, RouteComponentProps } from 'react-router-dom';
-import { CustomAccordion } from './Accordion';
+import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
-import { ClientBuildingInfo } from '../store/ClientBuildingInfo';
-
+import * as ClientBuildingInfoStore from '../store/ClientBuildingInfo';
+import { CustomAccordion } from './Accordion';
+import NavMenu from './NavMenu';
 type ClientBuildingInfoProps =
-    ClientBuildingInfoStore.ClientBuildingInfoState // ... state we've requested from the Redux store
+ClientBuildingInfoStore.ClientBuildingInfoState // ... state we've requested from the Redux store
     & typeof ClientBuildingInfoStore.actionCreators // ... plus action creators we've requested
     & RouteComponentProps<{ startDateIndex: string}>;
 class makeRequest extends React.PureComponent<ClientBuildingInfoProps> {
@@ -27,13 +24,18 @@ class makeRequest extends React.PureComponent<ClientBuildingInfoProps> {
         const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
         this.props.requestClientBuildingInfo(startDateIndex);
     }
-    private showClientbuildingInfo() {
+    private showClientBuildingInfo() {
         console.log(this.props.ClientBuildingInfo);
         return (
         <div>
                 {this.props.ClientBuildingInfo.map((d: ClientBuildingInfoStore.ClientBuildingInfo, index) =>
                     <div>
-                        <CustomAccordion key={index} title={"Location:"+ d.City} content={<div><p>City: {d.City}</p><p>Postal Code: {d.PostalCode}</p></div>} />
+                        <CustomAccordion key={index} title={"Location"} content={<div>
+                            <p>primary operation : {d.primaryOperation}</p>
+                            <p>city : {d.city}</p>
+                            <p>street : {d.street}</p>
+                            <p>postal code : {d.postalCode}</p>
+                        </div>} />
                         <br/>
                     </div>
                 )}
@@ -41,19 +43,10 @@ class makeRequest extends React.PureComponent<ClientBuildingInfoProps> {
         );
     }
     public render() {
-       
-        // let i:number = 1;
-        // let a = [];
-        // while (i < 3) {
-        //     a.push(<div><CustomAccordion 
-        //         title={"Location " + i.toString()}
-        //         content={<div><p>Building Type</p><p>Primary Operation</p><p>Street</p><p>City</p><p>Postal Code</p></div>} />
-        //         <br />
-        //         </div>);
-        //     i++;
-        // }
+        
         return (
             <React.Fragment>
+                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebarmr/>
@@ -99,9 +92,10 @@ class makeRequest extends React.PureComponent<ClientBuildingInfoProps> {
                         </form>
                         <br/>
                         <br/>
-                        {this.showClientbuildingInfo()}
-                      
+                        {this.showClientBuildingInfo()}
+
                     </div>
+                    
                 </div>
             </React.Fragment>
         );

@@ -17,7 +17,9 @@ namespace Boardwalk.Models
         public string UnderWritter { get; set; }
         public string UnderWritterEmail { get; set; }
         public int? InsurerQuoteId { get; set; }
+        public DateTime? QuoteExpiryDate { get; set; }
         public string TotalPremimum { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public string CreatedBy { get; set; }
         public string InsuranceQuoteNo { get; set; }
         public string TotalBoundPremimum { get; set; }

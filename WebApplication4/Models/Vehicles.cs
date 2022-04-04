@@ -14,7 +14,6 @@ namespace Boardwalk.Models
         public int? CoverageId { get; set; }
         public string RegisteredOwner { get; set; }
         public string VehicleType { get; set; }
-        public short? VehicleYear { get; set; }
         public string VehicleMake { get; set; }
         public string VehicleModel { get; set; }
         public string VehicleIdentificationNumber { get; set; }
@@ -35,14 +34,13 @@ namespace Boardwalk.Models
         public string AttachedMachinery { get; set; }
         public string AttachedMachineryDescription { get; set; }
         public decimal? AttachedMachineryValue { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public int? SubmissionId { get; set; }
         public string Weight { get; set; }
-        public short? PrincipalLicenseYear { get; set; }
         public string PrincipalDriverTrain { get; set; }
         public DateTime? PrincipalBirthDate { get; set; }
         public string PrincipalConviction { get; set; }
         public DateTime? OccationalBirthDate { get; set; }
-        public short? OccationalLicenseYear { get; set; }
         public string OccationalDriverTrain { get; set; }
         public string OccationalConviction { get; set; }
     }

@@ -18,6 +18,7 @@ namespace Boardwalk.Models
         public string NoticeDays { get; set; }
         public string Operation { get; set; }
         public string Internal { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public string CreatedBy { get; set; }
         public int? CertificateId { get; set; }
         public bool? LossPayee { get; set; }

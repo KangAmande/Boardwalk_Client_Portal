@@ -11,6 +11,7 @@ namespace Boardwalk.Models
     {
         public int Id { get; set; }
         public string AccountNumber { get; set; }
+        public DateTime? QuoteDate { get; set; }
         public string BusinessName { get; set; }
         public string Description { get; set; }
         public string OperationName { get; set; }
@@ -22,6 +23,7 @@ namespace Boardwalk.Models
         public string FullTime { get; set; }
         public string PartTime { get; set; }
         public string WebSiteUrl { get; set; }
+        public DateTime? DateOfCreated { get; set; }
         public string CreatedText { get; set; }
         public int? NoOfEmployee { get; set; }
         public int? Bdmuser { get; set; }
