@@ -4,21 +4,44 @@ import Sidebarmr from './Sidebarmr';
 import { Popup } from './Popup';
 import { NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
+import { ApplicationState } from '../store';
+import * as EquipmentsStore from '../store/Equipments';
 import { CustomAccordion } from './Accordion';
 import NavMenu from './NavMenu';
-class scheduledEquipments extends React.Component<{}, { shown: boolean }> {
-   
+type EquipmentsProps =
+    EquipmentsStore.EquipmentsState // ... state we've requested from the Redux store
+    & typeof EquipmentsStore.actionCreators // ... plus action creators we've requested
+    & RouteComponentProps<{ startDateIndex: string }>;
+class scheduledEquipments extends React.PureComponent<EquipmentsProps> {
+    public componentDidMount() {
+        this.ensureDataFetched();
+    }
+
+    // This method is called when the route parameters change
+    public componentDidUpdate() {
+        this.ensureDataFetched();
+    }
+    private ensureDataFetched() {
+        const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestEquipments(startDateIndex);
+    }
+    private showEquipments() {
+        console.log(this.props.Equipment);
+        return (
+            <div>
+                {this.props.Equipment.map((d: EquipmentsStore.Equipments, index) =>
+                    <div>
+                        <CustomAccordion key={index} title={"Equipment "+d.id}
+                         content={<div><p>{d.model}</p><p>{d.serialNumber}</p><p>{d.value}</p><p>{d.year}</p></div>} />
+                        <br />
+                    </div>
+                )}
+            </div>
+        );
+    }
     public render() {
-        let i:number = 1;
-        let a = [];
-        while (i < 3) {
-            a.push(<div><CustomAccordion 
-                title={"Equipment " + i.toString()}
-                content={<div><p>Make</p><p>Model</p><p>Year</p><p>Serial Number</p><p>Value</p></div>} />
-                <br />
-                </div>);
-            i++;
-        }
+        
         return (
             <React.Fragment>
                 <NavMenu/>
@@ -41,13 +64,16 @@ class scheduledEquipments extends React.Component<{}, { shown: boolean }> {
                             <br/><br/>
                             <input type='submit' value='submit'/>
                         </form>
-                        <br/><br/>
-                        {a}
+                        <br/>
+                        <br/>
+                        {this.showEquipments()}
                     </div>
+                        
                     
                 </div>
             </React.Fragment>
         );
     }
 };
-export default connect()(scheduledEquipments);
+export default connect((state: ApplicationState) => state.Equipments,
+EquipmentsStore.actionCreators)(scheduledEquipments as any);

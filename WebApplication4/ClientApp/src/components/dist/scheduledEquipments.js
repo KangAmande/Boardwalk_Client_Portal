@@ -39,7 +39,7 @@ var scheduledEquipments = /** @class */ (function (_super) {
         console.log(this.props.Equipment);
         return (React.createElement("div", null, this.props.Equipment.map(function (d, index) {
             return React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { key: index, title: "Equipment " + d.id + ":", content: React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: index, title: "Equipment " + d.id, content: React.createElement("div", null,
                         React.createElement("p", null, d.model),
                         React.createElement("p", null, d.serialNumber),
                         React.createElement("p", null, d.value),
