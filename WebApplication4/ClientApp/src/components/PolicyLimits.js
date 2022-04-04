@@ -41,10 +41,13 @@ var PolicyLimits = /** @class */ (function (_super) {
         console.log(this.props.Policy);
         return (React.createElement("div", null, this.props.Policy.map(function (d) {
             return React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { key: d.id, title: "Policy " + d.description.toString(), content: React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: d.id, title: d.description.toString(), content: React.createElement("div", null,
                         React.createElement("p", null,
-                            "Created By ",
-                            d.createdBy)) }),
+                            "Created By - ",
+                            d.createdBy),
+                        React.createElement("p", null,
+                            "Active - ",
+                            d.isActive)) }),
                 React.createElement("br", null));
         })));
     };

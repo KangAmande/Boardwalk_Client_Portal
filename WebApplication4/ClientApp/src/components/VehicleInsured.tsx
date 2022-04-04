@@ -30,7 +30,7 @@ class VehicleInsured extends React.PureComponent<VehiclesProps> {
             <div>
                 {this.props.Vehicle.map((d: VehiclesStore.Vehicles, index) =>
                     <div>
-                        <CustomAccordion key={index} title={d.vehicleType.toString()} content={<div><p>{d.vehicleMake}</p><p>{d.vehicleModel}</p></div>} />
+                        <CustomAccordion key={index} title={d.vehicleType.toString()} content={<div><p>Make - {d.vehicleMake}</p><p>Model - {d.vehicleModel}</p></div>} />
                         <br />
                     </div>
                 )}

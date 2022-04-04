@@ -30,7 +30,7 @@ class PolicyLimits extends React.PureComponent<PoliciesProps> {
             <div>
                 {this.props.Policy.map((d: PoliciesStore.Policies) =>
                     <div>
-                        <CustomAccordion key={d.id} title={"Policy " + d.description.toString()} content={<div><p>Created By {d.createdBy}</p></div>} />
+                        <CustomAccordion key={d.id} title={d.description.toString()} content={<div><p>Created By - {d.createdBy}</p><p>Active - {d.isActive}</p></div>} />
                         <br />
                     </div>
                 )}

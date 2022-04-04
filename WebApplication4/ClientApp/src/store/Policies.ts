@@ -10,7 +10,7 @@ export interface PoliciesState {
 export interface Policies {
     id: number;
     description: string;
-    isActive: boolean;
+    isActive: string;
     createdBy: string;
 }
 
