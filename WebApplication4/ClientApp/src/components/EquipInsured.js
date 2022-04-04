@@ -42,10 +42,18 @@ var EquipInsured = /** @class */ (function (_super) {
         return (React.createElement("div", null, this.props.Equipment.map(function (d, index) {
             return React.createElement("div", null,
                 React.createElement(Accordion_1.CustomAccordion, { key: index, title: d.model.toString(), content: React.createElement("div", null,
-                        React.createElement("p", null, d.model),
-                        React.createElement("p", null, d.serialNumber),
-                        React.createElement("p", null, d.value),
-                        React.createElement("p", null, d.year)) }),
+                        React.createElement("p", null,
+                            "Model - ",
+                            d.model),
+                        React.createElement("p", null,
+                            "Serial Number - ",
+                            d.serialNumber),
+                        React.createElement("p", null,
+                            "Value - $",
+                            d.value),
+                        React.createElement("p", null,
+                            "Year - ",
+                            d.year)) }),
                 React.createElement("br", null));
         })));
     };

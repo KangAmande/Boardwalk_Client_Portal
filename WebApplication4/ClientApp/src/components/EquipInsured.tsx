@@ -30,7 +30,7 @@ class EquipInsured extends React.PureComponent<EquipmentsProps> {
             <div>
                 {this.props.Equipment.map((d: EquipmentsStore.Equipments, index) =>
                     <div>
-                        <CustomAccordion key={index} title={d.model.toString()} content={<div><p>{d.model}</p><p>{d.serialNumber}</p><p>{d.value}</p><p>{d.year}</p></div>} />
+                        <CustomAccordion key={index} title={d.model.toString()} content={<div><p>Model - {d.model}</p><p>Serial Number - {d.serialNumber}</p><p>Value - ${d.value}</p><p>Year - {d.year}</p></div>} />
                         <br />
                     </div>
                 )}

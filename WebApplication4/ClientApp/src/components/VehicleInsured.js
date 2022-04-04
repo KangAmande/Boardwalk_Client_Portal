@@ -42,8 +42,12 @@ var VehicleInsured = /** @class */ (function (_super) {
         return (React.createElement("div", null, this.props.Vehicle.map(function (d, index) {
             return React.createElement("div", null,
                 React.createElement(Accordion_1.CustomAccordion, { key: index, title: d.vehicleType.toString(), content: React.createElement("div", null,
-                        React.createElement("p", null, d.vehicleMake),
-                        React.createElement("p", null, d.vehicleModel)) }),
+                        React.createElement("p", null,
+                            "Make - ",
+                            d.vehicleMake),
+                        React.createElement("p", null,
+                            "Model - ",
+                            d.vehicleModel)) }),
                 React.createElement("br", null));
         })));
     };

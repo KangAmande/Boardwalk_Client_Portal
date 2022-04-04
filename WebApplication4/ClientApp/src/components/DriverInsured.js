@@ -41,10 +41,13 @@ var DriverInsured = /** @class */ (function (_super) {
         console.log(this.props.Driver);
         return (React.createElement("div", null, this.props.Driver.map(function (d, index) {
             return React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { key: index, title: "Name " + d.fullName.toString(), content: React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: index, title: d.fullName.toString(), content: React.createElement("div", null,
                         React.createElement("p", null,
-                            "License ",
-                            d.driverLicense)) }),
+                            "License - ",
+                            d.driverLicense),
+                        React.createElement("p", null,
+                            "License year - ",
+                            d.licenseYear.toString())) }),
                 React.createElement("br", null));
         })));
     };
