@@ -2,23 +2,48 @@ import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';
 import { Popup } from './Popup';
-import { NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
+import { RouteComponentProps } from 'react-router';
+import { ApplicationState } from '../store';
+import * as ClientBuildingInfoStore from '../store/ClientBuildingInfo';
 import { CustomAccordion } from './Accordion';
 import NavMenu from './NavMenu';
-class makeRequest extends React.Component<{}, { shown: boolean }> {
-    
+type ClientBuildingInfoProps =
+ClientBuildingInfoStore.ClientBuildingInfoState // ... state we've requested from the Redux store
+    & typeof ClientBuildingInfoStore.actionCreators // ... plus action creators we've requested
+    & RouteComponentProps<{ startDateIndex: string}>;
+class makeRequest extends React.PureComponent<ClientBuildingInfoProps> {
+    public componentDidMount() {
+        this.ensureDataFetched();
+    }
+
+    // This method is called when the route parameters change
+    public componentDidUpdate() {
+        this.ensureDataFetched();
+    }
+    private ensureDataFetched() {
+        const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestClientBuildingInfo(startDateIndex);
+    }
+    private showClientBuildingInfo() {
+        console.log(this.props.ClientBuildingInfo);
+        return (
+        <div>
+                {this.props.ClientBuildingInfo.map((d: ClientBuildingInfoStore.ClientBuildingInfo, index) =>
+                    <div>
+                        <CustomAccordion key={index} title={"Location"} content={<div>
+                            <p>primary operation : {d.primaryOperation}</p>
+                            <p>city : {d.city}</p>
+                            <p>street : {d.street}</p>
+                            <p>postal code : {d.postalCode}</p>
+                        </div>} />
+                        <br/>
+                    </div>
+                )}
+        </div>
+        );
+    }
     public render() {
-        let i:number = 1;
-        let a = [];
-        while (i < 3) {
-            a.push(<div><CustomAccordion 
-                title={"Location " + i.toString()}
-                content={<div><p>Building Type</p><p>Primary Operation</p><p>Street</p><p>City</p><p>Postal Code</p></div>} />
-                <br />
-                </div>);
-            i++;
-        }
+        
         return (
             <React.Fragment>
                 <NavMenu/>
@@ -67,7 +92,7 @@ class makeRequest extends React.Component<{}, { shown: boolean }> {
                         </form>
                         <br/>
                         <br/>
-                        {a}
+                        {this.showClientBuildingInfo()}
 
                     </div>
                     
@@ -76,4 +101,5 @@ class makeRequest extends React.Component<{}, { shown: boolean }> {
         );
     }
 };
-export default connect()(makeRequest);
+export default connect((state: ApplicationState) => state.ClientBuildingInfo,
+ClientBuildingInfoStore.actionCreators)(makeRequest as any);
