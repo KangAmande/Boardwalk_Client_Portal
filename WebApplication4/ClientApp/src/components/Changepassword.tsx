@@ -30,9 +30,7 @@ class Changepassword extends React.PureComponent<AccountsProps> {
                                 <input type="submit" value="Submit" />
                             </form>
                         </div>
-                        <div>
-
-                        </div>
+                        <br />
                         <div>
                             Verification Code:
                             <form action="/" method="get">

@@ -1,58 +1,54 @@
 ﻿import { Action, Reducer } from 'redux';
 import { AppThunkAction } from './';
 
-// -----------------
-// STATE - This defines the type of data maintained in the Redux store.
-
-export interface AccountsState {
+export interface CertificateInsurancesState {
     isLoading: boolean;
-    Account: Accounts[];
     startDateIndex?: number;
+    CI: CertificateInsurances[];
 }
 
-export interface Accounts {
+export interface CertificateInsurances {
     id: number;
-    accountNumber: string;
-    businessType: number;
-    clientType: string;
+    clientId: number;
+    holderName: string;
+    insuranceType: string;
 }
 
 // -----------------
 // ACTIONS - These are serializable (hence replayable) descriptions of state transitions.
 // They do not themselves have any side-effects; they just describe something that is going to happen.
 
-interface RequestAccountsAction {
-    type: 'REQUEST_ACCOUNTS';
-    startDateIndex?: number;
+interface RequestCertificateInsurancesAction {
+    type: 'REQUEST_CERTIFICATEINSURANCES';
+    startDateIndex: number;
 }
 
-interface ReceiveAcountsAction {
-    type: 'RECEIVE_ACCOUNT';
-    Account: Accounts[];
-    startDateIndex?: number;
+interface ReceiveCertificateInsurancesAction {
+    type: 'RECEIVE_CERTIFICATEINSURANCES';
+    startDateIndex: number;
+    CI: CertificateInsurances[];
 }
 
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
 // declared type strings (and not any other arbitrary string).
-type KnownAction = RequestAccountsAction | ReceiveAcountsAction;
+type KnownAction = RequestCertificateInsurancesAction | ReceiveCertificateInsurancesAction;
 
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    requestAccounts: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestCertificateInsurances: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
         const appState = getState();
-        if (appState && appState.Accounts && startDateIndex !== appState.Accounts.startDateIndex) {
-            fetch(`api/ClientInfos/Index`)
-                .then(response => response.json() as Promise<Accounts[]>)
+        if (appState && appState.CertificateInsurances && startDateIndex !== appState.CertificateInsurances.startDateIndex) {
+            fetch(`api/CertificateInsurances/Index`)
+                .then(response => response.json() as Promise<CertificateInsurances[]>)
                 .then(data => {
-                    console.log(JSON.stringify(data));
-                    dispatch({ type: 'RECEIVE_ACCOUNT', startDateIndex: startDateIndex, Account: data });
+                    dispatch({ type: 'RECEIVE_CERTIFICATEINSURANCES', startDateIndex: startDateIndex, CI: data });
                 });
 
-            dispatch({ type: 'REQUEST_ACCOUNTS', startDateIndex: startDateIndex });
+            dispatch({ type: 'REQUEST_CERTIFICATEINSURANCES', startDateIndex: startDateIndex });
         }
     }
 };
@@ -60,30 +56,30 @@ export const actionCreators = {
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
 
-const unloadedState: AccountsState = { Account: [], isLoading: false };
+const unloadedState: CertificateInsurancesState = { CI: [], isLoading: false };
 
-export const reducer: Reducer<AccountsState> = (state: AccountsState | undefined, incomingAction: Action): AccountsState => {
+export const reducer: Reducer<CertificateInsurancesState> = (state: CertificateInsurancesState | undefined, incomingAction: Action): CertificateInsurancesState => {
     if (state === undefined) {
         return unloadedState;
     }
 
     const action = incomingAction as KnownAction;
     switch (action.type) {
-        case 'REQUEST_ACCOUNTS':
+        case 'REQUEST_CERTIFICATEINSURANCES':
             return {
                 startDateIndex: action.startDateIndex,
                 ...state,
-                Account: state.Account,
+                CI: state.CI,
                 isLoading: true
             };
-        case 'RECEIVE_ACCOUNT':
+        case 'RECEIVE_CERTIFICATEINSURANCES':
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
             if (action.startDateIndex === state.startDateIndex) {
                 return {
                     startDateIndex: action.startDateIndex,
                     ...state,
-                    Account: action.Account,
+                    CI: action.CI,
                     isLoading: false
                 };
             }

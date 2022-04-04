@@ -7,6 +7,7 @@ import Accountsidebar from './Accountsidebar'
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
 import * as AccountsStore from '../store/Accounts';
+
 type AccountsProps =
     AccountsStore.AccountsState// ... state we've requested from the Redux store
     & typeof AccountsStore.actionCreators // ... plus action creators we've requested

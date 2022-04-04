@@ -36,7 +36,7 @@ var Changepassword = /** @class */ (function (_super) {
                         React.createElement("form", { action: "/", method: "get" },
                             React.createElement("input", { id: "newpwd", type: "password", name: "password" }),
                             React.createElement("input", { type: "submit", value: "Submit" }))),
-                    React.createElement("div", null),
+                    React.createElement("br", null),
                     React.createElement("div", null,
                         "Verification Code:",
                         React.createElement("form", { action: "/", method: "get" },

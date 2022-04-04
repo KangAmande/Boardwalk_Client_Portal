@@ -69,6 +69,8 @@
     <None Remove="ClientApp\src\Routes\Changepwd.tsx" />
     <None Remove="ClientApp\src\Routes\RequestRoute.tsx" />
     <None Remove="ClientApp\src\store\Accounts.ts" />
+    <None Remove="ClientApp\src\store\CertificateInsurances.ts" />
+    <None Remove="ClientApp\src\store\Files.ts" />
   </ItemGroup>
 
   <ItemGroup>
