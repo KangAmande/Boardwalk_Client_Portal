@@ -12,10 +12,10 @@ export default class InfoBar extends React.PureComponent {
                 <NavLink className="menu-item" tag={Link} to="/admin-change-mail-add">
                     Change Mailing Address
                 </NavLink><br />
-                <NavLink className="menu-item" tag={Link} to="/admin-cert-requests">
+                <NavLink className="menu-item" tag={Link} to="/admin-add-vehicles">
                     Add/Remove Vehicles
                 </NavLink><br />
-                <NavLink className="menu-item" tag={Link} to="/admin-cert-requests">
+                <NavLink className="menu-item" tag={Link} to="/admin-add-drivers">
                     Add/Remove Drivers
                 </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/admin-cert-requests">
