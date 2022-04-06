@@ -35,7 +35,13 @@ class CertInsur extends React.PureComponent<CIProps> {
             <div>
                 {this.props.CI.map((d: CIStore.CertificateInsurances) =>
                     <div>
-                        <CustomAccordion key={d.id} title={"CertificateInsurances " + d.holderName.toString()} content={<div><p>Insuracne type {d.insuranceType}</p></div>} />
+                        <CustomAccordion key={d.id} title={"CertificateInsurances "}
+                            content={
+                                <div>
+                                    <p>Insuracne type {d.insuranceType}</p>
+                                    <p>Holder {d.holderName}</p>
+                                </div>
+                            } />
                         <br />
                     </div>
                 )}
@@ -53,11 +59,7 @@ class CertInsur extends React.PureComponent<CIProps> {
                     <div className='col-8'>
                         <h1>Certificate of Insurance</h1>
                         {
-                            this.props.CI.map((pol: CIStore.CertificateInsurances) =>
-                                <p key={pol.id}>
-                                    {pol.holderName}
-                                </p>
-                            )
+                            this.showCI()
                         }
                     </div>
                 </div>

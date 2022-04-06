@@ -3,6 +3,7 @@ import * as Accounts from './Accounts';
 import * as Drivers from './Drivers';
 import * as Files from './Files';
 import * as CertificateInsurances from './CertificateInsurances';
+import * as BindingInfos from './BindingInfos';
 
 // The top-level state object
 export interface ApplicationState {
@@ -10,6 +11,7 @@ export interface ApplicationState {
     Policies: Policies.PoliciesState | undefined;
     Drivers: Drivers.DriversState | undefined;
     Files: Files.FilesState | undefined;
+    BindingInfos: BindingInfos.BindinginfosState | undefined;
     CertificateInsurances: CertificateInsurances.CertificateInsurancesState | undefined;
 }
 
@@ -21,6 +23,7 @@ export const reducers = {
     Accounts: Accounts.reducer,
     Drivers:Drivers.reducer,
     Files: Files.reducer,
+    BindingInfos: BindingInfos.reducer,
     CertificateInsurances: CertificateInsurances.reducer
 };
 

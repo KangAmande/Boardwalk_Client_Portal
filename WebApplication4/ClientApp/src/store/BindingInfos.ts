@@ -1,60 +1,56 @@
 ﻿import { Action, Reducer } from 'redux';
 import { AppThunkAction } from './';
 
-export interface FilesState {
+export interface BindinginfosState {
     isLoading: boolean;
     startDateIndex?: number;
-    File: Files[];
+    Bindinginfo: Bindinginfos[];
 }
 
-export interface Files {
+export interface Bindinginfos {
     id: number;
-    name: string;
-    providerName: string;
-    createdBy: string;
-    modifiedBy: string;
-    sizeMb: number;
-    insurerId: number;
-    certificateId: number;
-    bindingId: number;
-
+    expiryDate: number;  
+    effectiveDate: number; 
+    dateOfCreate: number; 
+    createdBy: string; 
+    totalBoundPremimum: string;
 }
 
 // -----------------www
 // ACTIONS - These are serializable (hence replayable) descriptions of state transitions.
 // They do not themselves have any side-effects; they just describe something that is going to happen.
 
-interface RequestFilesAction {
-    type: 'REQUEST_FILES';
+interface RequestBindinginfosAction {
+    type: 'REQUEST_BINDINGINFOS';
     startDateIndex: number;
 }
 
-interface ReceiveFilesAction {
-    type: 'RECEIVE_FILES';
+interface ReceiveBindinginfosAction {
+    type: 'RECEIVE_BINDINGINFOS';
     startDateIndex: number;
-    File: Files[];
+    Bindinginfo: Bindinginfos[];
 }
 
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
 // declared type strings (and not any other arbitrary string).
-type KnownAction = RequestFilesAction | ReceiveFilesAction;
+type KnownAction = RequestBindinginfosAction | ReceiveBindinginfosAction;
 
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
 
 export const actionCreators = {
-    requestFiles: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
+    requestBindinginfos: (startDateIndex: number): AppThunkAction<KnownAction> => (dispatch, getState) => {
         // Only load data if it's something we don't already have (and are not already loading)
         const appState = getState();
-        if (appState && appState.Files && startDateIndex !== appState.Files.startDateIndex) {
-            fetch(`api/Files/Index`)
-                .then(response => response.json() as Promise<Files[]>)
+        if (appState && appState.BindingInfos && startDateIndex !== appState.BindingInfos.startDateIndex) {
+            fetch(`api/BindingInfos/Index`)
+                .then(response => response.json() as Promise<Bindinginfos[]>)
                 .then(data => {
-                    dispatch({ type: 'RECEIVE_FILES', startDateIndex: startDateIndex, File: data });
+                    dispatch({ type: 'RECEIVE_BINDINGINFOS', startDateIndex: startDateIndex, Bindinginfo: data });
                 });
 
-            dispatch({ type: 'REQUEST_FILES', startDateIndex: startDateIndex });
+            dispatch({ type: 'REQUEST_BINDINGINFOS', startDateIndex: startDateIndex });
         }
     }
 };
@@ -62,30 +58,30 @@ export const actionCreators = {
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
 
-const unloadedState: FilesState = { File: [], isLoading: false };
+const unloadedState: BindinginfosState = { Bindinginfo: [], isLoading: false };
 
-export const reducer: Reducer<FilesState> = (state: FilesState | undefined, incomingAction: Action): FilesState => {
+export const reducer: Reducer<BindinginfosState> = (state: BindinginfosState | undefined, incomingAction: Action): BindinginfosState => {
     if (state === undefined) {
         return unloadedState;
     }
 
     const action = incomingAction as KnownAction;
     switch (action.type) {
-        case 'REQUEST_FILES':
+        case 'REQUEST_BINDINGINFOS':
             return {
                 startDateIndex: action.startDateIndex,
                 ...state,
-                File: state.File,
+                Bindinginfo: state.Bindinginfo,
                 isLoading: true
             };
-        case 'RECEIVE_FILES':
+        case 'RECEIVE_BINDINGINFOS':
             // Only accept the incoming data if it matches the most recent request. This ensures we correctly
             // handle out-of-order responses.
             if (action.startDateIndex === state.startDateIndex) {
                 return {
                     startDateIndex: action.startDateIndex,
                     ...state,
-                    File: action.File,
+                    Bindinginfo: action.Bindinginfo,
                     isLoading: false
                 };
             }

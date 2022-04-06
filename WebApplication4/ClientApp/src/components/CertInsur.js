@@ -40,10 +40,13 @@ var CertInsur = /** @class */ (function (_super) {
         console.log(this.props.CI);
         return (React.createElement("div", null, this.props.CI.map(function (d) {
             return React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { key: d.id, title: "CertificateInsurances " + d.holderName.toString(), content: React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: d.id, title: "CertificateInsurances ", content: React.createElement("div", null,
                         React.createElement("p", null,
                             "Insuracne type ",
-                            d.insuranceType)) }),
+                            d.insuranceType),
+                        React.createElement("p", null,
+                            "Holder ",
+                            d.holderName)) }),
                 React.createElement("br", null));
         })));
     };
@@ -54,9 +57,7 @@ var CertInsur = /** @class */ (function (_super) {
                     React.createElement(Sidebar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("h1", null, "Certificate of Insurance"),
-                    this.props.CI.map(function (pol) {
-                        return React.createElement("p", { key: pol.id }, pol.holderName);
-                    })))));
+                    this.showCI()))));
     };
     return CertInsur;
 }(React.PureComponent));

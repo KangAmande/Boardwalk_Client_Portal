@@ -33,5 +33,28 @@ namespace Boardwalk.Models
                 throw;
             }
         }
+        public IEnumerable<BindingInfos> GetAllBindingInfos()
+        {
+            try
+            {
+                return db.BindingInfos.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public BindingInfos GetBindingInfos(int id)
+        {
+            try
+            {
+                BindingInfos BindingInfos = db.BindingInfos.Find(id);
+                return BindingInfos;
+            }
+            catch
+            {
+                throw;
+            }
+        }
     }
 }

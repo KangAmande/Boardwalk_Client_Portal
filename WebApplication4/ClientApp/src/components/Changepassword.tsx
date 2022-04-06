@@ -31,6 +31,7 @@ class Changepassword extends React.PureComponent<AccountsProps> {
                             </form>
                         </div>
                         <br />
+                        <br />
                         <div>
                             Verification Code:
                             <form action="/" method="get">

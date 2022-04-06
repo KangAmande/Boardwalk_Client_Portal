@@ -26,5 +26,18 @@ namespace Boardwalk.Controllers
             return getFileinfos.GetFileInfos(id);
         }
 
+        [HttpGet]
+        [Route("api/BindingInfos/Index")]
+        public IEnumerable<BindingInfos> BindingIndex()
+        {
+            return getFileinfos.GetAllBindingInfos();
+        }
+
+        [HttpGet]
+        [Route("api/BindingInfos/Details/{id}")]
+        public BindingInfos BindingDetails(int id)
+        {
+            return getFileinfos.GetBindingInfos(id);
+        }
     }
 }
