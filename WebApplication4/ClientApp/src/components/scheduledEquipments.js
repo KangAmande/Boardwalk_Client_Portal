@@ -24,7 +24,19 @@ var NavMenu_1 = require("./NavMenu");
 var scheduledEquipments = /** @class */ (function (_super) {
     __extends(scheduledEquipments, _super);
     function scheduledEquipments() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            year: 0,
+            make: "",
+            model: "",
+            value: 0,
+            serialNumber: ""
+        };
+        _this.addEquipments = function (e) {
+            e.preventDefault();
+            _this.props.addEquipments(_this.state.year);
+        };
+        return _this;
     }
     scheduledEquipments.prototype.componentDidMount = function () {
         this.ensureDataFetched();
@@ -50,6 +62,7 @@ var scheduledEquipments = /** @class */ (function (_super) {
         })));
     };
     scheduledEquipments.prototype.render = function () {
+        var _this = this;
         return (React.createElement(React.Fragment, null,
             React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
@@ -57,20 +70,20 @@ var scheduledEquipments = /** @class */ (function (_super) {
                     React.createElement(Sidebarmr_1.default, null)),
                 React.createElement("div", { className: 'col-8', id: 'mr1add' },
                     React.createElement("h1", null, "Add New Equipment"),
-                    React.createElement("form", null,
-                        React.createElement("input", { type: 'text', placeholder: 'Year' }),
+                    React.createElement("form", { onSubmit: this.addEquipments },
+                        React.createElement("input", { type: 'text', placeholder: 'Year', onChange: function (e) { return _this.setState({ year: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Make' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Make', onChange: function (e) { return _this.setState({ make: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Model' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Model', onChange: function (e) { return _this.setState({ model: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Value   ' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Value', onChange: function (e) { return _this.setState({ value: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Serial Number' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Serial Number', onChange: function (e) { return _this.setState({ serialNumber: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
                         React.createElement("input", { type: 'submit', value: 'submit' })),

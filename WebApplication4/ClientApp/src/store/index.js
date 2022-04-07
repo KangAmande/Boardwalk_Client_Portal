@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.reducers = void 0;
 var Policies = require("./Policies");
 var Drivers = require("./Drivers");
@@ -16,3 +16,4 @@ exports.reducers = {
     Vehicles: Vehicles.reducer,
     Equipments: Equipments.reducer
 };
+//# sourceMappingURL=index.js.map

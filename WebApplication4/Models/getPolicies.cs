@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NPOI.SS.Formula.Functions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -46,6 +47,29 @@ namespace Boardwalk.Models
             try
             {
                 return db.Equipments.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public void addEquipment(int year)
+        {
+            try
+            {
+                Console.WriteLine("**********getPolicies: " +year);
+                Equipments e = new Equipments{
+                    Id = 3,
+                    Make = "M",
+                    Model = "M",
+                    Year = year,
+                    SerialNumber = "S",
+                    Value = 230.55,
+                    ClientId = 12
+                };
+                Console.WriteLine("**********getPolicies: " + e.ToString());
+                db.Equipments.Add(e);
+                db.SaveChanges();
             }
             catch
             {

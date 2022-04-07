@@ -19,8 +19,15 @@ namespace Boardwalk.Models
         {
         }
 
+        public virtual DbSet<AddDriverRequests> AddDriverRequests { get; set; }
+        public virtual DbSet<AddEquipmentRequests> AddEquipmentRequests { get; set; }
+        public virtual DbSet<AddLocationRequests> AddLocationRequests { get; set; }
+        public virtual DbSet<AddVehicleRequests> AddVehicleRequests { get; set; }
+        public virtual DbSet<AddressRequests> AddressRequests { get; set; }
+        public virtual DbSet<AdminInfos> AdminInfos { get; set; }
         public virtual DbSet<BindingInfos> BindingInfos { get; set; }
         public virtual DbSet<CertificateInsurances> CertificateInsurances { get; set; }
+        public virtual DbSet<CertificateRequests> CertificateRequests { get; set; }
         public virtual DbSet<ClientBuildingInfo> ClientBuildingInfo { get; set; }
         public virtual DbSet<ClientInfos> ClientInfos { get; set; }
         public virtual DbSet<ClientSubmissions> ClientSubmissions { get; set; }
@@ -35,23 +42,359 @@ namespace Boardwalk.Models
         public virtual DbSet<InsurerSubMissions> InsurerSubMissions { get; set; }
         public virtual DbSet<Notes> Notes { get; set; }
         public virtual DbSet<Policies> Policies { get; set; }
+        public virtual DbSet<RemoveDriverRequests> RemoveDriverRequests { get; set; }
+        public virtual DbSet<RemoveEquipmentRequests> RemoveEquipmentRequests { get; set; }
+        public virtual DbSet<RemoveLocationRequests> RemoveLocationRequests { get; set; }
+        public virtual DbSet<RemoveVehicleRequests> RemoveVehicleRequests { get; set; }
         public virtual DbSet<Status> Status { get; set; }
         public virtual DbSet<SubmissionCoverageChilditemDetails> SubmissionCoverageChilditemDetails { get; set; }
         public virtual DbSet<SubmissionCoverageOtherDetails> SubmissionCoverageOtherDetails { get; set; }
         public virtual DbSet<SubmittionDetails> SubmittionDetails { get; set; }
+        public virtual DbSet<UploadedDocRequests> UploadedDocRequests { get; set; }
         public virtual DbSet<Vehicles> Vehicles { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
                 optionsBuilder.UseMySql("server=insurance-rdb.cdgtmz3zqcy1.us-east-1.rds.amazonaws.com;port=3306;user=admin;password=Mohawk123;database=insurance", x => x.ServerVersion("8.0.27-mysql"));
             }
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<AddDriverRequests>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.BirthDate)
+                    .HasColumnName("birthDate")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.Conviction)
+                    .HasColumnName("conviction")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.DriverTrain)
+                    .HasColumnName("driverTrain")
+                    .HasColumnType("varchar(10)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.FirstName)
+                    .HasColumnName("firstName")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.LastName)
+                    .HasColumnName("lastName")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.LicenseNumber)
+                    .HasColumnName("licenseNumber")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.LicenseYear)
+                    .HasColumnName("licenseYear")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<AddEquipmentRequests>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.Make)
+                    .HasColumnName("make")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Model)
+                    .HasColumnName("model")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.SerialNumber)
+                    .HasColumnName("serialNumber")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Value)
+                    .HasColumnName("value")
+                    .HasColumnType("decimal(10,0)");
+
+                entity.Property(e => e.Year).HasColumnName("year");
+            });
+
+            modelBuilder.Entity<AddLocationRequests>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Alarm)
+                    .HasColumnName("alarm")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.BuildingConstr)
+                    .HasColumnName("buildingConstr")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.BuildingType)
+                    .HasColumnName("buildingType")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.City)
+                    .HasColumnName("city")
+                    .HasColumnType("date");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.ConstrType)
+                    .HasColumnName("constrType")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.DeckConstruction)
+                    .HasColumnName("deckConstruction")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.FloorConstr)
+                    .HasColumnName("floorConstr")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Mortgage)
+                    .HasColumnName("mortgage")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.PostalCode)
+                    .HasColumnName("postalCode")
+                    .HasColumnType("varchar(10)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.PrimaryOp)
+                    .HasColumnName("primaryOp")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Province)
+                    .HasColumnName("province")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.RoofCovering)
+                    .HasColumnName("roofCovering")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.SizeSqft)
+                    .HasColumnName("sizeSqft")
+                    .HasColumnType("decimal(10,0)");
+
+                entity.Property(e => e.Sprinklered)
+                    .HasColumnName("sprinklered")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.StoreysNumber).HasColumnName("storeysNumber");
+
+                entity.Property(e => e.Street)
+                    .HasColumnName("street")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.WallConstr)
+                    .HasColumnName("wallConstr")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.YearBuilt).HasColumnName("yearBuilt");
+            });
+
+            modelBuilder.Entity<AddVehicleRequests>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Class)
+                    .HasColumnName("class")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.ListPrice)
+                    .HasColumnName("listPrice")
+                    .HasColumnType("decimal(10,0)");
+
+                entity.Property(e => e.Make)
+                    .HasColumnName("make")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Model)
+                    .HasColumnName("model")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.OccassionDriver)
+                    .HasColumnName("occassionDriver")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.PrimaryDriver)
+                    .HasColumnName("primaryDriver")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Radius)
+                    .HasColumnName("radius")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Type)
+                    .HasColumnName("type")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Vin)
+                    .HasColumnName("vin")
+                    .HasColumnType("varchar(10)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Weight)
+                    .HasColumnName("weight")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Year).HasColumnName("year");
+            });
+
+            modelBuilder.Entity<AddressRequests>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.City)
+                    .HasColumnName("city")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.PostalCode)
+                    .HasColumnName("postalCode")
+                    .HasColumnType("varchar(10)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Province)
+                    .HasColumnName("province")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Street)
+                    .HasColumnName("street")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+            });
+
+            modelBuilder.Entity<AdminInfos>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.Email)
+                    .IsRequired()
+                    .HasColumnName("email")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.FirstName)
+                    .IsRequired()
+                    .HasColumnName("firstName")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.LastName)
+                    .IsRequired()
+                    .HasColumnName("lastName")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Password)
+                    .IsRequired()
+                    .HasColumnName("password")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+            });
+
             modelBuilder.Entity<BindingInfos>(entity =>
             {
                 entity.Property(e => e.CreatedBy)
@@ -122,6 +465,47 @@ namespace Boardwalk.Models
 
                 entity.Property(e => e.PostalCode)
                     .HasColumnType("text")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+            });
+
+            modelBuilder.Entity<CertificateRequests>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.City)
+                    .HasColumnName("city")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.Name)
+                    .HasColumnName("name")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.PostalCode)
+                    .HasColumnName("postalCode")
+                    .HasColumnType("varchar(10)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.Province)
+                    .HasColumnName("province")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.Street)
+                    .HasColumnName("street")
+                    .HasColumnType("varchar(50)")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
             });
@@ -518,11 +902,9 @@ namespace Boardwalk.Models
 
             modelBuilder.Entity<Equipments>(entity =>
             {
-                entity.HasNoKey();
+                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.ClientId).HasColumnName("clientID");
-
-                entity.Property(e => e.Id).HasColumnName("id");
 
                 entity.Property(e => e.Make)
                     .HasColumnName("make")
@@ -787,6 +1169,71 @@ namespace Boardwalk.Models
                     .HasColumnType("text")
                     .HasCharSet("utf8mb4")
                     .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.IsActive)
+                    .HasColumnType("varchar(10)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+            });
+
+            modelBuilder.Entity<RemoveDriverRequests>(entity =>
+            {
+                entity.ToTable("removeDriverRequests");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.DriverId).HasColumnName("driverId");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<RemoveEquipmentRequests>(entity =>
+            {
+                entity.ToTable("removeEquipmentRequests");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.EquipId).HasColumnName("equipId");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<RemoveLocationRequests>(entity =>
+            {
+                entity.ToTable("removeLocationRequests");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.LocationId).HasColumnName("locationId");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+            });
+
+            modelBuilder.Entity<RemoveVehicleRequests>(entity =>
+            {
+                entity.ToTable("removeVehicleRequests");
+
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
+
+                entity.Property(e => e.VehicleId).HasColumnName("vehicleId");
             });
 
             modelBuilder.Entity<Status>(entity =>
@@ -919,6 +1366,24 @@ namespace Boardwalk.Models
                     .HasCollation("utf8mb4_0900_ai_ci");
 
                 entity.Property(e => e.Slimit).HasColumnName("SLimit");
+            });
+
+            modelBuilder.Entity<UploadedDocRequests>(entity =>
+            {
+                entity.Property(e => e.Id).HasColumnName("id");
+
+                entity.Property(e => e.ClientId).HasColumnName("clientId");
+
+                entity.Property(e => e.NewDoc)
+                    .IsRequired()
+                    .HasColumnName("newDoc")
+                    .HasColumnType("varchar(50)")
+                    .HasCharSet("utf8mb4")
+                    .HasCollation("utf8mb4_0900_ai_ci");
+
+                entity.Property(e => e.RequestTime)
+                    .HasColumnName("requestTime")
+                    .HasColumnType("datetime");
             });
 
             modelBuilder.Entity<Vehicles>(entity =>

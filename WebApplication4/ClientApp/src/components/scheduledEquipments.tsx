@@ -1,9 +1,6 @@
 import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';
-import { Popup } from './Popup';
-import { NavLink } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
 import * as EquipmentsStore from '../store/Equipments';
@@ -14,6 +11,13 @@ type EquipmentsProps =
     & typeof EquipmentsStore.actionCreators // ... plus action creators we've requested
     & RouteComponentProps<{ startDateIndex: string }>;
 class scheduledEquipments extends React.PureComponent<EquipmentsProps> {
+    public state = {
+        year: 0,
+        make: "",
+        model: "",
+        value: 0,
+        serialNumber:""
+    };
     public componentDidMount() {
         this.ensureDataFetched();
     }
@@ -40,8 +44,11 @@ class scheduledEquipments extends React.PureComponent<EquipmentsProps> {
             </div>
         );
     }
+    private addEquipments = (e:any) => {
+        e.preventDefault();
+        this.props.addEquipments(this.state.year);
+    }
     public render() {
-
         return (
             <React.Fragment>
                 <NavMenu />
@@ -51,16 +58,21 @@ class scheduledEquipments extends React.PureComponent<EquipmentsProps> {
                     </div>
                     <div className='col-8' id='mr1add'>
                         <h1>Add New Equipment</h1>
-                        <form>
-                            <input type='text' placeholder='Year' />
+                        <form onSubmit={this.addEquipments}>
+                            <input type='text' placeholder='Year'
+                                onChange={(e) => this.setState({ year: e.target.value } )} />
                             <br /><br />
-                            <input type='text' placeholder='Make' />
+                            <input type='text' placeholder='Make'
+                                onChange={(e) => this.setState({ make: e.target.value })}/>
                             <br /><br />
-                            <input type='text' placeholder='Model' />
+                            <input type='text' placeholder='Model'
+                                onChange={(e) => this.setState({ model: e.target.value })}/>
                             <br /><br />
-                            <input type='text' placeholder='Value   ' />
+                            <input type='text' placeholder='Value'
+                                onChange={(e) => this.setState({ value: e.target.value })}/>
                             <br /><br />
-                            <input type='text' placeholder='Serial Number' />
+                            <input type='text' placeholder='Serial Number'
+                                onChange={(e) => this.setState({ serialNumber: e.target.value })}/>
                             <br /><br />
                             <input type='submit' value='submit' />
                         </form>

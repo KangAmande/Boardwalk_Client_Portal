@@ -17,5 +17,12 @@ namespace Boardwalk.Controllers
         {
             return getPolicies.GetAllEquipments();
         }
+        [HttpPost]
+        [Route("api/Equipments/addEquipment/{year}")]
+        public void addEquipment(int year)
+        {
+            Console.WriteLine("*************Controller: "+year);
+            getPolicies.addEquipment(year);
+        }
     }
 }

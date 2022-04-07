@@ -23,6 +23,7 @@ namespace Boardwalk.Models
         public string RoofCovering { get; set; }
         public string SizeSqft { get; set; }
         public string NoOfStoreys { get; set; }
+        public int? YearBuilt { get; set; }
         public string TypeConstiction { get; set; }
         public string Alarm { get; set; }
         public string Mortgaee { get; set; }

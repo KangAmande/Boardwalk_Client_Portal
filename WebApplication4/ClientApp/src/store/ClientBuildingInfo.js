@@ -10,7 +10,7 @@ var __assign = (this && this.__assign) || function () {
     };
     return __assign.apply(this, arguments);
 };
-exports.__esModule = true;
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.reducer = exports.actionCreators = void 0;
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
@@ -32,7 +32,7 @@ exports.actionCreators = {
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
 var unloadedState = { ClientBuildingInfo: [], isLoading: false };
-exports.reducer = function (state, incomingAction) {
+var reducer = function (state, incomingAction) {
     if (state === undefined) {
         return unloadedState;
     }
@@ -50,3 +50,5 @@ exports.reducer = function (state, incomingAction) {
     }
     return state;
 };
+exports.reducer = reducer;
+//# sourceMappingURL=ClientBuildingInfo.js.map

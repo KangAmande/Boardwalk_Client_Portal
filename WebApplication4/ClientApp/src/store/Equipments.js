@@ -27,6 +27,18 @@ exports.actionCreators = {
             });
             dispatch({ type: 'REQUEST_EQUIPMENTS', startDateIndex: startDateIndex });
         }
+    }; },
+    addEquipments: function (year) { return function (dispatch) {
+        console.log(year);
+        fetch("api/Equipments/addEquipment/" + year, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ year: year })
+        }).
+            then(function (response) { return console.log(response); });
     }; }
 };
 // ----------------

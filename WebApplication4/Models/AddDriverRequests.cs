@@ -7,18 +7,17 @@ using System.Collections.Generic;
 
 namespace Boardwalk.Models
 {
-    public partial class Drivers
+    public partial class AddDriverRequests
     {
         public int Id { get; set; }
-        public int? ClientId { get; set; }
-        public int? SubmissionId { get; set; }
-        public int? CoveragedId { get; set; }
-        public string FullName { get; set; }
-        public string DriverLicense { get; set; }
-        public DateTime? DateOfCreated { get; set; }
-        public DateTime? Birthdate { get; set; }
-        public int? LicenseYear { get; set; }
+        public int ClientId { get; set; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
+        public DateTime? BirthDate { get; set; }
         public string DriverTrain { get; set; }
+        public string LicenseNumber { get; set; }
         public string Conviction { get; set; }
+        public string LicenseYear { get; set; }
+        public DateTime? RequestTime { get; set; }
     }
 }
