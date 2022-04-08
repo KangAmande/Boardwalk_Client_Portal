@@ -26,56 +26,42 @@ var underReview = /** @class */ (function (_super) {
         return _super !== null && _super.apply(this, arguments) || this;
     }
     underReview.prototype.render = function () {
-        var i = 1;
-        var addVehicle = [];
-        var removeVehicle = [];
-        var addDriver = [];
-        var removeDriver = [];
-        var addBuildingLoc = [];
-        var removeBuildingLoct = [];
-        var addEquipment = [];
-        var removeEquipment = [];
-        while (i < 2) {
-            addVehicle.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
-                React.createElement("br", null)));
-            removeVehicle.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Remove Vehicle", content: React.createElement("div", null, "Requests") }),
-                React.createElement("br", null)));
-            addDriver.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Add Driver", content: React.createElement("div", null, "Requests") }),
-                React.createElement("br", null)));
-            removeDriver.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Remove Driver", content: React.createElement("div", null, "Requests") }),
-                React.createElement("br", null)));
-            addEquipment.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Add Equipment", content: React.createElement("div", null, "Requests") }),
-                React.createElement("br", null)));
-            removeEquipment.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Remove Equipment", content: React.createElement("div", null, "Requests") }),
-                React.createElement("br", null)));
-            addBuildingLoc.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Add Building/Location", content: React.createElement("div", null, "Requests") }),
-                React.createElement("br", null)));
-            removeBuildingLoct.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Remove Building/Location", content: React.createElement("div", null, "Requests") }),
-                React.createElement("br", null)));
-            i++;
-        }
         return (React.createElement(React.Fragment, null,
             React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(Sidebarmr_1.default, null)),
-                React.createElement("div", { className: 'col-8', id: 'mr1add' },
-                    React.createElement("div", null, addDriver),
-                    React.createElement("div", null, removeDriver),
-                    React.createElement("div", null, addVehicle),
-                    React.createElement("div", null, removeVehicle),
-                    React.createElement("div", null, addEquipment),
-                    React.createElement("div", null, removeEquipment),
-                    React.createElement("div", null, addBuildingLoc),
-                    React.createElement("div", null, removeBuildingLoct)))));
+                React.createElement("div", { className: 'col-8' },
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Insurance Certificate Requests", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null)),
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Mailing Address Requests", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null)),
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null)),
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null)),
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null)),
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null)),
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null)),
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null)),
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null)),
+                    React.createElement("div", null,
+                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
+                        React.createElement("br", null))))));
     };
     return underReview;
 }(React.Component));

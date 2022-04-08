@@ -30,6 +30,8 @@ var AdminCertRequests_1 = require("./components/AdminCertRequests");
 var AdminChangeMailAdd_1 = require("./components/AdminChangeMailAdd");
 var AdminAddDriver_1 = require("./components/AdminAddDriver");
 var AdminAddVehicle_1 = require("./components/AdminAddVehicle");
+var AdminAddEquipment_1 = require("./components/AdminAddEquipment");
+var AdminAddLocation_1 = require("./components/AdminAddLocation");
 exports.default = (function () { return (React.createElement("div", null,
     React.createElement(react_router_dom_1.BrowserRouter, null,
         React.createElement(react_router_1.Route, { exact: true, path: "/", component: LoginForm_1.default }),
@@ -57,5 +59,7 @@ exports.default = (function () { return (React.createElement("div", null,
         React.createElement(react_router_1.Route, { path: '/admin-cert-requests', component: AdminCertRequests_1.default }),
         React.createElement(react_router_1.Route, { path: '/admin-change-mail-add', component: AdminChangeMailAdd_1.default }),
         React.createElement(react_router_1.Route, { path: '/admin-add-drivers', component: AdminAddDriver_1.default }),
-        React.createElement(react_router_1.Route, { path: '/admin-add-vehicles', component: AdminAddVehicle_1.default })))); });
+        React.createElement(react_router_1.Route, { path: '/admin-add-vehicles', component: AdminAddVehicle_1.default }),
+        React.createElement(react_router_1.Route, { path: '/admin-add-equip', component: AdminAddEquipment_1.default }),
+        React.createElement(react_router_1.Route, { path: '/admin-add-location', component: AdminAddLocation_1.default })))); });
 //# sourceMappingURL=App.js.map
