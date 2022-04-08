@@ -42,6 +42,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\getClientBuildingInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\components\Account.tsx" />
     <None Remove="ClientApp\src\components\Accountsidebar.tsx" />
     <None Remove="ClientApp\src\components\AdminCertRequests.tsx" />

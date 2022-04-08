@@ -13,7 +13,7 @@ namespace Boardwalk.Models
         public int ClientId { get; set; }
         public string BuildingType { get; set; }
         public string Street { get; set; }
-        public DateTime? City { get; set; }
+        public string City { get; set; }
         public string PostalCode { get; set; }
         public string Province { get; set; }
         public string PrimaryOp { get; set; }

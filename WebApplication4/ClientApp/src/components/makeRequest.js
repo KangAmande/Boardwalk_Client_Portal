@@ -24,7 +24,16 @@ var NavMenu_1 = require("./NavMenu");
 var makeRequest = /** @class */ (function (_super) {
     __extends(makeRequest, _super);
     function makeRequest() {
-        return _super !== null && _super.apply(this, arguments) || this;
+        var _this = _super !== null && _super.apply(this, arguments) || this;
+        _this.state = {
+            id: 0, buildingType: "", street: "", city: "", postalCode: "", province: "", primaryOp: "", buildingConstr: "", wallConstr: "",
+            floorConstr: "", sprinklered: "", deckConstr: "", roofCovering: "", sizeSqft: 0, storeyNumber: 0, yearBuilt: 0, constrType: "", alarm: "", mortgage: ""
+        };
+        _this.addLocations = function (e) {
+            e.preventDefault();
+            _this.props.addLocations(_this.state.buildingType, _this.state.street, _this.state.city, _this.state.postalCode, _this.state.province, _this.state.primaryOp, _this.state.buildingConstr, _this.state.wallConstr, _this.state.floorConstr, _this.state.sprinklered, _this.state.deckConstr, _this.state.roofCovering, _this.state.sizeSqft, _this.state.storeyNumber, _this.state.yearBuilt, _this.state.constrType, _this.state.alarm, _this.state.mortgage);
+        };
+        return _this;
     }
     makeRequest.prototype.componentDidMount = function () {
         this.ensureDataFetched();
@@ -38,6 +47,7 @@ var makeRequest = /** @class */ (function (_super) {
         this.props.requestClientBuildingInfo(startDateIndex);
     };
     makeRequest.prototype.showClientBuildingInfo = function () {
+        var _this = this;
         console.log(this.props.ClientBuildingInfo);
         return (React.createElement("div", null, this.props.ClientBuildingInfo.map(function (d, index) {
             return React.createElement("div", null,
@@ -53,11 +63,18 @@ var makeRequest = /** @class */ (function (_super) {
                             d.street),
                         React.createElement("p", null,
                             "postal code : ",
-                            d.postalCode)) }),
+                            d.postalCode),
+                        React.createElement("button", { onClick: function (e) { return _this.removeLocation(d.id); } }, "Remove")) }),
                 React.createElement("br", null));
         })));
     };
+    makeRequest.prototype.removeLocation = function (e) {
+        var _this = this;
+        console.log("ID: " + e);
+        this.setState({ id: e }, function () { return _this.props.removeLocation(_this.state.id); });
+    };
     makeRequest.prototype.render = function () {
+        var _this = this;
         return (React.createElement(React.Fragment, null,
             React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
@@ -65,56 +82,59 @@ var makeRequest = /** @class */ (function (_super) {
                     React.createElement(Sidebarmr_1.default, null)),
                 React.createElement("div", { className: 'col-8', id: 'mr1add' },
                     React.createElement("h1", null, "Add New Location/Building"),
-                    React.createElement("form", null,
-                        React.createElement("input", { type: 'text', placeholder: 'Building Type' }),
+                    React.createElement("form", { onSubmit: this.addLocations },
+                        React.createElement("input", { type: 'text', placeholder: 'Building Type', onChange: function (e) { return _this.setState({ buildingType: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Street' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Street', onChange: function (e) { return _this.setState({ street: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'City' }),
+                        React.createElement("input", { type: 'text', placeholder: 'City', onChange: function (e) { return _this.setState({ city: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Postal Code' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Postal Code', onChange: function (e) { return _this.setState({ postalCode: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Primary Operation' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Province', onChange: function (e) { return _this.setState({ province: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Building Construction' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Primary Operation', onChange: function (e) { return _this.setState({ primaryOp: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Wall Construction' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Building Construction', onChange: function (e) { return _this.setState({ buildingConstr: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Floor Construction' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Wall Construction', onChange: function (e) { return _this.setState({ wallConstr: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Sprinklered' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Floor Construction', onChange: function (e) { return _this.setState({ floorConstr: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Deck Connection' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Sprinklered', onChange: function (e) { return _this.setState({ sprinklered: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Roof Covering' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Deck Construction', onChange: function (e) { return _this.setState({ deckConstr: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Size sqft' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Roof Covering', onChange: function (e) { return _this.setState({ roofCovering: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Number of Storeys' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Size sqft', onChange: function (e) { return _this.setState({ sizeSqft: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Year Built' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Number of Storeys', onChange: function (e) { return _this.setState({ storeyNumber: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Construction Type' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Year Built', onChange: function (e) { return _this.setState({ yearBuilt: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Alarm' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Construction Type', onChange: function (e) { return _this.setState({ constrType: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
-                        React.createElement("input", { type: 'text', placeholder: 'Mortgage' }),
+                        React.createElement("input", { type: 'text', placeholder: 'Alarm', onChange: function (e) { return _this.setState({ alarm: e.target.value }); } }),
+                        React.createElement("br", null),
+                        React.createElement("br", null),
+                        React.createElement("input", { type: 'text', placeholder: 'Mortgage', onChange: function (e) { return _this.setState({ mortgage: e.target.value }); } }),
                         React.createElement("br", null),
                         React.createElement("br", null),
                         React.createElement("input", { type: 'submit', value: 'submit' })),

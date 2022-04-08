@@ -173,7 +173,7 @@ namespace Boardwalk.Models
 
                 entity.Property(e => e.City)
                     .HasColumnName("city")
-                    .HasColumnType("date");
+                    .HasColumnType("varchar(10)");
 
                 entity.Property(e => e.ClientId).HasColumnName("clientId");
 

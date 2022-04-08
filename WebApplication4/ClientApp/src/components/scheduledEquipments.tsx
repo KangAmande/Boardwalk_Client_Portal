@@ -12,10 +12,11 @@ type EquipmentsProps =
     & RouteComponentProps<{ startDateIndex: string }>;
 class scheduledEquipments extends React.PureComponent<EquipmentsProps> {
     public state = {
+        id:0,
         year: 0,
         make: "",
         model: "",
-        value: 0,
+        value: 0.0,
         serialNumber:""
     };
     public componentDidMount() {
@@ -37,17 +38,25 @@ class scheduledEquipments extends React.PureComponent<EquipmentsProps> {
                 {this.props.Equipment.map((d: EquipmentsStore.Equipments, index) =>
                     <div>
                         <CustomAccordion key={index} title={"Equipment " + d.id}
-                            content={<div><p>{d.model}</p><p>{d.serialNumber}</p><p>{d.value}</p><p>{d.year}</p></div>} />
+                            content={<div><p>{d.model}</p><p>{d.serialNumber}</p><p>{d.value}</p><p>{d.year}</p>
+                                <button onClick={(e)=>this.removeEquipment(d.id)}>Remove</button>
+                                
+                            </div>} />
                         <br />
                     </div>
                 )}
             </div>
         );
     }
+    private removeEquipment(e: any){
+        console.log("ID: " + e);
+        this.setState({ id: e }, () => this.props.removeEquipment(this.state.id));
+    }
     private addEquipments = (e:any) => {
         e.preventDefault();
-        this.props.addEquipments(this.state.year);
+        this.props.addEquipments(this.state.year, this.state.make, this.state.model, this.state.value, this.state.serialNumber);
     }
+    
     public render() {
         return (
             <React.Fragment>

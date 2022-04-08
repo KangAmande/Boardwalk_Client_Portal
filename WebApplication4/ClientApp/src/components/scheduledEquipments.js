@@ -26,15 +26,16 @@ var scheduledEquipments = /** @class */ (function (_super) {
     function scheduledEquipments() {
         var _this = _super !== null && _super.apply(this, arguments) || this;
         _this.state = {
+            id: 0,
             year: 0,
             make: "",
             model: "",
-            value: 0,
+            value: 0.0,
             serialNumber: ""
         };
         _this.addEquipments = function (e) {
             e.preventDefault();
-            _this.props.addEquipments(_this.state.year);
+            _this.props.addEquipments(_this.state.year, _this.state.make, _this.state.model, _this.state.value, _this.state.serialNumber);
         };
         return _this;
     }
@@ -50,6 +51,7 @@ var scheduledEquipments = /** @class */ (function (_super) {
         this.props.requestEquipments(startDateIndex);
     };
     scheduledEquipments.prototype.showEquipments = function () {
+        var _this = this;
         console.log(this.props.Equipment);
         return (React.createElement("div", null, this.props.Equipment.map(function (d, index) {
             return React.createElement("div", null,
@@ -57,9 +59,15 @@ var scheduledEquipments = /** @class */ (function (_super) {
                         React.createElement("p", null, d.model),
                         React.createElement("p", null, d.serialNumber),
                         React.createElement("p", null, d.value),
-                        React.createElement("p", null, d.year)) }),
+                        React.createElement("p", null, d.year),
+                        React.createElement("button", { onClick: function (e) { return _this.removeEquipment(d.id); } }, "Remove")) }),
                 React.createElement("br", null));
         })));
+    };
+    scheduledEquipments.prototype.removeEquipment = function (e) {
+        var _this = this;
+        console.log("ID: " + e);
+        this.setState({ id: e }, function () { return _this.props.removeEquipment(_this.state.id); });
     };
     scheduledEquipments.prototype.render = function () {
         var _this = this;

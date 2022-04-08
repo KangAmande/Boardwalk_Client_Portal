@@ -11,10 +11,10 @@ export interface ClientBuildingInfoState {
 }
 
 export interface ClientBuildingInfo {
-    Id: number;
+    id: number;
     street: String;
-    IsActive: boolean;
-    CreatedBy: string;
+    isActive: boolean;
+    createdBy: string;
     city:string;
     postalCode:string;
     primaryOperation:string;
@@ -52,6 +52,33 @@ export const actionCreators = {
 
             dispatch({ type: 'REQUEST_CLIENTBUILDINGINFO', startDateIndex: startDateIndex });
         }
+    },
+    addLocations: (buildingType: string, street: string, city: string, postalCode: string, province: string, primaryOp: string, buildingConstr: string, wallConstr: string,
+        floorConstr: string, sprinklered: string, deckConstr: string, roofCovering: string, sizeSqft: number, storeyNumber: number, yearBuilt: number, constrType: string, alarm: string, mortgage: string):
+        AppThunkAction<KnownAction> => (dispatch) => {
+            console.log(buildingType);
+            fetch(`api/ClientBuildingInfo/addLocation/` + buildingType + `/` + street + `/` + city + `/` + postalCode + `/` + province +`/`+ primaryOp + `/` + buildingConstr + `/` + wallConstr + `/` + floorConstr + `/` + sprinklered + `/`
+                + deckConstr + `/` + roofCovering + `/` + sizeSqft + `/` + storeyNumber + `/` + yearBuilt + `/` + constrType + `/` + alarm + `/` + mortgage, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+                body: JSON.stringify({
+                    buildingType: buildingType, street: street, city: city, postalCode: postalCode, province: province, primaryOp: primaryOp, buildingConstr: buildingConstr, wallConstr: wallConstr,
+                    floorConstr: floorConstr, sprinklered: sprinklered, deckConstr: deckConstr, roofCovering: roofCovering, sizeSqft: sizeSqft, storeyNumber: storeyNumber, yearBuilt: yearBuilt, constrType: constrType, alarm: alarm, mortgage: mortgage })
+        }).
+            then(response => console.log(response));
+        },
+    removeLocation: (id: number): AppThunkAction<KnownAction> => (dispatch) => {
+        fetch(`api/ClientBuildingInfo/removeLocation/` + id, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        }).then();
     }
 };
 

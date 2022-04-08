@@ -26,13 +26,6 @@ namespace Boardwalk.Controllers
             return objemployee.AddEmployee(employee);
         }*/
 
-        [HttpGet]
-        [Route("api/Policies/Details/{id}")]
-        public Policies Details(int id)
-        {
-            return getPolicies.GetPolicy(id);
-        }
-
         /**[HttpPut]
         [Route("api/Employee/Edit")]
         public int Edit(TblEmployee employee)

@@ -28,17 +28,27 @@ exports.actionCreators = {
             dispatch({ type: 'REQUEST_EQUIPMENTS', startDateIndex: startDateIndex });
         }
     }; },
-    addEquipments: function (year) { return function (dispatch) {
-        console.log(year);
-        fetch("api/Equipments/addEquipment/" + year, {
+    addEquipments: function (year, make, model, value, serialN) { return function (dispatch) {
+        console.log(make);
+        fetch("api/Equipments/addEquipment/" + year + "/" + make + "/" + model + "/" + value + "/" + serialN, {
             method: "post",
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ year: year })
+            body: JSON.stringify({ year: year, make: make, model: model, value: value, serialN: serialN })
         }).
             then(function (response) { return console.log(response); });
+    }; },
+    removeEquipment: function (id) { return function (dispatch) {
+        fetch("api/Equipments/removeEquipment/" + id, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        }).then();
     }; }
 };
 // ----------------
