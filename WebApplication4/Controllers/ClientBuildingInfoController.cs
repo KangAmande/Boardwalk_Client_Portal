@@ -10,19 +10,28 @@ namespace Boardwalk.Controllers
 {
     public class ClientBuildingInfoController : Controller
     {
-        getClientBuildingInfo getClientBuildingInfo = new getClientBuildingInfo();
-
+        getPolicies getPolicies = new getPolicies();
         [HttpGet]
         [Route("api/ClientBuildingInfo/Index")]
         public IEnumerable<ClientBuildingInfo> Index()
         {
-            return getClientBuildingInfo.getAllClientBuildingInfo();
+            return getPolicies.getAllClientBuildingInfo();
         }
-         [HttpGet]
-        [Route("api/ClientBuildingInfo/Details/{id}")]
-        public ClientBuildingInfo Details(int id)
+        [HttpPost]
+        [Route("api/ClientBuildingInfo/addLocation/{buildingType}/{street}/{city}/{postalCode}/{province}/{primaryOp}/{buildingConstr}/{wallConstr}/{floorConstr}/{sprinklered}/{deckConstr}/{roofCovering}/{sizeSqft}/{storeyNumber}/{yearBuilt}/{constrType}/{alarm}/{mortgage}")]
+        public void addLocation(string buildingType, string street, string city, string postalCode, string province, string primaryOp, string buildingConstr, string wallConstr,
+            string floorConstr, string sprinklered, string deckConstr, string roofCovering, decimal sizeSqft, int storeyNumber, int yearBuilt, string constrType, string alarm, string mortgage)
         {
-            return getClientBuildingInfo.GetClientBuildingInfo(id);
+            getPolicies.addLocation(buildingType,  street,  city,  postalCode,  province,  primaryOp,  buildingConstr,  wallConstr,
+             floorConstr,  sprinklered,  deckConstr,  roofCovering,  sizeSqft,  storeyNumber,  yearBuilt,  constrType,  alarm,  mortgage);
+           
         }
-}
+        [HttpPost]
+        [Route("api/ClientBuildingInfo/removeLocation/{id}")]
+        public void removeLocation(int id)
+        {
+            Console.WriteLine("*************Controller: " + id);
+            getPolicies.removeLocation(id);
+        }
+    }
 }

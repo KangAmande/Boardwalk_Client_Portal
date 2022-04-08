@@ -15,7 +15,6 @@ export interface Equipments {
     serialNumber: string;
     value: DoubleRange;
 }
-
 // -----------------
 // ACTIONS - These are serializable (hence replayable) descriptions of state transitions.
 // They do not themselves have any side-effects; they just describe something that is going to happen.
@@ -52,6 +51,28 @@ export const actionCreators = {
 
             dispatch({ type: 'REQUEST_EQUIPMENTS', startDateIndex: startDateIndex });
         }
+    },
+    addEquipments: (year: number, make: string, model: string, value: number, serialN: string): AppThunkAction<KnownAction> => (dispatch) => {
+        console.log(make);
+        fetch(`api/Equipments/addEquipment/` + year + `/` + make + `/` + model + `/` + value + `/` + serialN, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ year: year, make: make, model: model, value: value, serialN: serialN })
+        }).
+            then(response => console.log(response));
+    },
+    removeEquipment: (id: number): AppThunkAction<KnownAction> => (dispatch) => {
+        fetch(`api/Equipments/removeEquipment/` + id, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id:id })
+        }).then();
     }
 };
 

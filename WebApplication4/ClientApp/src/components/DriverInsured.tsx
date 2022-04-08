@@ -30,7 +30,7 @@ class DriverInsured extends React.PureComponent<DriversProps> {
         <div>
                 {this.props.Driver.map((d: DriversStore.Drivers, index) =>
                     <div>
-                        <CustomAccordion key={index} title={"Name " + d.fullName.toString()} content={<div><p>License {d.driverLicense}</p></div>} />
+                        <CustomAccordion key={index} title={d.fullName.toString()} content={<div><p>License - {d.driverLicense}</p><p>License year - {d.licenseYear.toString()}</p></div>} />
                         <br/>
                     </div>
                 )}

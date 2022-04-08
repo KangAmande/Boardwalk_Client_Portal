@@ -21,6 +21,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="MySql.Data.EntityFrameworkCore" Version="8.0.22" />
+    <PackageReference Include="NPOI" Version="2.5.5" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="3.1.2" />
     <PackageReference Include="Pomelo.EntityFrameworkCore.MySql.Design" Version="1.1.2" />
   </ItemGroup>
@@ -41,8 +42,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\getClientBuildingInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="ClientApp\src\components\Account.tsx" />
     <None Remove="ClientApp\src\components\Accountsidebar.tsx" />
+    <None Remove="ClientApp\src\components\AdminAddEquipment.tsx" />
+    <None Remove="ClientApp\src\components\AdminAddLocation.tsx" />
+    <None Remove="ClientApp\src\components\AdminCertRequests.tsx" />
+    <None Remove="ClientApp\src\components\AdminChangeMailAdd.tsx" />
+    <None Remove="ClientApp\src\components\AdminChangeRequestBar.tsx" />
+    <None Remove="ClientApp\src\components\AdminNavMenu.tsx" />
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />
     <None Remove="ClientApp\src\components\FetchData.tsx" />
@@ -85,7 +96,9 @@
     <TypeScriptCompile Remove="ClientApp\src\components\VehicleInsured.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\Routes\Helppage.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\store\Drivers.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\store\Equipments.ts" />
     <TypeScriptCompile Remove="ClientApp\src\store\Policies.ts" />
+    <TypeScriptCompile Remove="ClientApp\src\store\Vehicles.ts" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
