@@ -19,67 +19,55 @@ var React = require("react");
 var react_redux_1 = require("react-redux");
 var AdminNavMenu_1 = require("./AdminNavMenu");
 var AdminChangeRequestBar_1 = require("./AdminChangeRequestBar");
-var AddDriversStore = require("../store/AddDrivers");
-var AdminAddDriver = /** @class */ (function (_super) {
-    __extends(AdminAddDriver, _super);
-    function AdminAddDriver() {
+var RemoveDriversStore = require("../store/RemoveDrivers");
+var AdminRemoveDriver = /** @class */ (function (_super) {
+    __extends(AdminRemoveDriver, _super);
+    function AdminRemoveDriver() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    AdminAddDriver.prototype.componentDidMount = function () {
+    AdminRemoveDriver.prototype.componentDidMount = function () {
         this.ensureDataFetched();
     };
     // This method is called when the route parameters change
-    AdminAddDriver.prototype.componentDidUpdate = function () {
+    AdminRemoveDriver.prototype.componentDidUpdate = function () {
         this.ensureDataFetched();
     };
-    AdminAddDriver.prototype.ensureDataFetched = function () {
+    AdminRemoveDriver.prototype.ensureDataFetched = function () {
         var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
-        this.props.requestAddDrivers(startDateIndex);
+        this.props.requestRemoveDrivers(startDateIndex);
     };
-    AdminAddDriver.prototype.showAddDrivers = function () {
-        console.log(this.props.AddDriver);
+    AdminRemoveDriver.prototype.showRemoveDrivers = function () {
+        console.log(this.props.RemoveDriver);
         return (React.createElement("div", null,
             React.createElement("table", null,
                 React.createElement("tr", null,
                     React.createElement("th", null, "ID"),
                     React.createElement("th", null, "Client ID"),
-                    React.createElement("th", null, "First Name"),
-                    React.createElement("th", null, "Last Name"),
-                    React.createElement("th", null, "Birth Date"),
-                    React.createElement("th", null, "Driver Train"),
-                    React.createElement("th", null, "License Number"),
-                    React.createElement("th", null, "Conviction"),
-                    React.createElement("th", null, "License Year"),
+                    React.createElement("th", null, "Driver ID"),
                     React.createElement("th", null, "Request Time"),
                     React.createElement("th", null, "Approve or Reject")),
-                this.props.AddDriver.map(function (d, index) {
+                this.props.RemoveDriver.map(function (d, index) {
                     return React.createElement("tr", { key: index },
-                        React.createElement("th", null, d.id),
-                        React.createElement("th", null, d.clientId),
-                        React.createElement("th", null, d.firstName),
-                        React.createElement("th", null, d.lastName),
-                        React.createElement("th", null, d.birthDate),
-                        React.createElement("th", null, d.driverTrain),
-                        React.createElement("th", null, d.licenseNumber),
-                        React.createElement("th", null, d.conviction),
-                        React.createElement("th", null, d.licenseYear),
-                        React.createElement("th", null, d.requestTime),
-                        React.createElement("th", null,
+                        React.createElement("td", null, d.id),
+                        React.createElement("td", null, d.clientId),
+                        React.createElement("td", null, d.driverId),
+                        React.createElement("td", null, d.requestTime),
+                        React.createElement("td", null,
                             React.createElement("button", null, "Yes"),
                             React.createElement("button", null, "No")));
                 }))));
     };
-    AdminAddDriver.prototype.render = function () {
+    AdminRemoveDriver.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement(AdminNavMenu_1.default, null),
             React.createElement("div", { className: "row" },
                 React.createElement("div", { className: "col-4" },
                     React.createElement(AdminChangeRequestBar_1.default, null)),
                 React.createElement("div", { className: "col-8" },
-                    React.createElement("h1", null, "Add Driver Requests"),
-                    React.createElement("div", null, this.showAddDrivers())))));
+                    React.createElement("h1", null, "Remove Driver Requests"),
+                    React.createElement("div", null, this.showRemoveDrivers())))));
     };
-    return AdminAddDriver;
+    return AdminRemoveDriver;
 }(React.PureComponent));
-exports.default = (0, react_redux_1.connect)(function (state) { return state.AddDrivers; }, AddDriversStore.actionCreators)(AdminAddDriver);
-//# sourceMappingURL=AdminAddDriver.js.map
+exports.default = (0, react_redux_1.connect)(function (state) { return state.RemoveDrivers; }, RemoveDriversStore.actionCreators)(AdminRemoveDriver);
+//# sourceMappingURL=AdminRemoveDriver.js.map

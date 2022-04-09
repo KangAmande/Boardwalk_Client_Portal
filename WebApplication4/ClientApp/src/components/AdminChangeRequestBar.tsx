@@ -13,19 +13,28 @@ export default class InfoBar extends React.PureComponent {
                     Change Mailing Address
                 </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/admin-add-vehicles">
-                    Add/Remove Vehicles
+                    Add Vehicles
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/admin-remove-vehicles">
+                    Remove Vehicles
                 </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/admin-add-drivers">
-                    Add/Remove Drivers
+                    Add Drivers
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/admin-remove-drivers">
+                    Remove Drivers
                 </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/admin-add-location">
-                    Add/Remove Locations and Buildings
+                    Add Locations and Buildings
+                </NavLink><br />
+                <NavLink className="menu-item" tag={Link} to="/admin-remove-location">
+                    Remove Locations and Buildings
                 </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/admin-add-equip">
-                    Add/Remove Scheduled Equipment
+                    Add Scheduled Equipment
                 </NavLink>
                 <NavLink className="menu-item" tag={Link} to="/admin-remove-equip">
-                    Add/Remove Scheduled Equipment
+                    Remove Scheduled Equipment
                 </NavLink>
             </Container>
         );

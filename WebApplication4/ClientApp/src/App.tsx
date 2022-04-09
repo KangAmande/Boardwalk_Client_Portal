@@ -27,10 +27,13 @@ import Account from './Routes/AccountRoute';
 import AdminCertRequests from './components/AdminCertRequests';
 import AdminChangeMailAdd from './components/AdminChangeMailAdd';
 import AdminAddDriver from './components/AdminAddDriver';
+import AdminRemoveDriver from './components/AdminRemoveDriver';
 import AdminAddVehicle from './components/AdminAddVehicle';
+import AdminRemoveVehicle from './components/AdminRemoveVehicle';
 import AdminAddEquipment from './components/AdminAddEquipment';
 import AdminRemoveEquipment from './components/AdminRemoveEquipment';
 import AdminAddLocation from './components/AdminAddLocation';
+import AdminRemoveLocation from './components/AdminRemoveLocation';
 export default () => (
     <div>
       <BrowserRouter>     
@@ -59,10 +62,13 @@ export default () => (
             <Route path='/admin-cert-requests' component={AdminCertRequests} />
             <Route path='/admin-change-mail-add' component={AdminChangeMailAdd} />
             <Route path='/admin-add-drivers' component={AdminAddDriver} />
+            <Route path='/admin-remove-drivers' component={AdminRemoveDriver} />
             <Route path='/admin-add-vehicles' component={AdminAddVehicle} />
+            <Route path='/admin-remove-vehicles' component={AdminRemoveVehicle} />
             <Route path='/admin-add-equip' component={AdminAddEquipment} />
             <Route path='/admin-remove-equip' component={AdminRemoveEquipment} />
             <Route path='/admin-add-location' component={AdminAddLocation} />
+            <Route path='/admin-remove-location' component={AdminRemoveLocation} />
          </BrowserRouter>
     </div>
 );

@@ -5,6 +5,12 @@ import * as Equipments from './Equipments';
 import * as ClientBuildingInfo from './ClientBuildingInfo';
 import * as AddEquipments from './AddEquipments';
 import * as RemoveEquipments from './RemoveEquipment';
+import * as AddLocations from './AddLocations';
+import * as RemoveLocations from './RemoveLocations';
+import * as AddDrivers from './AddDrivers';
+import * as RemoveDrivers from './RemoveDrivers';
+import * as AddVehicles from './AddVehicles';
+import * as RemoveVehicles from './RemoveVehicles';
 
 // The top-level state object
 export interface ApplicationState {
@@ -15,6 +21,12 @@ export interface ApplicationState {
     Equipments: Equipments.EquipmentsState | undefined;
     AddEquipments: AddEquipments.AddEquipmentsState | undefined;
     RemoveEquipments: RemoveEquipments.RemoveEquipmentsState | undefined;
+    AddLocations: AddLocations.AddLocationsState | undefined;
+    RemoveLocations: RemoveLocations.RemoveLocationsState | undefined;
+    AddDrivers: AddDrivers.AddDriversState | undefined;
+    RemoveDrivers: RemoveDrivers.RemoveDriversState | undefined;
+    AddVehicles: AddVehicles.AddVehiclesState | undefined;
+    RemoveVehicles: RemoveVehicles.RemoveVehiclesState | undefined;
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using
@@ -27,7 +39,13 @@ export const reducers = {
     Vehicles: Vehicles.reducer,
     Equipments: Equipments.reducer,
     AddEquipments: AddEquipments.reducer,
-    RemoveEquipments: RemoveEquipments.reducer
+    RemoveEquipments: RemoveEquipments.reducer,
+    AddLocations: AddLocations.reducer,
+    RemoveLocations: RemoveLocations.reducer,
+    AddDrivers: AddDrivers.reducer,
+    RemoveDrivers: RemoveDrivers.reducer,
+    AddVehicles: AddVehicles.reducer,
+    RemoveVehicles: RemoveVehicles.reducer
 };
 
 // This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are
