@@ -3,7 +3,46 @@ import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';
 import './form.css';
 import NavMenu from './NavMenu';
-class MakeRequest extends React.Component {
+import { RouteComponentProps } from 'react-router';
+import { ApplicationState } from '../store';
+import * as CertificateRequestsStore from '../store/CertificateRequests';
+import { CustomAccordion } from './Accordion';
+
+type CertificateRequestsProps =
+CertificateRequestsStore.CertificateRequestsState // ... state we've requested from the Redux store
+    & typeof CertificateRequestsStore.actionCreators // ... plus action creators we've requested
+    & RouteComponentProps<{ startDateIndex: string}>;
+class MakeRequest extends React.PureComponent<CertificateRequestsProps>  {
+    public componentDidMount() {
+        this.ensureDataFetched();
+    }
+
+    // This method is called when the route parameters change
+    public componentDidUpdate() {
+        this.ensureDataFetched();
+    }
+    private ensureDataFetched() {
+        const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestCertificateRequests(startDateIndex);
+    }
+    private showCertificateRequests() {
+        console.log(this.props.CertificateRequests);
+        return (
+        <div>
+                {this.props.CertificateRequests.map((d: CertificateRequestsStore.CertificateRequests, index) =>
+                    <div>
+                        <CustomAccordion key={index} title={"Location"} content={<div>
+                            <p>Full Name : {d.City}</p>
+                            <p>Driver License : {d.Name}</p>
+                            <p></p>
+                            {/* <button onClick={(e) => this.removeLocation(d.id)}>Remove</button> */}
+                        </div>} />
+                        <br/>
+                    </div>
+                )}
+        </div>
+        );
+    }
     public render() {
        
   
@@ -56,7 +95,7 @@ class MakeRequest extends React.Component {
                         <input type='submit' value='submit' />
                     </form>
                     <br />
-                   
+                   {this.showCertificateRequests()}
                     </div>
                 </div>
                 
@@ -64,7 +103,8 @@ class MakeRequest extends React.Component {
         );
     }
 };
-export default connect()(MakeRequest);
+export default connect((state: ApplicationState) => state.CertificateRequests,
+CertificateRequestsStore.actionCreators)(MakeRequest as any);
 
 
 

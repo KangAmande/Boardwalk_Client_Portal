@@ -31,6 +31,29 @@ namespace Boardwalk.Models
                 throw;
             }
         }
+        public CertificateRequests GetCertificateRequests(int id)
+        {
+            try
+            {
+                CertificateRequests CertificateRequests = db.CertificateRequests.Find(id);
+                return CertificateRequests;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+          public IEnumerable<CertificateRequests> GetAllCertificateRequests()
+        {
+            try
+            {
+                return db.CertificateRequests.Where(d => d.ClientId == 10).ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public IEnumerable<Drivers> GetAllDrivers()
         {
             try
@@ -240,17 +263,7 @@ namespace Boardwalk.Models
                 throw;
             }
         }
-        public IEnumerable<CertificateRequests> GetCertificateRequest()
-        {
-            try
-            {
-                return db.CertificateRequests.ToList();
-            }
-            catch
-            {
-                throw;
-            }
-        }
+      
         public IEnumerable<AddressRequests> GetAddressRequest()
         {
             try
