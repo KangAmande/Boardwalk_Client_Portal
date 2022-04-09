@@ -24,6 +24,9 @@ export default class InfoBar extends React.PureComponent {
                 <NavLink className="menu-item" tag={Link} to="/admin-add-equip">
                     Add/Remove Scheduled Equipment
                 </NavLink>
+                <NavLink className="menu-item" tag={Link} to="/admin-remove-equip">
+                    Add/Remove Scheduled Equipment
+                </NavLink>
             </Container>
         );
     }

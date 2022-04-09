@@ -13,6 +13,16 @@ class AdminAddLocation extends React.PureComponent {
                     </div>
                     <div className="col-8">
                         <h1>Location Requests</h1>
+                        <table>
+                            <tr>
+
+                            </tr>
+                        </table>
+                        <table>
+                            <tr>
+
+                            </tr>
+                        </table>
                     </div>
                 </div>
             </React.Fragment>

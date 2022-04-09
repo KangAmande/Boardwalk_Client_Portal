@@ -6,6 +6,8 @@ var Drivers = require("./Drivers");
 var Vehicles = require("./Vehicles");
 var Equipments = require("./Equipments");
 var ClientBuildingInfo = require("./ClientBuildingInfo");
+var AddEquipments = require("./AddEquipments");
+var RemoveEquipments = require("./RemoveEquipment");
 // Whenever an action is dispatched, Redux will update each top-level application state property using
 // the reducer with the matching name. It's important that the names match exactly, and that the reducer
 // acts on the corresponding ApplicationState property type.
@@ -14,6 +16,8 @@ exports.reducers = {
     Drivers: Drivers.reducer,
     ClientBuildingInfo: ClientBuildingInfo.reducer,
     Vehicles: Vehicles.reducer,
-    Equipments: Equipments.reducer
+    Equipments: Equipments.reducer,
+    AddEquipments: AddEquipments.reducer,
+    RemoveEquipments: RemoveEquipments.reducer
 };
 //# sourceMappingURL=index.js.map

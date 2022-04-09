@@ -19,61 +19,55 @@ var React = require("react");
 var react_redux_1 = require("react-redux");
 var AdminNavMenu_1 = require("./AdminNavMenu");
 var AdminChangeRequestBar_1 = require("./AdminChangeRequestBar");
-var AddEquipmentsStore = require("../store/AddEquipments");
-var AdminAddEquipment = /** @class */ (function (_super) {
-    __extends(AdminAddEquipment, _super);
-    function AdminAddEquipment() {
+var RemoveEquipmentsStore = require("../store/RemoveEquipment");
+var AdminRemoveEquipment = /** @class */ (function (_super) {
+    __extends(AdminRemoveEquipment, _super);
+    function AdminRemoveEquipment() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    AdminAddEquipment.prototype.componentDidMount = function () {
+    AdminRemoveEquipment.prototype.componentDidMount = function () {
         this.ensureDataFetched();
     };
     // This method is called when the route parameters change
-    AdminAddEquipment.prototype.componentDidUpdate = function () {
+    AdminRemoveEquipment.prototype.componentDidUpdate = function () {
         this.ensureDataFetched();
     };
-    AdminAddEquipment.prototype.ensureDataFetched = function () {
+    AdminRemoveEquipment.prototype.ensureDataFetched = function () {
         var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
-        this.props.requestAddEquipments(startDateIndex);
+        this.props.requestRemoveEquipments(startDateIndex);
     };
-    AdminAddEquipment.prototype.showAddEquipments = function () {
-        console.log(this.props.AddEquipment);
+    AdminRemoveEquipment.prototype.showRemoveEquipments = function () {
+        console.log(this.props.RemoveEquipment);
         return (React.createElement("div", null,
             React.createElement("table", null,
                 React.createElement("tr", null,
                     React.createElement("th", null, "ID"),
                     React.createElement("th", null, "Client ID"),
-                    React.createElement("th", null, "Year"),
-                    React.createElement("th", null, "Make"),
-                    React.createElement("th", null, "Model"),
-                    React.createElement("th", null, "Value"),
+                    React.createElement("th", null, "Equipment ID"),
                     React.createElement("th", null, "Request Time"),
                     React.createElement("th", null, "Approve or Reject")),
-                this.props.AddEquipment.map(function (d, index) {
+                this.props.RemoveEquipment.map(function (d, index) {
                     return React.createElement("tr", { key: index },
-                        React.createElement("th", null, d.id),
-                        React.createElement("th", null, d.clientId),
-                        React.createElement("th", null, d.year),
-                        React.createElement("th", null, d.make),
-                        React.createElement("th", null, d.model),
-                        React.createElement("th", null, d.value),
-                        React.createElement("th", null, d.requestTime),
-                        React.createElement("th", null,
+                        React.createElement("td", null, d.id),
+                        React.createElement("td", null, d.clientId),
+                        React.createElement("td", null, d.equipId),
+                        React.createElement("td", null, d.requestTime),
+                        React.createElement("td", null,
                             React.createElement("button", null, "Yes"),
                             React.createElement("button", null, "No")));
                 }))));
     };
-    AdminAddEquipment.prototype.render = function () {
+    AdminRemoveEquipment.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement(AdminNavMenu_1.default, null),
             React.createElement("div", { className: "row" },
                 React.createElement("div", { className: "col-4" },
                     React.createElement(AdminChangeRequestBar_1.default, null)),
                 React.createElement("div", { className: "col-8" },
-                    React.createElement("h1", null, "Add Equipment Requests"),
-                    React.createElement("div", null, this.showAddEquipments())))));
+                    React.createElement("h1", null, "Remove Equipment Requests"),
+                    React.createElement("div", null, this.showRemoveEquipments())))));
     };
-    return AdminAddEquipment;
+    return AdminRemoveEquipment;
 }(React.PureComponent));
-exports.default = (0, react_redux_1.connect)(function (state) { return state.AddEquipments; }, AddEquipmentsStore.actionCreators)(AdminAddEquipment);
-//# sourceMappingURL=AdminAddEquipment.js.map
+exports.default = (0, react_redux_1.connect)(function (state) { return state.RemoveEquipments; }, RemoveEquipmentsStore.actionCreators)(AdminRemoveEquipment);
+//# sourceMappingURL=AdminRemoveEquipment.js.map

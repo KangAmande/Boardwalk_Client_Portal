@@ -35,7 +35,8 @@ var InfoBar = /** @class */ (function (_super) {
             React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-location" }, "Add/Remove Locations and Buildings"),
             React.createElement("br", null),
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-equip" }, "Add/Remove Scheduled Equipment")));
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-equip" }, "Add/Remove Scheduled Equipment"),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-remove-equip" }, "Add/Remove Scheduled Equipment")));
     };
     return InfoBar;
 }(React.PureComponent));

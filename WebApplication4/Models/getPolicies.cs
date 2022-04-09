@@ -68,7 +68,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddDriverRequests.Where(d =>  d.ClientId == 10 ).ToList();
+                return db.AddDriverRequests.ToList();
             }
             catch
             {
@@ -79,7 +79,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.RemoveDriverRequests.Where(d => d.ClientId == 10).ToList();
+                return db.RemoveDriverRequests.ToList();
             }
             catch
             {
@@ -90,7 +90,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddVehicleRequests.Where(d => d.ClientId == 10).ToList();
+                return db.AddVehicleRequests.ToList();
             }
             catch
             {
@@ -101,7 +101,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.RemoveVehicleRequests.Where(d => d.ClientId == 10).ToList();
+                return db.RemoveVehicleRequests.ToList();
             }
             catch
             {
@@ -112,7 +112,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddLocationRequests.Where(d => d.ClientId == 10).ToList();
+                return db.AddLocationRequests.ToList();
             }
             catch
             {
@@ -123,7 +123,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.RemoveLocationRequests.Where(d => d.ClientId == 10).ToList();
+                return db.RemoveLocationRequests.ToList();
             }
             catch
             {
@@ -134,7 +134,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddEquipmentRequests.Where(d => d.ClientId == 10).ToList();
+                return db.AddEquipmentRequests.ToList();
             }
             catch
             {
@@ -145,7 +145,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.RemoveEquipmentRequests.Where(d => d.ClientId == 10).ToList();
+                return db.RemoveEquipmentRequests.ToList();
             }
             catch
             {
@@ -156,7 +156,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.CertificateRequests.Where(d => d.ClientId == 10).ToList();
+                return db.CertificateRequests.ToList();
             }
             catch
             {
@@ -167,7 +167,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddressRequests.Where(d => d.ClientId == 10).ToList();
+                return db.AddressRequests.ToList();
             }
             catch
             {

@@ -3,6 +3,8 @@ import * as Drivers from './Drivers';
 import * as Vehicles from './Vehicles';
 import * as Equipments from './Equipments';
 import * as ClientBuildingInfo from './ClientBuildingInfo';
+import * as AddEquipments from './AddEquipments';
+import * as RemoveEquipments from './RemoveEquipment';
 
 // The top-level state object
 export interface ApplicationState {
@@ -11,6 +13,8 @@ export interface ApplicationState {
     Drivers: Drivers.DriversState | undefined;
     Vehicles: Vehicles.VehiclesState | undefined;
     Equipments: Equipments.EquipmentsState | undefined;
+    AddEquipments: AddEquipments.AddEquipmentsState | undefined;
+    RemoveEquipments: RemoveEquipments.RemoveEquipmentsState | undefined;
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using
@@ -21,7 +25,9 @@ export const reducers = {
     Drivers: Drivers.reducer,
     ClientBuildingInfo: ClientBuildingInfo.reducer,
     Vehicles: Vehicles.reducer,
-    Equipments: Equipments.reducer
+    Equipments: Equipments.reducer,
+    AddEquipments: AddEquipments.reducer,
+    RemoveEquipments: RemoveEquipments.reducer
 };
 
 // This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are

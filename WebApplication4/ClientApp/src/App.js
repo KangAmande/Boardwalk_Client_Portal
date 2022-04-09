@@ -31,6 +31,7 @@ var AdminChangeMailAdd_1 = require("./components/AdminChangeMailAdd");
 var AdminAddDriver_1 = require("./components/AdminAddDriver");
 var AdminAddVehicle_1 = require("./components/AdminAddVehicle");
 var AdminAddEquipment_1 = require("./components/AdminAddEquipment");
+var AdminRemoveEquipment_1 = require("./components/AdminRemoveEquipment");
 var AdminAddLocation_1 = require("./components/AdminAddLocation");
 exports.default = (function () { return (React.createElement("div", null,
     React.createElement(react_router_dom_1.BrowserRouter, null,
@@ -61,5 +62,6 @@ exports.default = (function () { return (React.createElement("div", null,
         React.createElement(react_router_1.Route, { path: '/admin-add-drivers', component: AdminAddDriver_1.default }),
         React.createElement(react_router_1.Route, { path: '/admin-add-vehicles', component: AdminAddVehicle_1.default }),
         React.createElement(react_router_1.Route, { path: '/admin-add-equip', component: AdminAddEquipment_1.default }),
+        React.createElement(react_router_1.Route, { path: '/admin-remove-equip', component: AdminRemoveEquipment_1.default }),
         React.createElement(react_router_1.Route, { path: '/admin-add-location', component: AdminAddLocation_1.default })))); });
 //# sourceMappingURL=App.js.map

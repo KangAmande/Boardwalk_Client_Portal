@@ -29,6 +29,7 @@ import AdminChangeMailAdd from './components/AdminChangeMailAdd';
 import AdminAddDriver from './components/AdminAddDriver';
 import AdminAddVehicle from './components/AdminAddVehicle';
 import AdminAddEquipment from './components/AdminAddEquipment';
+import AdminRemoveEquipment from './components/AdminRemoveEquipment';
 import AdminAddLocation from './components/AdminAddLocation';
 export default () => (
     <div>
@@ -60,6 +61,7 @@ export default () => (
             <Route path='/admin-add-drivers' component={AdminAddDriver} />
             <Route path='/admin-add-vehicles' component={AdminAddVehicle} />
             <Route path='/admin-add-equip' component={AdminAddEquipment} />
+            <Route path='/admin-remove-equip' component={AdminRemoveEquipment} />
             <Route path='/admin-add-location' component={AdminAddLocation} />
          </BrowserRouter>
     </div>

@@ -31,7 +31,11 @@ var AdminAddLocation = /** @class */ (function (_super) {
                 React.createElement("div", { className: "col-4" },
                     React.createElement(AdminChangeRequestBar_1.default, null)),
                 React.createElement("div", { className: "col-8" },
-                    React.createElement("h1", null, "Location Requests")))));
+                    React.createElement("h1", null, "Location Requests"),
+                    React.createElement("table", null,
+                        React.createElement("tr", null)),
+                    React.createElement("table", null,
+                        React.createElement("tr", null))))));
     };
     return AdminAddLocation;
 }(React.PureComponent));
