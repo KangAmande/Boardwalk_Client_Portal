@@ -68,7 +68,18 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddDriverRequests.Where(d =>  d.ClientId == 10 ).ToList();
+                return db.AddDriverRequests.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<AddDriverRequests> ClientAddDrivers()
+        {
+            try
+            {
+                return db.AddDriverRequests.Where(e => e.ClientId == 10).ToList();
             }
             catch
             {
@@ -79,7 +90,18 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.RemoveDriverRequests.Where(d => d.ClientId == 10).ToList();
+                return db.RemoveDriverRequests.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<RemoveDriverRequests> ClientRemoveDrivers()
+        {
+            try
+            {
+                return db.RemoveDriverRequests.Where(e => e.ClientId == 10).ToList();
             }
             catch
             {
@@ -90,7 +112,18 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddVehicleRequests.Where(d => d.ClientId == 10).ToList();
+                return db.AddVehicleRequests.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<AddVehicleRequests> ClientAddVehicles()
+        {
+            try
+            {
+                return db.AddVehicleRequests.Where(e => e.ClientId == 10).ToList();
             }
             catch
             {
@@ -101,7 +134,18 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.RemoveVehicleRequests.Where(d => d.ClientId == 10).ToList();
+                return db.RemoveVehicleRequests.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<RemoveVehicleRequests>ClientRemoveVehicles()
+        {
+            try
+            {
+                return db.RemoveVehicleRequests.Where(e => e.ClientId == 10).ToList();
             }
             catch
             {
@@ -112,7 +156,18 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddLocationRequests.Where(d => d.ClientId == 10).ToList();
+                return db.AddLocationRequests.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<AddLocationRequests> ClientAddLocation()
+        {
+            try
+            {
+                return db.AddLocationRequests.Where(e => e.ClientId == 10).ToList();
             }
             catch
             {
@@ -123,7 +178,18 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.RemoveLocationRequests.Where(d => d.ClientId == 10).ToList();
+                return db.RemoveLocationRequests.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<RemoveLocationRequests> ClientRemoveLocation()
+        {
+            try
+            {
+                return db.RemoveLocationRequests.Where(e => e.ClientId == 10).ToList();
             }
             catch
             {
@@ -134,7 +200,18 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddEquipmentRequests.Where(d => d.ClientId == 10).ToList();
+                return db.AddEquipmentRequests.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<AddEquipmentRequests> ClientAddEquipments()
+        {
+            try
+            {
+                return db.AddEquipmentRequests.Where(e => e.ClientId == 10).ToList();
             }
             catch
             {
@@ -145,7 +222,18 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.RemoveEquipmentRequests.Where(d => d.ClientId == 10).ToList();
+                return db.RemoveEquipmentRequests.ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<RemoveEquipmentRequests> ClientRemoveEquipments()
+        {
+            try
+            {
+                return db.RemoveEquipmentRequests.Where(e => e.ClientId == 10).ToList();
             }
             catch
             {
@@ -156,7 +244,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.CertificateRequests.Where(d => d.ClientId == 10).ToList();
+                return db.CertificateRequests.ToList();
             }
             catch
             {
@@ -167,7 +255,7 @@ namespace Boardwalk.Models
         {
             try
             {
-                return db.AddressRequests.Where(d => d.ClientId == 10).ToList();
+                return db.AddressRequests.ToList();
             }
             catch
             {

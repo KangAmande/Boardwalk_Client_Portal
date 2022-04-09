@@ -29,13 +29,20 @@ var InfoBar = /** @class */ (function (_super) {
             React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-change-mail-add" }, "Change Mailing Address"),
             React.createElement("br", null),
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-vehicles" }, "Add/Remove Vehicles"),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-vehicles" }, "Add Vehicles"),
             React.createElement("br", null),
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-drivers" }, "Add/Remove Drivers"),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-remove-vehicles" }, "Remove Vehicles"),
             React.createElement("br", null),
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-location" }, "Add/Remove Locations and Buildings"),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-drivers" }, "Add Drivers"),
             React.createElement("br", null),
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-equip" }, "Add/Remove Scheduled Equipment")));
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-remove-drivers" }, "Remove Drivers"),
+            React.createElement("br", null),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-location" }, "Add Locations and Buildings"),
+            React.createElement("br", null),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-remove-location" }, "Remove Locations and Buildings"),
+            React.createElement("br", null),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-add-equip" }, "Add Scheduled Equipment"),
+            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/admin-remove-equip" }, "Remove Scheduled Equipment")));
     };
     return InfoBar;
 }(React.PureComponent));

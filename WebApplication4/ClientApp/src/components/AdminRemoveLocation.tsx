@@ -4,13 +4,12 @@ import AdminNavMenu from './AdminNavMenu';
 import AdminChangeRequestBar from './AdminChangeRequestBar';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
-import * as AddEquipmentsStore from '../store/AddEquipments';
-type AddEquipmentsProps =
-    AddEquipmentsStore.AddEquipmentsState // ... state we've requested from the Redux store
-    & typeof AddEquipmentsStore.actionCreators // ... plus action creators we've requested
+import * as RemoveLocationsStore from '../store/RemoveLocations';
+type RemoveLocationsProps =
+    RemoveLocationsStore.RemoveLocationsState // ... state we've requested from the Redux store
+    & typeof RemoveLocationsStore.actionCreators // ... plus action creators we've requested
     & RouteComponentProps<{ startDateIndex: string }>;
-
-class AdminAddEquipment extends React.PureComponent<AddEquipmentsProps> {
+class AdminRemoveLocation extends React.PureComponent<RemoveLocationsProps>{
     public componentDidMount() {
         this.ensureDataFetched();
     }
@@ -21,34 +20,28 @@ class AdminAddEquipment extends React.PureComponent<AddEquipmentsProps> {
     }
     private ensureDataFetched() {
         const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
-        this.props.requestAddEquipments(startDateIndex);
+        this.props.requestRemoveLocations(startDateIndex);
     }
-    private showAddEquipments() {
-        console.log(this.props.AddEquipment);
+    private showRemoveLocations() {
+        console.log(this.props.RemoveLocation);
         return (
             <div>
                 <table>
                     <tr>
                         <th>ID</th>
                         <th>Client ID</th>
-                        <th>Year</th>
-                        <th>Make</th>
-                        <th>Model</th>
-                        <th>Value</th>
+                        <th>Location ID</th>
                         <th>Request Time</th>
                         <th>Approve or Reject</th>
                     </tr>
-                {this.props.AddEquipment.map((d: AddEquipmentsStore.AddEquipments, index) =>
-                    <tr key={index}>
-                        <th>{d.id}</th>
-                        <th>{d.clientId}</th>
-                        <th>{d.year}</th>
-                        <th>{d.make}</th>
-                        <th>{d.model}</th>
-                        <th>{d.value}</th>
-                        <th>{d.requestTime}</th>
-                        <th><button>Yes</button><button>No</button></th>
-                    </tr>
+                    {this.props.RemoveLocation.map((d: RemoveLocationsStore.RemoveLocations, index) =>
+                        <tr key={index}>
+                            <td>{d.id}</td>
+                            <td>{d.clientId}</td>
+                            <td>{d.locationId}</td>
+                            <td>{d.requestTime}</td>
+                            <td><button>Yes</button><button>No</button></td>
+                        </tr>
                     )}
                 </table>
             </div>
@@ -63,9 +56,9 @@ class AdminAddEquipment extends React.PureComponent<AddEquipmentsProps> {
                         <AdminChangeRequestBar />
                     </div>
                     <div className="col-8">
-                        <h1>Add Equipment Requests</h1>
+                        <h1>Remove Location Requests</h1>
                         <div>
-                            {this.showAddEquipments()}
+                            {this.showRemoveLocations()}
                         </div>
                     </div>
                 </div>
@@ -73,5 +66,5 @@ class AdminAddEquipment extends React.PureComponent<AddEquipmentsProps> {
         );
     }
 }
-export default connect((state: ApplicationState) => state.AddEquipments,
-    AddEquipmentsStore.actionCreators)(AdminAddEquipment as any);
+export default connect((state: ApplicationState) => state.RemoveLocations,
+    RemoveLocationsStore.actionCreators)(AdminRemoveLocation as any);
