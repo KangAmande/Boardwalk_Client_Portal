@@ -3,19 +3,47 @@ import { connect } from 'react-redux';
 import { CustomAccordion } from './Accordion';
 import Sidebarmr from './Sidebarmr';
 import NavMenu from './NavMenu';
-class addDriver extends React.Component<{}, { shown: boolean }> {
+import { RouteComponentProps } from 'react-router';
+import { ApplicationState } from '../store';
+import * as DriversStore from '../store/Drivers';
 
+type DriversProps =
+DriversStore.DriversState // ... state we've requested from the Redux store
+    & typeof DriversStore.actionCreators // ... plus action creators we've requested
+    & RouteComponentProps<{ startDateIndex: string}>;
+class addDriver extends React.PureComponent<DriversProps>  {
+    public componentDidMount() {
+        this.ensureDataFetched();
+    }
+
+    // This method is called when the route parameters change
+    public componentDidUpdate() {
+        this.ensureDataFetched();
+    }
+    private ensureDataFetched() {
+        const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestDrivers(startDateIndex);
+    }
+    private showDrivers() {
+        console.log(this.props.Driver);
+        return (
+        <div>
+                {this.props.Driver.map((d: DriversStore.Drivers, index) =>
+                    <div>
+                        <CustomAccordion key={index} title={"Location"} content={<div>
+                            <p>Full Name : {d.fullName}</p>
+                            <p>Driver License : {d.driverLicense}</p>
+                            <p></p>
+                            {/* <button onClick={(e) => this.removeLocation(d.id)}>Remove</button> */}
+                        </div>} />
+                        <br/>
+                    </div>
+                )}
+        </div>
+        );
+    }
     public render() {
-        let i: number = 1;
-        let a = [];
-        while (i < 3) {
-            a.push(<div><CustomAccordion
-                title={"drivers " + i.toString()}
-                content={<div><p>Full Name</p><p>Birth Date</p><p>License Number</p><p>license Year</p></div>} />
-                <br />
-            </div>);
-            i++;
-        }
+        
         return (
             <React.Fragment>
                 <NavMenu/>
@@ -45,7 +73,7 @@ class addDriver extends React.Component<{}, { shown: boolean }> {
                         </form>
                         <br />
                         <br />
-                        {a}
+                        {this.showDrivers()}
 
                     </div>
 
@@ -54,4 +82,5 @@ class addDriver extends React.Component<{}, { shown: boolean }> {
         );
     }
 };
-export default connect()(addDriver);
+export default connect((state: ApplicationState) => state.Drivers,
+DriversStore.actionCreators)(addDriver as any);

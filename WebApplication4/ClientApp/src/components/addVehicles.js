@@ -3,46 +3,61 @@ var __extends = (this && this.__extends) || (function () {
     var extendStatics = function (d, b) {
         extendStatics = Object.setPrototypeOf ||
             ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+            function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
         return extendStatics(d, b);
     };
     return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
         extendStatics(d, b);
         function __() { this.constructor = d; }
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
-Object.defineProperty(exports, "__esModule", { value: true });
+exports.__esModule = true;
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Accordion_1 = require("./Accordion");
 var Sidebarmr_1 = require("./Sidebarmr");
 var NavMenu_1 = require("./NavMenu");
+var VehiclesStore = require("../store/Vehicles");
 var addVehicles = /** @class */ (function (_super) {
     __extends(addVehicles, _super);
     function addVehicles() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    addVehicles.prototype.componentDidMount = function () {
+        this.ensureDataFetched();
+    };
+    // This method is called when the route parameters change
+    addVehicles.prototype.componentDidUpdate = function () {
+        this.ensureDataFetched();
+    };
+    addVehicles.prototype.ensureDataFetched = function () {
+        var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestVehicles(startDateIndex);
+    };
+    addVehicles.prototype.showVehicles = function () {
+        console.log(this.props.Vehicle);
+        return (React.createElement("div", null, this.props.Vehicle.map(function (d, index) {
+            return React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: index, title: "Location", content: React.createElement("div", null,
+                        React.createElement("p", null,
+                            "Full Name : ",
+                            d.vehicleMake),
+                        React.createElement("p", null,
+                            "Driver License : ",
+                            d.vehicleModel),
+                        React.createElement("p", null,
+                            "Driver License : ",
+                            d.vehicleType)) }),
+                React.createElement("br", null));
+        })));
+    };
     addVehicles.prototype.render = function () {
-        var i = 1;
-        var a = [];
-        while (i < 3) {
-            a.push(React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { title: "Vehicles " + i.toString(), content: React.createElement("div", null,
-                        React.createElement("p", null, "Type"),
-                        React.createElement("p", null, "Year"),
-                        React.createElement("p", null, "Make"),
-                        React.createElement("p", null, "Model")) }),
-                React.createElement("br", null)));
-            i++;
-        }
         return (React.createElement(React.Fragment, null,
-            React.createElement(NavMenu_1.default, null),
+            React.createElement(NavMenu_1["default"], null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
-                    React.createElement(Sidebarmr_1.default, null)),
+                    React.createElement(Sidebarmr_1["default"], null)),
                 React.createElement("div", { className: 'col-8', id: 'mr1add' },
                     React.createElement("h1", null, "Add New Vehicles"),
                     React.createElement("form", null,
@@ -82,10 +97,9 @@ var addVehicles = /** @class */ (function (_super) {
                         React.createElement("input", { type: 'submit', value: 'submit' })),
                     React.createElement("br", null),
                     React.createElement("br", null),
-                    a))));
+                    this.showVehicles()))));
     };
     return addVehicles;
-}(React.Component));
+}(React.PureComponent));
 ;
-exports.default = (0, react_redux_1.connect)()(addVehicles);
-//# sourceMappingURL=addVehicles.js.map
+exports["default"] = react_redux_1.connect(function (state) { return state.Vehicles; }, VehiclesStore.actionCreators)(addVehicles);

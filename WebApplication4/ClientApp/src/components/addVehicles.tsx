@@ -3,19 +3,48 @@ import { connect } from 'react-redux';
 import { CustomAccordion } from './Accordion';
 import Sidebarmr from './Sidebarmr';
 import NavMenu from './NavMenu';
-class addVehicles extends React.Component<{}, { shown: boolean }> {
+import { RouteComponentProps } from 'react-router';
+import { ApplicationState } from '../store';
+import * as VehiclesStore from '../store/Vehicles';
 
+type VehiclesProps =
+VehiclesStore.VehiclesState // ... state we've requested from the Redux store
+    & typeof VehiclesStore.actionCreators // ... plus action creators we've requested
+    & RouteComponentProps<{ startDateIndex: string}>;
+class addVehicles extends React.PureComponent<VehiclesProps> {
+
+    public componentDidMount() {
+        this.ensureDataFetched();
+    }
+
+    // This method is called when the route parameters change
+    public componentDidUpdate() {
+        this.ensureDataFetched();
+    }
+    private ensureDataFetched() {
+        const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestVehicles(startDateIndex);
+    }
+    private showVehicles() {
+        console.log(this.props.Vehicle);
+        return (
+        <div>
+                {this.props.Vehicle.map((d: VehiclesStore.Vehicles, index) =>
+                    <div>
+                        <CustomAccordion key={index} title={"Location"} content={<div>
+                            <p>Full Name : {d.vehicleMake}</p>
+                            <p>Driver License : {d.vehicleModel}</p>
+                            <p>Driver License : {d.vehicleType}</p>
+                            {/* <button onClick={(e) => this.removeLocation(d.id)}>Remove</button> */}
+                        </div>} />
+                        <br/>
+                    </div>
+                )}
+        </div>
+        );
+    }
     public render() {
-        let i: number = 1;
-        let a = [];
-        while (i < 3) {
-            a.push(<div><CustomAccordion
-                title={"Vehicles " + i.toString()}
-                content={<div><p>Type</p><p>Year</p><p>Make</p><p>Model</p></div>} />
-                <br />
-            </div>);
-            i++;
-        }
+        
         return (
             <React.Fragment>
                 <NavMenu/>
@@ -53,7 +82,7 @@ class addVehicles extends React.Component<{}, { shown: boolean }> {
                         </form>
                         <br />
                         <br />
-                        {a}
+                        {this.showVehicles()}
 
                     </div>
 
@@ -62,4 +91,5 @@ class addVehicles extends React.Component<{}, { shown: boolean }> {
         );
     }
 };
-export default connect()(addVehicles);
+export default connect((state: ApplicationState) => state.Vehicles,
+VehiclesStore.actionCreators)(addVehicles as any);
