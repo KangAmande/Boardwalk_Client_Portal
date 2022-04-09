@@ -54,6 +54,10 @@
     <None Remove="ClientApp\src\components\AdminChangeMailAdd.tsx" />
     <None Remove="ClientApp\src\components\AdminChangeRequestBar.tsx" />
     <None Remove="ClientApp\src\components\AdminNavMenu.tsx" />
+    <None Remove="ClientApp\src\components\AdminRemoveDriver.tsx" />
+    <None Remove="ClientApp\src\components\AdminRemoveEquipment.tsx" />
+    <None Remove="ClientApp\src\components\AdminRemoveLocation.tsx" />
+    <None Remove="ClientApp\src\components\AdminRemoveVehicle.tsx" />
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />
     <None Remove="ClientApp\src\components\FetchData.tsx" />
@@ -77,6 +81,14 @@
     <None Remove="ClientApp\src\Routes\addVehicle.tsx" />
     <None Remove="ClientApp\src\Routes\changeMailingAddress.tsx" />
     <None Remove="ClientApp\src\Routes\RequestRoute.tsx" />
+    <None Remove="ClientApp\src\store\AddDrivers.ts" />
+    <None Remove="ClientApp\src\store\AddEquipments.ts" />
+    <None Remove="ClientApp\src\store\AddLocations.ts" />
+    <None Remove="ClientApp\src\store\AddVehicles.ts" />
+    <None Remove="ClientApp\src\store\RemoveDrivers.ts" />
+    <None Remove="ClientApp\src\store\RemoveEquipment.ts" />
+    <None Remove="ClientApp\src\store\RemoveLocations.ts" />
+    <None Remove="ClientApp\src\store\RemoveVehicles.ts" />
   </ItemGroup>
 
   <ItemGroup>

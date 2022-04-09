@@ -17,5 +17,17 @@ namespace Boardwalk.Controllers
         {
             return getPolicies.GetAllDrivers();
         }
+        [HttpGet]
+        [Route("api/Drivers/GetAddDriver")]
+        public IEnumerable<AddDriverRequests> GetAddDriver()
+        {
+            return getPolicies.GetAddDrivers();
+        }
+        [HttpGet]
+        [Route("api/Drivers/GetRemoveDriver")]
+        public IEnumerable<RemoveDriverRequests> GetRemoveDriver()
+        {
+            return getPolicies.GetRemoveDrivers();
+        }
     }
 }
