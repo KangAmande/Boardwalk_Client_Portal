@@ -27,7 +27,7 @@ class AdminAddDriver extends React.PureComponent<AddDriversProps> {
         console.log(this.props.AddDriver);
         return (
             <div>
-                <table>
+                <table className="table table-bordered">
                     <tr>
                         <th>ID</th>
                         <th>Client ID</th>
@@ -43,17 +43,17 @@ class AdminAddDriver extends React.PureComponent<AddDriversProps> {
                     </tr>
                     {this.props.AddDriver.map((d: AddDriversStore.AddDrivers, index) =>
                         <tr key={index}>
-                            <th>{d.id}</th>
-                            <th>{d.clientId}</th>
-                            <th>{d.firstName}</th>
-                            <th>{d.lastName}</th>
-                            <th>{d.birthDate}</th>
-                            <th>{d.driverTrain}</th>
-                            <th>{d.licenseNumber}</th>
-                            <th>{d.conviction}</th>
-                            <th>{d.licenseYear}</th>
-                            <th>{d.requestTime}</th>
-                            <th><button>Yes</button><button>No</button></th>
+                            <td>{d.id}</td>
+                            <td>{d.clientId}</td>
+                            <td>{d.firstName}</td>
+                            <td>{d.lastName}</td>
+                            <td>{d.birthDate}</td>
+                            <td>{d.driverTrain}</td>
+                            <td>{d.licenseNumber}</td>
+                            <td>{d.conviction}</td>
+                            <td>{d.licenseYear}</td>
+                            <td>{d.requestTime}</td>
+                            <td><button>Yes</button><button>No</button></td>
                         </tr>
                     )}
                 </table>

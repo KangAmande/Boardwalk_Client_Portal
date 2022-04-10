@@ -39,7 +39,7 @@ var AdminRemoveDriver = /** @class */ (function (_super) {
     AdminRemoveDriver.prototype.showRemoveDrivers = function () {
         console.log(this.props.RemoveDriver);
         return (React.createElement("div", null,
-            React.createElement("table", null,
+            React.createElement("table", { className: "table table-bordered" },
                 React.createElement("tr", null,
                     React.createElement("th", null, "ID"),
                     React.createElement("th", null, "Client ID"),

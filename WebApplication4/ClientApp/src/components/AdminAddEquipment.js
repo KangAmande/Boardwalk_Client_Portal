@@ -39,7 +39,7 @@ var AdminAddEquipment = /** @class */ (function (_super) {
     AdminAddEquipment.prototype.showAddEquipments = function () {
         console.log(this.props.AddEquipment);
         return (React.createElement("div", null,
-            React.createElement("table", null,
+            React.createElement("table", { className: "table table-bordered" },
                 React.createElement("tr", null,
                     React.createElement("th", null, "ID"),
                     React.createElement("th", null, "Client ID"),
@@ -51,14 +51,14 @@ var AdminAddEquipment = /** @class */ (function (_super) {
                     React.createElement("th", null, "Approve or Reject")),
                 this.props.AddEquipment.map(function (d, index) {
                     return React.createElement("tr", { key: index },
-                        React.createElement("th", null, d.id),
-                        React.createElement("th", null, d.clientId),
-                        React.createElement("th", null, d.year),
-                        React.createElement("th", null, d.make),
-                        React.createElement("th", null, d.model),
-                        React.createElement("th", null, d.value),
-                        React.createElement("th", null, d.requestTime),
-                        React.createElement("th", null,
+                        React.createElement("td", null, d.id),
+                        React.createElement("td", null, d.clientId),
+                        React.createElement("td", null, d.year),
+                        React.createElement("td", null, d.make),
+                        React.createElement("td", null, d.model),
+                        React.createElement("td", null, d.value),
+                        React.createElement("td", null, d.requestTime),
+                        React.createElement("td", null,
                             React.createElement("button", null, "Yes"),
                             React.createElement("button", null, "No")));
                 }))));

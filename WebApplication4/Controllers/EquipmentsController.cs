@@ -29,6 +29,18 @@ namespace Boardwalk.Controllers
         {
             return getPolicies.GetRemoveEquipments();
         }
+        [HttpGet]
+        [Route("api/Equipments/ClientAddEquipment")]
+        public IEnumerable<AddEquipmentRequests> ClientAddEquipment()
+        {
+            return getPolicies.ClientAddEquipments();
+        }
+        [HttpGet]
+        [Route("api/Equipments/ClientRemoveEquipment")]
+        public IEnumerable<RemoveEquipmentRequests> ClientRemoveEquipment()
+        {
+            return getPolicies.ClientRemoveEquipments();
+        }
         [HttpPost]
         [Route("api/Equipments/addEquipment/{year}/{make}/{model}/{value}/{serialN}")]
         public void addEquipment(int year,string make,string model,decimal value,string serialN)

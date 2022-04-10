@@ -39,7 +39,7 @@ var AdminRemoveEquipment = /** @class */ (function (_super) {
     AdminRemoveEquipment.prototype.showRemoveEquipments = function () {
         console.log(this.props.RemoveEquipment);
         return (React.createElement("div", null,
-            React.createElement("table", null,
+            React.createElement("table", { className: "table table-bordered" },
                 React.createElement("tr", null,
                     React.createElement("th", null, "ID"),
                     React.createElement("th", null, "Client ID"),

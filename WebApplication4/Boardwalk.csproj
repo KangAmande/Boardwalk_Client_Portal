@@ -71,6 +71,14 @@
     <None Remove="ClientApp\src\components\PolicyDoc.tsx" />
     <None Remove="ClientApp\src\components\PolicyMenu.tsx" />
     <None Remove="ClientApp\src\components\Popup.tsx" />
+    <None Remove="ClientApp\src\components\ReviewAddDrivers.tsx" />
+    <None Remove="ClientApp\src\components\ReviewAddEquipments.tsx" />
+    <None Remove="ClientApp\src\components\ReviewAddLocations.tsx" />
+    <None Remove="ClientApp\src\components\ReviewBar.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRemoveDrivers.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRemoveEquipments.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRemoveLocations.tsx" />
+    <None Remove="ClientApp\src\components\ReviewRemoveVehicles.tsx" />
     <None Remove="ClientApp\src\components\RiskAddr.tsx" />
     <None Remove="ClientApp\src\components\Sidebar.css" />
     <None Remove="ClientApp\src\components\Sidebar.tsx" />
@@ -81,6 +89,9 @@
     <None Remove="ClientApp\src\Routes\addVehicle.tsx" />
     <None Remove="ClientApp\src\Routes\changeMailingAddress.tsx" />
     <None Remove="ClientApp\src\Routes\RequestRoute.tsx" />
+    <None Remove="ClientApp\src\Routes\under-reviewRoute.js" />
+    <None Remove="ClientApp\src\Routes\under-reviewRoute.js.map" />
+    <None Remove="ClientApp\src\Routes\under-reviewRoute.tsx" />
     <None Remove="ClientApp\src\store\AddDrivers.ts" />
     <None Remove="ClientApp\src\store\AddEquipments.ts" />
     <None Remove="ClientApp\src\store\AddLocations.ts" />
@@ -107,6 +118,7 @@
     <TypeScriptCompile Remove="ClientApp\src\components\signDoc.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\VehicleInsured.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\Routes\Helppage.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\Routes\under-reviewRoute.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\store\Drivers.ts" />
     <TypeScriptCompile Remove="ClientApp\src\store\Equipments.ts" />
     <TypeScriptCompile Remove="ClientApp\src\store\Policies.ts" />

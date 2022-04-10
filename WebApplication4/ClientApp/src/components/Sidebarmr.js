@@ -38,8 +38,6 @@ var Sidebar = /** @class */ (function (_super) {
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/sched-equip" }, "Add/Remove Scheduled Equipment"),
             React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/sched-call" }, "Scheduled a call with Broker"),
-            React.createElement("br", null),
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/under-review" }, "Requests Under Review"),
             React.createElement("br", null)));
     };
     return Sidebar;

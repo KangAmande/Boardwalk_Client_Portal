@@ -27,7 +27,7 @@ class AdminAddVehicle extends React.PureComponent<AddVehiclesProps> {
         console.log(this.props.AddVehicle);
         return (
             <div>
-                <table>
+                <table className="table table-bordered">
                     <tr>
                         <th>ID</th>
                         <th>Client ID</th>
@@ -47,21 +47,21 @@ class AdminAddVehicle extends React.PureComponent<AddVehiclesProps> {
                     </tr>
                     {this.props.AddVehicle.map((d: AddVehiclesStore.AddVehicles, index) =>
                         <tr key={index}>
-                            <th>{d.id}</th>
-                            <th>{d.clientId}</th>
-                            <th>{d.type}</th>
-                            <th>{d.year}</th>
-                            <th>{d.make}</th>
-                            <th>{d.model}</th>
-                            <th>{d.radius}</th>
-                            <th>{d.vin}</th>
-                            <th>{d.primaryDriver}</th>
-                            <th>{d.occassionDriver}</th>
-                            <th>{d.listPrice}</th>
-                            <th>{d.class}</th>
-                            <th>{d.weight}</th>
-                            <th>{d.requestTime}</th>
-                            <th><button>Yes</button><button>No</button></th>
+                            <td>{d.id}</td>
+                            <td>{d.clientId}</td>
+                            <td>{d.type}</td>
+                            <td>{d.year}</td>
+                            <td>{d.make}</td>
+                            <td>{d.model}</td>
+                            <td>{d.radius}</td>
+                            <td>{d.vin}</td>
+                            <td>{d.primaryDriver}</td>
+                            <td>{d.occassionDriver}</td>
+                            <td>{d.listPrice}</td>
+                            <td>{d.class}</td>
+                            <td>{d.weight}</td>
+                            <td>{d.requestTime}</td>
+                            <td><button>Yes</button><button>No</button></td>
                         </tr>
                     )}
                 </table>

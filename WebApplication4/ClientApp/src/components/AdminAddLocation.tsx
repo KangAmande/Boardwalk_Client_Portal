@@ -27,7 +27,7 @@ class AdminAddLocation extends React.PureComponent<AddLocationsProps> {
         console.log(this.props.AddLocation);
         return (
             <div>
-                <table>
+                <table className="table table-bordered">
                     <tr>
                         <th>ID</th>
                         <th>Client ID</th>
@@ -54,28 +54,28 @@ class AdminAddLocation extends React.PureComponent<AddLocationsProps> {
                     </tr>
                     {this.props.AddLocation.map((d: AddLocationsStore.AddLocations, index) =>
                         <tr key={index}>
-                            <th>{d.id}</th>
-                            <th>{d.clientId}</th>
-                            <th>{d.buildingType}</th>
-                            <th>{d.street}</th>
-                            <th>{d.city}</th>
-                            <th>{d.postalCode}</th>
-                            <th>{d.province}</th>
-                            <th>{d.primaryOp}</th>
-                            <th>{d.buildingConstr}</th>
-                            <th>{d.wallConstr}</th>
-                            <th>{d.floorConstr}</th>
-                            <th>{d.sprinklered}</th>
-                            <th>{d.deckConstruction}</th>
-                            <th>{d.roofCovering}</th>
-                            <th>{d.sizeSqft}</th>
-                            <th>{d.storeysNumber}</th>
-                            <th>{d.yearBuilt}</th>
-                            <th>{d.constrType}</th>
-                            <th>{d.alarm}</th>
-                            <th>{d.mortgage}</th>
-                            <th>{d.requestTime}</th>
-                            <th><button>Yes</button><button>No</button></th>
+                            <td>{d.id}</td>
+                            <td>{d.clientId}</td>
+                            <td>{d.buildingType}</td>
+                            <td>{d.street}</td>
+                            <td>{d.city}</td>
+                            <td>{d.postalCode}</td>
+                            <td>{d.province}</td>
+                            <td>{d.primaryOp}</td>
+                            <td>{d.buildingConstr}</td>
+                            <td>{d.wallConstr}</td>
+                            <td>{d.floorConstr}</td>
+                            <td>{d.sprinklered}</td>
+                            <td>{d.deckConstruction}</td>
+                            <td>{d.roofCovering}</td>
+                            <td>{d.sizeSqft}</td>
+                            <td>{d.storeysNumber}</td>
+                            <td>{d.yearBuilt}</td>
+                            <td>{d.constrType}</td>
+                            <td>{d.alarm}</td>
+                            <td>{d.mortgage}</td>
+                            <td>{d.requestTime}</td>
+                            <td><button>Yes</button><button>No</button></td>
                         </tr>
                     )}
                 </table>

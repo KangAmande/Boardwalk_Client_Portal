@@ -17,54 +17,78 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
-var Accordion_1 = require("./Accordion");
-var Sidebarmr_1 = require("./Sidebarmr");
 var NavMenu_1 = require("./NavMenu");
+var AddVehiclesStore = require("../store/AddVehicles");
+var ReviewBar_1 = require("./ReviewBar");
 var underReview = /** @class */ (function (_super) {
     __extends(underReview, _super);
     function underReview() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
+    underReview.prototype.componentDidMount = function () {
+        this.ensureDataFetched();
+    };
+    // This method is called when the route parameters change
+    underReview.prototype.componentDidUpdate = function () {
+        this.ensureDataFetched();
+    };
+    underReview.prototype.ensureDataFetched = function () {
+        var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestClientAddVehicles(startDateIndex);
+    };
     underReview.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
-                    React.createElement(Sidebarmr_1.default, null)),
+                    React.createElement(ReviewBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Insurance Certificate Requests", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null)),
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Mailing Address Requests", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null)),
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null)),
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null)),
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null)),
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null)),
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null)),
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null)),
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null)),
-                    React.createElement("div", null,
-                        React.createElement(Accordion_1.CustomAccordion, { title: "Add Vehicle", content: React.createElement("div", null, "Requests") }),
-                        React.createElement("br", null))))));
+                    React.createElement("h1", null, "Add Vehicle Requests"),
+                    React.createElement("div", null, this.props.ClientAddVehicle.map(function (d, index) {
+                        return React.createElement("div", { key: index },
+                            React.createElement("h3", null,
+                                "Request ",
+                                index + 1),
+                            React.createElement("p", null,
+                                "Type: ",
+                                d.type),
+                            React.createElement("p", null,
+                                "Year: ",
+                                d.year),
+                            React.createElement("p", null,
+                                "Make: ",
+                                d.make),
+                            React.createElement("p", null,
+                                "Model: ",
+                                d.model),
+                            React.createElement("p", null,
+                                "Radius: ",
+                                d.radius),
+                            React.createElement("p", null,
+                                "VIN: ",
+                                d.vin),
+                            React.createElement("p", null,
+                                "Primary Driver: ",
+                                d.primaryDriver),
+                            React.createElement("p", null,
+                                "Occassional Driver: ",
+                                d.occassionDriver),
+                            React.createElement("p", null,
+                                "List Price: ",
+                                d.listPrice),
+                            React.createElement("p", null,
+                                "Class: ",
+                                d.class),
+                            React.createElement("p", null,
+                                "Weight: ",
+                                d.weight),
+                            React.createElement("p", null,
+                                "Request Time: ",
+                                d.requestTime));
+                    }))))));
     };
     return underReview;
-}(React.Component));
+}(React.PureComponent));
 ;
-exports.default = (0, react_redux_1.connect)()(underReview);
+exports.default = (0, react_redux_1.connect)(function (state) { return (state.ClientAddVehicles); }, (AddVehiclesStore.clientActionCreators))(underReview);
 //# sourceMappingURL=underReview.js.map

@@ -1,5 +1,4 @@
-﻿using NPOI.SS.Formula.Functions;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -309,6 +308,94 @@ namespace Boardwalk.Models
                     RequestTime = DateTime.Now
                 };
                 db.RemoveEquipmentRequests.Add(e);
+                db.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public void addVehicle(string type,int year, string make, string model, string radius, string vin,string primaryDriver,string occassionDriver, decimal listPrice, string classs,string weight)
+        {
+            try
+            {
+                AddVehicleRequests e = new AddVehicleRequests
+                {
+                    ClientId = 10,
+                    Type=type,
+                    Year=year,
+                    Make = make,
+                    Model = model,
+                    Radius = radius,
+                    Vin = vin,
+                    PrimaryDriver = primaryDriver,
+                    OccassionDriver = occassionDriver,
+                    ListPrice = listPrice,
+                    Class = classs,
+                    Weight = weight,
+                    RequestTime = DateTime.Now
+                };
+                db.AddVehicleRequests.Add(e);
+                db.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public void removeVehicle(int id)
+        {
+            try
+            {
+                RemoveVehicleRequests e = new RemoveVehicleRequests
+                {
+                    VehicleId = id,
+                    ClientId = 10,
+                    RequestTime = DateTime.Now
+                };
+                db.RemoveVehicleRequests.Add(e);
+                db.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public void addDriver(string firstName, string lastName, DateTime birthDate,string driverTrain, string licenseNumber, string conviction, string licenseYear)
+        {
+            try
+            {
+                AddDriverRequests e = new AddDriverRequests
+                {
+                    ClientId = 10,
+                    FirstName = firstName,
+                    LastName = lastName,
+                    BirthDate = birthDate,
+                    DriverTrain = driverTrain,
+                    LicenseNumber = licenseNumber,
+                    Conviction = conviction,
+                    LicenseYear = licenseYear,
+                    RequestTime = DateTime.Now
+                };
+                db.AddDriverRequests.Add(e);
+                db.SaveChanges();
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public void removeDriver(int id)
+        {
+            try
+            {
+                RemoveDriverRequests e = new RemoveDriverRequests
+                {
+                    DriverId = id,
+                    ClientId = 10,
+                    RequestTime = DateTime.Now
+                };
+                db.RemoveDriverRequests.Add(e);
                 db.SaveChanges();
             }
             catch
