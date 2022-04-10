@@ -4,10 +4,8 @@ import Sidebar from './Sidebar';
 import { Popup } from './Popup';
 import { NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import NavMenu from './NavMenu';
-=======
 import { RouteComponentProps } from 'react-router';
+import NavMenu from './NavMenu';
 import { ApplicationState } from '../store';
 import * as BindingInfosStore from '../store/BindingInfos';
 import { CustomAccordion } from './Accordion';
@@ -56,6 +54,7 @@ class PinkSlips extends React.Component<BindingProps> {
 
         return (
             <React.Fragment>
+                <NavMenu />
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebar />
@@ -77,7 +76,6 @@ export default connect(
     BindingInfosStore.actionCreators
 )(PinkSlips as any);
 /*
->>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
 class PinkSlips extends React.Component<{}, { shown: boolean }> {
     constructor() {
         super({}, {});
@@ -99,7 +97,6 @@ class PinkSlips extends React.Component<{}, { shown: boolean }> {
 
         return (
             <React.Fragment>
-                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebar />

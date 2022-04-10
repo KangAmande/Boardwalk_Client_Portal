@@ -4,10 +4,8 @@ import Sidebar from './Sidebar';
 import { Popup } from './Popup';
 import { NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import NavMenu from './NavMenu';
-=======
 import { RouteComponentProps } from 'react-router';
+import NavMenu from './NavMenu';
 import { ApplicationState } from '../store';
 import * as FilesStore from '../store/Files';
 import { CustomAccordion } from './Accordion';
@@ -45,11 +43,12 @@ class Invoices extends React.PureComponent<FilesProps> {
             </div>
         );
     }
-    
+
     public render() {
 
         return (
             <React.Fragment>
+                <NavMenu />
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebar />
@@ -68,7 +67,6 @@ export default connect(
     FilesStore.actionCreators
 )(Invoices as any);
 /*
->>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
 class Invoices extends React.Component<{}, { shown: boolean }> {
     constructor() {
         super({}, {});
@@ -90,7 +88,6 @@ class Invoices extends React.Component<{}, { shown: boolean }> {
 
         return (
             <React.Fragment>
-                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebar />

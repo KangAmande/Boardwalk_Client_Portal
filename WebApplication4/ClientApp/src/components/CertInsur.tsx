@@ -4,10 +4,8 @@ import Sidebar from './Sidebar';
 import { Popup } from './Popup';
 import { NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
-<<<<<<< HEAD
-import NavMenu from './NavMenu';
-=======
 import { RouteComponentProps } from 'react-router';
+import NavMenu from './NavMenu';
 import { ApplicationState } from '../store';
 import * as CIStore from '../store/CertificateInsurances';
 import { CustomAccordion } from './Accordion';
@@ -35,6 +33,7 @@ class CertInsur extends React.PureComponent<CIProps> {
     private showCI() {
         console.log(this.props.CI);
         return (
+
             <div>
                 {this.props.CI.map((d: CIStore.CertificateInsurances) =>
                     <div>
@@ -55,6 +54,7 @@ class CertInsur extends React.PureComponent<CIProps> {
 
         return (
             <React.Fragment>
+                <NavMenu />
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebar />
@@ -71,7 +71,6 @@ class CertInsur extends React.PureComponent<CIProps> {
     }
 };
 /*
->>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
 class CertInsur extends React.Component<{}, { shown: boolean }> {
     constructor() {
         super({}, {});
@@ -93,7 +92,6 @@ class CertInsur extends React.Component<{}, { shown: boolean }> {
 
         return (
             <React.Fragment>
-                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Sidebar />

@@ -2,9 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.reducers = void 0;
 var Policies = require("./Policies");
-var Accounts = require("./Accounts");
 var Drivers = require("./Drivers");
-<<<<<<< HEAD
 var Vehicles = require("./Vehicles");
 var Equipments = require("./Equipments");
 var ClientBuildingInfo = require("./ClientBuildingInfo");
@@ -19,17 +17,12 @@ var RemoveVehicles = require("./RemoveVehicles");
 var Accounts = require("./Accounts");
 var Files = require("./Files");
 var CertificateInsurances = require("./CertificateInsurances");
-=======
-var Files = require("./Files");
-var CertificateInsurances = require("./CertificateInsurances");
 var BindingInfos = require("./BindingInfos");
->>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
 // Whenever an action is dispatched, Redux will update each top-level application state property using
 // the reducer with the matching name. It's important that the names match exactly, and that the reducer
 // acts on the corresponding ApplicationState property type.
 exports.reducers = {
     Policies: Policies.reducer,
-<<<<<<< HEAD
     Drivers: Drivers.reducer,
     ClientBuildingInfo: ClientBuildingInfo.reducer,
     Vehicles: Vehicles.reducer,
@@ -52,12 +45,7 @@ exports.reducers = {
     ClientRemoveEquipments: RemoveEquipments.clientReducer,
     Accounts: Accounts.reducer,
     Files: Files.reducer,
-=======
-    Accounts: Accounts.reducer,
-    Drivers: Drivers.reducer,
-    Files: Files.reducer,
     BindingInfos: BindingInfos.reducer,
->>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
     CertificateInsurances: CertificateInsurances.reducer
 };
 //# sourceMappingURL=index.js.map

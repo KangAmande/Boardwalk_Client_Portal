@@ -4,11 +4,6 @@ import { Link, Route } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
 import homepageLayout from './Layout';
 import Accountsidebar from './Accountsidebar'
-<<<<<<< HEAD
-import NavMenu from './NavMenu';
-class Account extends React.Component {
-    render() {
-=======
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
 import * as AccountsStore from '../store/Accounts';
@@ -34,10 +29,8 @@ class Account extends React.PureComponent<AccountsProps> {
 
     public render() {
 
->>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
         return (
             <React.Fragment>
-                <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
                         <Accountsidebar />
@@ -47,9 +40,9 @@ class Account extends React.PureComponent<AccountsProps> {
                         <div>
                             {
                                 this.props.Account.map((pol: AccountsStore.Accounts) =>
-                                <p key={pol.id}>
-                                    {pol.accountNumber}
-                                </p>
+                                    <p key={pol.id}>
+                                        {pol.accountNumber}
+                                    </p>
                                 )
                             }
                         </div>

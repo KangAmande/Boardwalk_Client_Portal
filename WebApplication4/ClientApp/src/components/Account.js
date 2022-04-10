@@ -18,11 +18,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Accountsidebar_1 = require("./Accountsidebar");
-<<<<<<< HEAD
-var NavMenu_1 = require("./NavMenu");
-=======
 var AccountsStore = require("../store/Accounts");
->>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
 var Account = /** @class */ (function (_super) {
     __extends(Account, _super);
     function Account() {
@@ -41,7 +37,6 @@ var Account = /** @class */ (function (_super) {
     };
     Account.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
-            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(Accountsidebar_1.default, null)),

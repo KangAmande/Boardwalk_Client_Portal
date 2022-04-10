@@ -18,15 +18,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Sidebar_1 = require("./Sidebar");
-<<<<<<< HEAD
-var Popup_1 = require("./Popup");
-var reactstrap_1 = require("reactstrap");
-var react_router_dom_1 = require("react-router-dom");
 var NavMenu_1 = require("./NavMenu");
-=======
 var FilesStore = require("../store/Files");
 var Accordion_1 = require("./Accordion");
->>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
 var Invoices = /** @class */ (function (_super) {
     __extends(Invoices, _super);
     function Invoices() {

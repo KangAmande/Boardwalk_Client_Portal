@@ -42,7 +42,7 @@ var Changepassword = /** @class */ (function (_super) {
                         "Verification Code:",
                         React.createElement("form", { action: "/", method: "get" },
                             React.createElement("input", { id: "inputcode", type: "text", name: "inputcode" }),
-                            React.createElement("input", { id: "sendcode", type: "button", value: "sendcode", onClick: send }),
+                            React.createElement("input", { id: "sendcode", type: "button", value: "sendcode", onClick: verificationcode }),
                             React.createElement("input", { id: "checkcode", type: "button", value: "checkcode", onClick: checkverfy })))))));
     };
     return Changepassword;
@@ -59,34 +59,6 @@ function verificationcode() {
     }
     num = Math.round(parseInt(str));
     alert(num);
-}
-function send() {
-    verificationcode();
-    var transporter = nodemailer.createTransport({
-        host: 'smtp.qq.com',
-        securityConnection: true,
-        port: 465,
-        auth: {
-            user: "694210383@qq.com",
-            pass: "eogjnyohbevibbaj"
-        }
-    });
-    var mail = {
-        from: 'huang <694210383@qq.com>',
-        to: 'jackhuang0330@gmail.com',
-        subject: 'verify code',
-        text: num,
-    };
-    transporter.sendMail(mail, function (error, info) {
-        if (error) {
-            return console.log(error);
-        }
-        else {
-            console.log('mail sent:', info.response);
-            alert('mail sent:');
-        }
-        transporter.close();
-    });
 }
 exports.default = (0, react_redux_1.connect)(function (state) { return state.Policies; }, // Selects which state properties are merged into the component's props
 AccountsStore.actionCreators // Selects which action creators are merged into the component's props
