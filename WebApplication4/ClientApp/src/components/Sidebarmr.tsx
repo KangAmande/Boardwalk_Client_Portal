@@ -27,9 +27,6 @@ export default class Sidebar extends React.PureComponent{
                 <NavLink className="menu-item" tag={Link} to="/sched-call">
                     Scheduled a call with Broker
                 </NavLink><br />
-                <NavLink className="menu-item" tag={Link} to="/under-review">
-                    Requests Under Review
-                </NavLink><br />
             </Container>
         );
     }

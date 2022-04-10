@@ -43,12 +43,8 @@ var underReview = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(ReviewBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
-                    React.createElement("h1", null, "Add Vehicle Requests"),
                     React.createElement("div", null, this.props.ClientAddVehicle.map(function (d, index) {
                         return React.createElement("div", { key: index },
-                            React.createElement("h3", null,
-                                "Request ",
-                                index + 1),
                             React.createElement("p", null,
                                 "Type: ",
                                 d.type),
@@ -91,4 +87,4 @@ var underReview = /** @class */ (function (_super) {
 }(React.PureComponent));
 ;
 exports.default = (0, react_redux_1.connect)(function (state) { return (state.ClientAddVehicles); }, (AddVehiclesStore.clientActionCreators))(underReview);
-//# sourceMappingURL=underReview.js.map
+//# sourceMappingURL=ReviewRemoveEquipments.js.map

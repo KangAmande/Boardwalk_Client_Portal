@@ -24,10 +24,22 @@ namespace Boardwalk.Controllers
             return getPolicies.GetAddVehicles();
         }
         [HttpGet]
+        [Route("api/Vehicles/ClientAddVehicle")]
+        public IEnumerable<AddVehicleRequests> ClientAddVehicle()
+        {
+            return getPolicies.ClientAddVehicles();
+        }
+        [HttpGet]
         [Route("api/Vehicles/GetRemoveVehicle")]
         public IEnumerable<RemoveVehicleRequests> GetRemoveVehicle()
         {
             return getPolicies.GetRemoveVehicles();
+        }
+        [HttpGet]
+        [Route("api/Vehicles/ClientRemoveVehicle")]
+        public IEnumerable<RemoveVehicleRequests> ClientRemoveVehicle()
+        {
+            return getPolicies.ClientRemoveVehicles();
         }
     }
 }

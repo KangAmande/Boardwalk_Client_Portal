@@ -19,7 +19,6 @@ var mail_addrRoute_1 = require("./Routes/mail-addrRoute");
 var make_requestRoute_1 = require("./Routes/make-requestRoute");
 var sched_equipRoute_1 = require("./Routes/sched-equipRoute");
 var sched_callRoute_1 = require("./Routes/sched-callRoute");
-var under_reviewRoute_1 = require("./Routes/under-reviewRoute");
 var RequestRoute_1 = require("./Routes/RequestRoute");
 var addVehicle_1 = require("./Routes/addVehicle");
 var addDriver_1 = require("./Routes/addDriver");
@@ -36,6 +35,14 @@ var AdminAddEquipment_1 = require("./components/AdminAddEquipment");
 var AdminRemoveEquipment_1 = require("./components/AdminRemoveEquipment");
 var AdminAddLocation_1 = require("./components/AdminAddLocation");
 var AdminRemoveLocation_1 = require("./components/AdminRemoveLocation");
+var underReview_1 = require("./components/underReview");
+var ReviewRemoveVehicles_1 = require("./components/ReviewRemoveVehicles");
+var ReviewAddDrivers_1 = require("./components/ReviewAddDrivers");
+var ReviewRemoveDrivers_1 = require("./components/ReviewRemoveDrivers");
+var ReviewAddLocations_1 = require("./components/ReviewAddLocations");
+var ReviewRemoveLocations_1 = require("./components/ReviewRemoveLocations");
+var ReviewAddEquipments_1 = require("./components/ReviewAddEquipments");
+var ReviewRemoveEquipments_1 = require("./components/ReviewRemoveEquipments");
 exports.default = (function () { return (React.createElement("div", null,
     React.createElement(react_router_dom_1.BrowserRouter, null,
         React.createElement(react_router_1.Route, { exact: true, path: "/", component: LoginForm_1.default }),
@@ -53,7 +60,6 @@ exports.default = (function () { return (React.createElement("div", null,
         React.createElement(react_router_1.Route, { path: '/request', component: make_requestRoute_1.default }),
         React.createElement(react_router_1.Route, { path: '/sched-equip', component: sched_equipRoute_1.default }),
         React.createElement(react_router_1.Route, { path: '/sched-call', component: sched_callRoute_1.default }),
-        React.createElement(react_router_1.Route, { path: '/under-review', component: under_reviewRoute_1.default }),
         React.createElement(react_router_1.Route, { path: '/Make-request', component: RequestRoute_1.default }),
         React.createElement(react_router_1.Route, { path: '/addVehicles', component: addVehicle_1.default }),
         React.createElement(react_router_1.Route, { path: '/addDriver', component: addDriver_1.default }),
@@ -69,5 +75,13 @@ exports.default = (function () { return (React.createElement("div", null,
         React.createElement(react_router_1.Route, { path: '/admin-add-equip', component: AdminAddEquipment_1.default }),
         React.createElement(react_router_1.Route, { path: '/admin-remove-equip', component: AdminRemoveEquipment_1.default }),
         React.createElement(react_router_1.Route, { path: '/admin-add-location', component: AdminAddLocation_1.default }),
-        React.createElement(react_router_1.Route, { path: '/admin-remove-location', component: AdminRemoveLocation_1.default })))); });
+        React.createElement(react_router_1.Route, { path: '/admin-remove-location', component: AdminRemoveLocation_1.default }),
+        React.createElement(react_router_1.Route, { path: '/under-review', component: underReview_1.default }),
+        React.createElement(react_router_1.Route, { path: '/review-remove-vehicles', component: ReviewRemoveVehicles_1.default }),
+        React.createElement(react_router_1.Route, { path: '/review-add-drivers', component: ReviewAddDrivers_1.default }),
+        React.createElement(react_router_1.Route, { path: '/review-remove-drivers', component: ReviewRemoveDrivers_1.default }),
+        React.createElement(react_router_1.Route, { path: '/review-add-locations', component: ReviewAddLocations_1.default }),
+        React.createElement(react_router_1.Route, { path: '/review-remove-locations', component: ReviewRemoveLocations_1.default }),
+        React.createElement(react_router_1.Route, { path: '/review-add-equipments', component: ReviewAddEquipments_1.default }),
+        React.createElement(react_router_1.Route, { path: '/review-remove-equipments', component: ReviewRemoveEquipments_1.default })))); });
 //# sourceMappingURL=App.js.map

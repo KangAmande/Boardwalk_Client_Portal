@@ -30,6 +30,9 @@ exports.reducers = {
     AddDrivers: AddDrivers.reducer,
     RemoveDrivers: RemoveDrivers.reducer,
     AddVehicles: AddVehicles.reducer,
-    RemoveVehicles: RemoveVehicles.reducer
+    RemoveVehicles: RemoveVehicles.reducer,
+    ClientAddVehicles: AddVehicles.clientReducer,
+    ClientRemoveVehicles: RemoveVehicles.clientReducer,
+    ClientAddDrivers: AddDrivers.clientReducer
 };
 //# sourceMappingURL=index.js.map

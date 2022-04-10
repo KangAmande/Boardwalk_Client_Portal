@@ -17,7 +17,6 @@ import mailAddrRoute from './Routes/mail-addrRoute';
 import makeRequestRoute from './Routes/make-requestRoute';
 import schedEquip from './Routes/sched-equipRoute';
 import schedCallRoute from './Routes/sched-callRoute';
-import underReviewRoute from './Routes/under-reviewRoute';
 import MakeRequest from './Routes/RequestRoute';
 import addVehicles from './Routes/addVehicle';
 import addDriver from './Routes/addDriver';
@@ -34,6 +33,14 @@ import AdminAddEquipment from './components/AdminAddEquipment';
 import AdminRemoveEquipment from './components/AdminRemoveEquipment';
 import AdminAddLocation from './components/AdminAddLocation';
 import AdminRemoveLocation from './components/AdminRemoveLocation';
+import ReviewAddVehicles from './components/underReview';
+import ReviewRemoveVehicles from './components/ReviewRemoveVehicles';
+import ReviewAddDrivers from './components/ReviewAddDrivers';
+import ReviewRemoveDrivers from './components/ReviewRemoveDrivers';
+import ReviewAddLocations from './components/ReviewAddLocations';
+import ReviewRemoveLocations from './components/ReviewRemoveLocations';
+import ReviewAddEquipments from './components/ReviewAddEquipments';
+import ReviewRemoveEquipments from './components/ReviewRemoveEquipments';
 export default () => (
     <div>
       <BrowserRouter>     
@@ -52,7 +59,6 @@ export default () => (
             <Route path='/request' component={makeRequestRoute} />
             <Route path='/sched-equip' component={schedEquip}/>
             <Route path='/sched-call' component={schedCallRoute}/>
-            <Route path='/under-review' component={underReviewRoute}/>
             <Route path='/Make-request' component={MakeRequest} />
             <Route path='/addVehicles' component={addVehicles} />
             <Route path='/addDriver' component={addDriver} />
@@ -69,6 +75,14 @@ export default () => (
             <Route path='/admin-remove-equip' component={AdminRemoveEquipment} />
             <Route path='/admin-add-location' component={AdminAddLocation} />
             <Route path='/admin-remove-location' component={AdminRemoveLocation} />
+            <Route path='/under-review' component={ReviewAddVehicles} />
+            <Route path='/review-remove-vehicles' component={ReviewRemoveVehicles} />
+            <Route path='/review-add-drivers' component={ReviewAddDrivers} />
+            <Route path='/review-remove-drivers' component={ReviewRemoveDrivers} />
+            <Route path='/review-add-locations' component={ReviewAddLocations} />
+            <Route path='/review-remove-locations' component={ReviewRemoveLocations} />
+            <Route path='/review-add-equipments' component={ReviewAddEquipments} />
+            <Route path='/review-remove-equipments' component={ReviewRemoveEquipments} />
          </BrowserRouter>
     </div>
 );

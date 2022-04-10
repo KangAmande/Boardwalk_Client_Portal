@@ -1,5 +1,6 @@
-import * as React from 'react';
+﻿import * as React from 'react';
 import { connect } from 'react-redux';
+import Sidebarmr from './Sidebarmr';
 import NavMenu from './NavMenu';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
@@ -25,17 +26,15 @@ class underReview extends React.PureComponent<Props> {
     public render() {
         return (
             <React.Fragment>
-                <NavMenu/>
+                <NavMenu />
                 <div className='row'>
                     <div className='col-4'>
-                        <ReviewBar/>
+                        <ReviewBar />
                     </div>
                     <div className='col-8'>
-                        <h1>Add Vehicle Requests</h1>
                         <div>
                             {this.props.ClientAddVehicle.map((d: AddVehiclesStore.AddVehicles, index) =>
                                 <div key={index}>
-                                    <h3>Request { index + 1}</h3>
                                     <p>Type: {d.type}</p>
                                     <p>Year: {d.year}</p>
                                     <p>Make: {d.make}</p>
