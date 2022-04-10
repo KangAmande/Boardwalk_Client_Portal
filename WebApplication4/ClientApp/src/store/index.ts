@@ -11,6 +11,9 @@ import * as AddDrivers from './AddDrivers';
 import * as RemoveDrivers from './RemoveDrivers';
 import * as AddVehicles from './AddVehicles';
 import * as RemoveVehicles from './RemoveVehicles';
+import * as Accounts from './Accounts';
+import * as Files from './Files';
+import * as CertificateInsurances from './CertificateInsurances';
 // The top-level state object
 export interface ApplicationState {
     ClientBuildingInfo: ClientBuildingInfo.ClientBuildingInfoState | undefined;
@@ -34,6 +37,9 @@ export interface ApplicationState {
     ClientRemoveLocations: RemoveLocations.ClientRemoveLocationsState | undefined;
     ClientAddEquipments: AddEquipments.ClientAddEquipmentsState | undefined;
     ClientRemoveEquipments: RemoveEquipments.ClientRemoveEquipmentsState | undefined;
+    Accounts: Accounts.AccountsState | undefined;
+    Files: Files.FilesState | undefined;
+    CertificateInsurances: CertificateInsurances.CertificateInsurancesState | undefined;
 }
 
 // Whenever an action is dispatched, Redux will update each top-level application state property using
@@ -60,7 +66,10 @@ export const reducers = {
     ClientAddLocations: AddLocations.clientReducer,
     ClientRemoveLocations: RemoveLocations.clientReducer,
     ClientAddEquipments: AddEquipments.clientReducer,
-    ClientRemoveEquipments: RemoveEquipments.clientReducer
+    ClientRemoveEquipments: RemoveEquipments.clientReducer,
+    Accounts: Accounts.reducer,
+    Files: Files.reducer,
+    CertificateInsurances: CertificateInsurances.reducer
 };
 
 // This type can be used as a hint on action creators so that its 'dispatch' and 'getState' params are
