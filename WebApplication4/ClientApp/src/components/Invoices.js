@@ -18,27 +18,42 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Sidebar_1 = require("./Sidebar");
+<<<<<<< HEAD
 var Popup_1 = require("./Popup");
 var reactstrap_1 = require("reactstrap");
 var react_router_dom_1 = require("react-router-dom");
 var NavMenu_1 = require("./NavMenu");
+=======
+var FilesStore = require("../store/Files");
+var Accordion_1 = require("./Accordion");
+>>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
 var Invoices = /** @class */ (function (_super) {
     __extends(Invoices, _super);
     function Invoices() {
-        var _this = _super.call(this, {}, {}) || this;
-        _this.showModal = function () {
-            _this.setState({ shown: true });
-        };
-        _this.hideModal = function () {
-            _this.setState({ shown: false });
-        };
-        _this.state = {
-            shown: false
-        };
-        _this.showModal = _this.showModal.bind(_this);
-        _this.hideModal = _this.hideModal.bind(_this);
-        return _this;
+        return _super !== null && _super.apply(this, arguments) || this;
     }
+    Invoices.prototype.componentDidMount = function () {
+        this.ensureDataFetched();
+    };
+    // This method is called when the route parameters change
+    Invoices.prototype.componentDidUpdate = function () {
+        this.ensureDataFetched();
+    };
+    Invoices.prototype.ensureDataFetched = function () {
+        var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestFiles(startDateIndex);
+    };
+    Invoices.prototype.showFiles = function () {
+        console.log(this.props.File);
+        return (React.createElement("div", null, this.props.File.map(function (d) {
+            return React.createElement("div", null,
+                React.createElement(Accordion_1.CustomAccordion, { key: d.id, title: "File " + d.name.toString(), content: React.createElement("div", null,
+                        React.createElement("p", null,
+                            "provided By ",
+                            d.providerName)) }),
+                React.createElement("br", null));
+        })));
+    };
     Invoices.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement(NavMenu_1.default, null),
@@ -47,18 +62,52 @@ var Invoices = /** @class */ (function (_super) {
                     React.createElement(Sidebar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("h1", null, "Invoices"),
-                    React.createElement("p", null, "Click on a document to view or download it"),
-                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 1"),
-                    React.createElement("br", null),
-                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 2"),
-                    React.createElement("br", null),
-                    React.createElement(reactstrap_1.NavLink, { tag: react_router_dom_1.Link, onClick: this.showModal }, "Document 3"),
-                    React.createElement("br", null),
-                    React.createElement(Popup_1.Popup, { show: this.state.shown, handleClose: this.hideModal },
-                        React.createElement("p", null, "Modal"))))));
+                    this.showFiles()))));
     };
     return Invoices;
-}(React.Component));
+}(React.PureComponent));
 ;
-exports.default = (0, react_redux_1.connect)()(Invoices);
+exports.default = (0, react_redux_1.connect)(function (state) { return state.Files; }, FilesStore.actionCreators)(Invoices);
+/*
+class Invoices extends React.Component<{}, { shown: boolean }> {
+    constructor() {
+        super({}, {});
+        this.state = {
+            shown: false
+        };
+        this.showModal = this.showModal.bind(this);
+        this.hideModal = this.hideModal.bind(this);
+    }
+
+    showModal = () => {
+        this.setState({ shown: true });
+    };
+
+    hideModal = () => {
+        this.setState({ shown: false });
+    };
+    public render() {
+
+        return (
+            <React.Fragment>
+                <div className='row'>
+                    <div className='col-4'>
+                        <Sidebar />
+                    </div>
+                    <div className='col-8'>
+                        <h1>Invoices</h1>
+                        <p>Click on a document to view or download it</p>
+                        <NavLink tag={Link} onClick={this.showModal}>Document 1</NavLink><br />
+                        <NavLink tag={Link} onClick={this.showModal}>Document 2</NavLink><br />
+                        <NavLink tag={Link} onClick={this.showModal}>Document 3</NavLink><br />
+                        <Popup show={this.state.shown} handleClose={this.hideModal}>
+                            <p>Modal</p>
+                        </Popup>
+                    </div>
+                </div>
+            </React.Fragment>
+        );
+    }
+};
+export default connect()(Invoices);*/ 
 //# sourceMappingURL=Invoices.js.map

@@ -4,9 +4,37 @@ import { Link, Route } from 'react-router-dom';
 import { NavLink } from 'reactstrap';
 import homepageLayout from './Layout';
 import Accountsidebar from './Accountsidebar'
+<<<<<<< HEAD
 import NavMenu from './NavMenu';
 class Account extends React.Component {
     render() {
+=======
+import { RouteComponentProps } from 'react-router';
+import { ApplicationState } from '../store';
+import * as AccountsStore from '../store/Accounts';
+
+type AccountsProps =
+    AccountsStore.AccountsState// ... state we've requested from the Redux store
+    & typeof AccountsStore.actionCreators // ... plus action creators we've requested
+    & RouteComponentProps<{ startDateIndex: string }>;
+
+class Account extends React.PureComponent<AccountsProps> {
+    public componentDidMount() {
+        this.ensureDataFetched();
+    }
+
+    // This method is called when the route parameters change
+    public componentDidUpdate() {
+        this.ensureDataFetched();
+    }
+    private ensureDataFetched() {
+        const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
+        this.props.requestAccounts(startDateIndex);
+    }
+
+    public render() {
+
+>>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
         return (
             <React.Fragment>
                 <NavMenu/>
@@ -15,12 +43,23 @@ class Account extends React.Component {
                         <Accountsidebar />
                     </div>
                     <div className='col-8'>
-                        <p>user name:</p>
-                        <p>city</p>
+                        <p>Account Number:</p>
+                        <div>
+                            {
+                                this.props.Account.map((pol: AccountsStore.Accounts) =>
+                                <p key={pol.id}>
+                                    {pol.accountNumber}
+                                </p>
+                                )
+                            }
+                        </div>
                     </div>
                 </div>
             </React.Fragment>
         );
     }
 }
-export default connect()(Account);
+export default connect(
+    (state: ApplicationState) => state.Accounts, // Selects which state properties are merged into the component's props
+    AccountsStore.actionCreators
+)(Account as any);

@@ -1,5 +1,7 @@
 import * as Policies from './Policies';
+import * as Accounts from './Accounts';
 import * as Drivers from './Drivers';
+<<<<<<< HEAD
 import * as Vehicles from './Vehicles';
 import * as Equipments from './Equipments';
 import * as ClientBuildingInfo from './ClientBuildingInfo';
@@ -39,6 +41,19 @@ export interface ApplicationState {
     ClientRemoveEquipments: RemoveEquipments.ClientRemoveEquipmentsState | undefined;
     Accounts: Accounts.AccountsState | undefined;
     Files: Files.FilesState | undefined;
+=======
+import * as Files from './Files';
+import * as CertificateInsurances from './CertificateInsurances';
+import * as BindingInfos from './BindingInfos';
+
+// The top-level state object
+export interface ApplicationState {
+    Accounts: Accounts.AccountsState | undefined;
+    Policies: Policies.PoliciesState | undefined;
+    Drivers: Drivers.DriversState | undefined;
+    Files: Files.FilesState | undefined;
+    BindingInfos: BindingInfos.BindinginfosState | undefined;
+>>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
     CertificateInsurances: CertificateInsurances.CertificateInsurancesState | undefined;
 }
 
@@ -47,6 +62,7 @@ export interface ApplicationState {
 // acts on the corresponding ApplicationState property type.
 export const reducers = {
     Policies: Policies.reducer,
+<<<<<<< HEAD
     Drivers: Drivers.reducer,
     ClientBuildingInfo: ClientBuildingInfo.reducer,
     Vehicles: Vehicles.reducer,
@@ -69,6 +85,12 @@ export const reducers = {
     ClientRemoveEquipments: RemoveEquipments.clientReducer,
     Accounts: Accounts.reducer,
     Files: Files.reducer,
+=======
+    Accounts: Accounts.reducer,
+    Drivers:Drivers.reducer,
+    Files: Files.reducer,
+    BindingInfos: BindingInfos.reducer,
+>>>>>>> 231172509945bb50a81d9ffc949de8f11c91045e
     CertificateInsurances: CertificateInsurances.reducer
 };
 

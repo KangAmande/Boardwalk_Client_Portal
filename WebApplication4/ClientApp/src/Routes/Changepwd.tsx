@@ -1,16 +1,14 @@
-import * as React from 'react';
+﻿import * as React from 'react';
 import { Route } from 'react-router';
 import Layout from '../components/Layout';
-import PolicyMenu from '../components/PolicyMenu';
-
+import Changepassword from '../components/Changepassword';
 
 export default () => (
     <div>
         <Layout>
+            <Route path='/' component={Changepassword} />
 
-            <Route path='/' component={PolicyMenu} />
-            
         </Layout>
-        
+
     </div>
 );
