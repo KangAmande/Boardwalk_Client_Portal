@@ -1,6 +1,5 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
-import Sidebarmr from './Sidebarmr';
 import NavMenu from './NavMenu';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
@@ -32,9 +31,11 @@ class underReview extends React.PureComponent<Props> {
                         <ReviewBar />
                     </div>
                     <div className='col-8'>
+                        <h1>Add Driver requests</h1>
                         <div>
                             {this.props.ClientAddVehicle.map((d: AddVehiclesStore.AddVehicles, index) =>
                                 <div key={index}>
+                                    <h3>Request {index+1}</h3>
                                     <p>Type: {d.type}</p>
                                     <p>Year: {d.year}</p>
                                     <p>Make: {d.make}</p>

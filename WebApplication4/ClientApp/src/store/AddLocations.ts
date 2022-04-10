@@ -6,6 +6,11 @@ export interface AddLocationsState {
     startDateIndex?: number;
     AddLocation: AddLocations[];
 }
+export interface ClientAddLocationsState {
+    isLoading: boolean;
+    startDateIndex?: number;
+    ClientAddLocation: AddLocations[];
+}
 
 export interface AddLocations {
     id: number;
@@ -44,11 +49,20 @@ interface ReceiveAddLocationsAction {
     startDateIndex: number;
     AddLocation: AddLocations[];
 }
+interface RequestClientAddLocationsAction {
+    type: 'REQUEST_ADD_CLIENT_LOCATIONS';
+    startDateIndex: number;
+}
 
+interface ReceiveClientAddLocationsAction {
+    type: 'RECEIVE_ADD_CLIENT_LOCATIONS';
+    startDateIndex: number;
+    ClientAddLocation: AddLocations[];
+}
 // Declare a 'discriminated union' type. This guarantees that all references to 'type' properties contain one of the
 // declared type strings (and not any other arbitrary string).
 type KnownAction = RequestAddLocationsAction | ReceiveAddLocationsAction;
-
+type ClientKnownAction = RequestClientAddLocationsAction | ReceiveClientAddLocationsAction;
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
@@ -68,11 +82,27 @@ export const actionCreators = {
         }
     }
 };
+export const clientActionCreators = {
+    requestClientAddLocations: (startDateIndex: number): AppThunkAction<ClientKnownAction> => (dispatch, getState) => {
+        // Only load data if it's something we don't already have (and are not already loading)
+        const appState = getState();
+        if (appState && appState.ClientAddLocations && startDateIndex !== appState.ClientAddLocations.startDateIndex) {
+            fetch(`api/ClientBuildingInfo/ClientAddLocation`)
+                .then(response => response.json() as Promise<AddLocations[]>)
+                .then(data => {
+                    dispatch({ type: 'RECEIVE_ADD_CLIENT_LOCATIONS', startDateIndex: startDateIndex, ClientAddLocation: data });
+                });
+
+            dispatch({ type: 'REQUEST_ADD_CLIENT_LOCATIONS', startDateIndex: startDateIndex });
+        }
+    }
+};
 
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
 
 const unloadedState: AddLocationsState = { AddLocation: [], isLoading: false };
+const clientUnloadedState: ClientAddLocationsState = { ClientAddLocation: [], isLoading: false };
 
 export const reducer: Reducer<AddLocationsState> = (state: AddLocationsState | undefined, incomingAction: Action): AddLocationsState => {
     if (state === undefined) {
@@ -96,6 +126,35 @@ export const reducer: Reducer<AddLocationsState> = (state: AddLocationsState | u
                     startDateIndex: action.startDateIndex,
                     ...state,
                     AddLocation: action.AddLocation,
+                    isLoading: false
+                };
+            }
+            break;
+    }
+    return state;
+};
+export const clientReducer: Reducer<ClientAddLocationsState> = (state: ClientAddLocationsState | undefined, incomingAction: Action): ClientAddLocationsState => {
+    if (state === undefined) {
+        return clientUnloadedState;
+    }
+
+    const action = incomingAction as ClientKnownAction;
+    switch (action.type) {
+        case 'REQUEST_ADD_CLIENT_LOCATIONS':
+            return {
+                startDateIndex: action.startDateIndex,
+                ...state,
+                ClientAddLocation: state.ClientAddLocation,
+                isLoading: true
+            };
+        case 'RECEIVE_ADD_CLIENT_LOCATIONS':
+            // Only accept the incoming data if it matches the most recent request. This ensures we correctly
+            // handle out-of-order responses.
+            if (action.startDateIndex === state.startDateIndex) {
+                return {
+                    startDateIndex: action.startDateIndex,
+                    ...state,
+                    ClientAddLocation: action.ClientAddLocation,
                     isLoading: false
                 };
             }

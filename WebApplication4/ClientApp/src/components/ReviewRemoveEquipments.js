@@ -18,73 +18,48 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var NavMenu_1 = require("./NavMenu");
-var AddVehiclesStore = require("../store/AddVehicles");
+var RemoveEquipmentsStore = require("../store/RemoveEquipment");
 var ReviewBar_1 = require("./ReviewBar");
-var underReview = /** @class */ (function (_super) {
-    __extends(underReview, _super);
-    function underReview() {
+var ReviewRemoveEquipments = /** @class */ (function (_super) {
+    __extends(ReviewRemoveEquipments, _super);
+    function ReviewRemoveEquipments() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    underReview.prototype.componentDidMount = function () {
+    ReviewRemoveEquipments.prototype.componentDidMount = function () {
         this.ensureDataFetched();
     };
     // This method is called when the route parameters change
-    underReview.prototype.componentDidUpdate = function () {
+    ReviewRemoveEquipments.prototype.componentDidUpdate = function () {
         this.ensureDataFetched();
     };
-    underReview.prototype.ensureDataFetched = function () {
+    ReviewRemoveEquipments.prototype.ensureDataFetched = function () {
         var startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
-        this.props.requestClientAddVehicles(startDateIndex);
+        this.props.requestClientRemoveEquipments(startDateIndex);
+        console.log(this.props.ClientRemoveEquipment);
     };
-    underReview.prototype.render = function () {
+    ReviewRemoveEquipments.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
             React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(ReviewBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
-                    React.createElement("div", null, this.props.ClientAddVehicle.map(function (d, index) {
+                    React.createElement("h1", null, "Remove Equipment Requests"),
+                    React.createElement("div", null, this.props.ClientRemoveEquipment.map(function (d, index) {
                         return React.createElement("div", { key: index },
+                            React.createElement("h3", null,
+                                "Request ",
+                                index + 1),
                             React.createElement("p", null,
-                                "Type: ",
-                                d.type),
+                                "Equipment Id: ",
+                                d.equipId),
                             React.createElement("p", null,
-                                "Year: ",
-                                d.year),
-                            React.createElement("p", null,
-                                "Make: ",
-                                d.make),
-                            React.createElement("p", null,
-                                "Model: ",
-                                d.model),
-                            React.createElement("p", null,
-                                "Radius: ",
-                                d.radius),
-                            React.createElement("p", null,
-                                "VIN: ",
-                                d.vin),
-                            React.createElement("p", null,
-                                "Primary Driver: ",
-                                d.primaryDriver),
-                            React.createElement("p", null,
-                                "Occassional Driver: ",
-                                d.occassionDriver),
-                            React.createElement("p", null,
-                                "List Price: ",
-                                d.listPrice),
-                            React.createElement("p", null,
-                                "Class: ",
-                                d.class),
-                            React.createElement("p", null,
-                                "Weight: ",
-                                d.weight),
-                            React.createElement("p", null,
-                                "Request Time: ",
+                                "Request time: ",
                                 d.requestTime));
                     }))))));
     };
-    return underReview;
+    return ReviewRemoveEquipments;
 }(React.PureComponent));
 ;
-exports.default = (0, react_redux_1.connect)(function (state) { return (state.ClientAddVehicles); }, (AddVehiclesStore.clientActionCreators))(underReview);
+exports.default = (0, react_redux_1.connect)(function (state) { return (state.ClientRemoveEquipments); }, (RemoveEquipmentsStore.clientActionCreators))(ReviewRemoveEquipments);
 //# sourceMappingURL=ReviewRemoveEquipments.js.map

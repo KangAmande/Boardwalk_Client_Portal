@@ -26,7 +26,7 @@ class AdminRemoveLocation extends React.PureComponent<RemoveLocationsProps>{
         console.log(this.props.RemoveLocation);
         return (
             <div>
-                <table>
+                <table className="table table-bordered">
                     <tr>
                         <th>ID</th>
                         <th>Client ID</th>

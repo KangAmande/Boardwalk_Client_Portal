@@ -4,13 +4,13 @@ import Sidebarmr from './Sidebarmr';
 import NavMenu from './NavMenu';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
-import * as AddVehiclesStore from '../store/AddVehicles';
+import * as AddEquipmentsStore from '../store/AddEquipments';
 import ReviewBar from './ReviewBar';
 type Props =
-    AddVehiclesStore.ClientAddVehiclesState // ... state we've requested from pe Redux store
-    & typeof AddVehiclesStore.clientActionCreators // ... plus action creators we've requested
+    AddEquipmentsStore.ClientAddEquipmentsState // ... state we've requested from pe Redux store
+    & typeof AddEquipmentsStore.clientActionCreators // ... plus action creators we've requested
     & RouteComponentProps<{ startDateIndex: string }>;
-class underReview extends React.PureComponent<Props> {
+class ReviewAddEquipment extends React.PureComponent<Props> {
     public componentDidMount() {
         this.ensureDataFetched();
     }
@@ -21,7 +21,7 @@ class underReview extends React.PureComponent<Props> {
     }
     private ensureDataFetched() {
         const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
-        this.props.requestClientAddVehicles(startDateIndex);
+        this.props.requestClientAddEquipments(startDateIndex);
     }
     public render() {
         return (
@@ -32,20 +32,15 @@ class underReview extends React.PureComponent<Props> {
                         <ReviewBar />
                     </div>
                     <div className='col-8'>
+                        <h1>Add Equipments Request</h1>
                         <div>
-                            {this.props.ClientAddVehicle.map((d: AddVehiclesStore.AddVehicles, index) =>
+                            {this.props.ClientAddEquipment.map((d: AddEquipmentsStore.AddEquipments, index) =>
                                 <div key={index}>
-                                    <p>Type: {d.type}</p>
+                                    <h3>Request {index + 1}</h3>
                                     <p>Year: {d.year}</p>
                                     <p>Make: {d.make}</p>
                                     <p>Model: {d.model}</p>
-                                    <p>Radius: {d.radius}</p>
-                                    <p>VIN: {d.vin}</p>
-                                    <p>Primary Driver: {d.primaryDriver}</p>
-                                    <p>Occassional Driver: {d.occassionDriver}</p>
-                                    <p>List Price: {d.listPrice}</p>
-                                    <p>Class: {d.class}</p>
-                                    <p>Weight: {d.weight}</p>
+                                    <p>Value: {d.value}</p>
                                     <p>Request Time: {d.requestTime}</p>
                                 </div>
                             )}
@@ -56,5 +51,5 @@ class underReview extends React.PureComponent<Props> {
         );
     }
 };
-export default connect((state: ApplicationState) => (state.ClientAddVehicles),
-    (AddVehiclesStore.clientActionCreators))(underReview as any);
+export default connect((state: ApplicationState) => (state.ClientAddEquipments),
+    (AddEquipmentsStore.clientActionCreators))(ReviewAddEquipment as any);

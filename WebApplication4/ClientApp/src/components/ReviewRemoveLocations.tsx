@@ -1,16 +1,15 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
-import Sidebarmr from './Sidebarmr';
 import NavMenu from './NavMenu';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
-import * as AddVehiclesStore from '../store/AddVehicles';
+import * as RemoveLocationsStore from '../store/RemoveLocations';
 import ReviewBar from './ReviewBar';
 type Props =
-    AddVehiclesStore.ClientAddVehiclesState // ... state we've requested from pe Redux store
-    & typeof AddVehiclesStore.clientActionCreators // ... plus action creators we've requested
+    RemoveLocationsStore.ClientRemoveLocationsState // ... state we've requested from pe Redux store
+    & typeof RemoveLocationsStore.clientActionCreators
     & RouteComponentProps<{ startDateIndex: string }>;
-class underReview extends React.PureComponent<Props> {
+class ReviewRemoveLocations extends React.PureComponent<Props> {
     public componentDidMount() {
         this.ensureDataFetched();
     }
@@ -21,7 +20,8 @@ class underReview extends React.PureComponent<Props> {
     }
     private ensureDataFetched() {
         const startDateIndex = parseInt(this.props.match.params.startDateIndex, 10) || 0;
-        this.props.requestClientAddVehicles(startDateIndex);
+        this.props.requestClientRemoveLocations(startDateIndex);
+        console.log(this.props.ClientRemoveLocation);
     }
     public render() {
         return (
@@ -32,23 +32,17 @@ class underReview extends React.PureComponent<Props> {
                         <ReviewBar />
                     </div>
                     <div className='col-8'>
+                        <h1>Remove Location Requests</h1>
                         <div>
-                            {this.props.ClientAddVehicle.map((d: AddVehiclesStore.AddVehicles, index) =>
-                                <div key={index}>
-                                    <p>Type: {d.type}</p>
-                                    <p>Year: {d.year}</p>
-                                    <p>Make: {d.make}</p>
-                                    <p>Model: {d.model}</p>
-                                    <p>Radius: {d.radius}</p>
-                                    <p>VIN: {d.vin}</p>
-                                    <p>Primary Driver: {d.primaryDriver}</p>
-                                    <p>Occassional Driver: {d.occassionDriver}</p>
-                                    <p>List Price: {d.listPrice}</p>
-                                    <p>Class: {d.class}</p>
-                                    <p>Weight: {d.weight}</p>
-                                    <p>Request Time: {d.requestTime}</p>
-                                </div>
-                            )}
+                            <div>
+                                {this.props.ClientRemoveLocation.map((d: RemoveLocationsStore.RemoveLocations, index) =>
+                                    <div key={index}>
+                                        <h3>Request {index + 1}</h3>
+                                        <p>Location Id: {d.locationId}</p>
+                                        <p>Request time: {d.requestTime}</p>
+                                    </div>
+                                )}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -56,5 +50,5 @@ class underReview extends React.PureComponent<Props> {
         );
     }
 };
-export default connect((state: ApplicationState) => (state.ClientAddVehicles),
-    (AddVehiclesStore.clientActionCreators))(underReview as any);
+export default connect((state: ApplicationState) => (state.ClientRemoveLocations),
+    (RemoveLocationsStore.clientActionCreators))(ReviewRemoveLocations as any);

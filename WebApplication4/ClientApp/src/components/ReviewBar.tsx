@@ -20,7 +20,7 @@ export default class ReviewBar extends React.PureComponent {
                 </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/review-add-drivers">
                     Add Drivers
-                </NavLink>
+                </NavLink><br/>
                 <NavLink className="menu-item" tag={Link} to="/review-remove-drivers">
                     Remove Drivers
                 </NavLink><br />
@@ -29,7 +29,7 @@ export default class ReviewBar extends React.PureComponent {
                 </NavLink><br />
                 <NavLink className="menu-item" tag={Link} to="/review-remove-locations">
                     Remove Locations
-                </NavLink>
+                </NavLink><br/>
                 <NavLink className="menu-item" tag={Link} to="/review-add-equipments">
                     Add Equipments
                 </NavLink><br />

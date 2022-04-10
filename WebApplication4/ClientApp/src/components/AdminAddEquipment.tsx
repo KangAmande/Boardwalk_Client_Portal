@@ -27,7 +27,7 @@ class AdminAddEquipment extends React.PureComponent<AddEquipmentsProps> {
         console.log(this.props.AddEquipment);
         return (
             <div>
-                <table>
+                <table className="table table-bordered">
                     <tr>
                         <th>ID</th>
                         <th>Client ID</th>
@@ -40,14 +40,14 @@ class AdminAddEquipment extends React.PureComponent<AddEquipmentsProps> {
                     </tr>
                 {this.props.AddEquipment.map((d: AddEquipmentsStore.AddEquipments, index) =>
                     <tr key={index}>
-                        <th>{d.id}</th>
-                        <th>{d.clientId}</th>
-                        <th>{d.year}</th>
-                        <th>{d.make}</th>
-                        <th>{d.model}</th>
-                        <th>{d.value}</th>
-                        <th>{d.requestTime}</th>
-                        <th><button>Yes</button><button>No</button></th>
+                        <td>{d.id}</td>
+                        <td>{d.clientId}</td>
+                        <td>{d.year}</td>
+                        <td>{d.make}</td>
+                        <td>{d.model}</td>
+                        <td>{d.value}</td>
+                        <td>{d.requestTime}</td>
+                        <td><button>Yes</button><button>No</button></td>
                     </tr>
                     )}
                 </table>

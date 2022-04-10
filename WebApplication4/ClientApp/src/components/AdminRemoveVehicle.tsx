@@ -26,7 +26,7 @@ class AdminRemoveVehicle extends React.PureComponent<RemoveVehiclesProps>{
         console.log(this.props.RemoveVehicle);
         return (
             <div>
-                <table>
+                <table className="table table-bordered">
                     <tr>
                         <th>ID</th>
                         <th>Client ID</th>

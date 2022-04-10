@@ -33,6 +33,11 @@ exports.reducers = {
     RemoveVehicles: RemoveVehicles.reducer,
     ClientAddVehicles: AddVehicles.clientReducer,
     ClientRemoveVehicles: RemoveVehicles.clientReducer,
-    ClientAddDrivers: AddDrivers.clientReducer
+    ClientAddDrivers: AddDrivers.clientReducer,
+    ClientRemoveDrivers: RemoveDrivers.clientReducer,
+    ClientAddLocations: AddLocations.clientReducer,
+    ClientRemoveLocations: RemoveLocations.clientReducer,
+    ClientAddEquipments: AddEquipments.clientReducer,
+    ClientRemoveEquipments: RemoveEquipments.clientReducer
 };
 //# sourceMappingURL=index.js.map

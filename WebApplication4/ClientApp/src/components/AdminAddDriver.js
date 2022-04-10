@@ -39,7 +39,7 @@ var AdminAddDriver = /** @class */ (function (_super) {
     AdminAddDriver.prototype.showAddDrivers = function () {
         console.log(this.props.AddDriver);
         return (React.createElement("div", null,
-            React.createElement("table", null,
+            React.createElement("table", { className: "table table-bordered" },
                 React.createElement("tr", null,
                     React.createElement("th", null, "ID"),
                     React.createElement("th", null, "Client ID"),
@@ -54,17 +54,17 @@ var AdminAddDriver = /** @class */ (function (_super) {
                     React.createElement("th", null, "Approve or Reject")),
                 this.props.AddDriver.map(function (d, index) {
                     return React.createElement("tr", { key: index },
-                        React.createElement("th", null, d.id),
-                        React.createElement("th", null, d.clientId),
-                        React.createElement("th", null, d.firstName),
-                        React.createElement("th", null, d.lastName),
-                        React.createElement("th", null, d.birthDate),
-                        React.createElement("th", null, d.driverTrain),
-                        React.createElement("th", null, d.licenseNumber),
-                        React.createElement("th", null, d.conviction),
-                        React.createElement("th", null, d.licenseYear),
-                        React.createElement("th", null, d.requestTime),
-                        React.createElement("th", null,
+                        React.createElement("td", null, d.id),
+                        React.createElement("td", null, d.clientId),
+                        React.createElement("td", null, d.firstName),
+                        React.createElement("td", null, d.lastName),
+                        React.createElement("td", null, d.birthDate),
+                        React.createElement("td", null, d.driverTrain),
+                        React.createElement("td", null, d.licenseNumber),
+                        React.createElement("td", null, d.conviction),
+                        React.createElement("td", null, d.licenseYear),
+                        React.createElement("td", null, d.requestTime),
+                        React.createElement("td", null,
                             React.createElement("button", null, "Yes"),
                             React.createElement("button", null, "No")));
                 }))));

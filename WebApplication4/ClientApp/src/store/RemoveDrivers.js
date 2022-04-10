@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
     return __assign.apply(this, arguments);
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.reducer = exports.actionCreators = void 0;
+exports.clientReducer = exports.reducer = exports.clientActionCreators = exports.actionCreators = void 0;
 // ----------------
 // ACTION CREATORS - These are functions exposed to UI components that will trigger a state transition.
 // They don't directly mutate state, but they can have external side-effects (such as loading data).
@@ -29,9 +29,24 @@ exports.actionCreators = {
         }
     }; }
 };
+exports.clientActionCreators = {
+    requestClientRemoveDrivers: function (startDateIndex) { return function (dispatch, getState) {
+        // Only load data if it's something we don't already have (and are not already loading)
+        var appState = getState();
+        if (appState && appState.ClientRemoveDrivers && startDateIndex !== appState.ClientRemoveDrivers.startDateIndex) {
+            fetch("api/Drivers/ClientRemoveDriver")
+                .then(function (response) { return response.json(); })
+                .then(function (data) {
+                dispatch({ type: 'RECEIVE_REMOVE_CLIENT_DRIVERS', startDateIndex: startDateIndex, ClientRemoveDriver: data });
+            });
+            dispatch({ type: 'REQUEST_REMOVE_CLIENT_DRIVERS', startDateIndex: startDateIndex });
+        }
+    }; }
+};
 // ----------------
 // REDUCER - For a given state and action, returns the new state. To support time travel, this must not mutate the old state.
 var unloadedState = { RemoveDriver: [], isLoading: false };
+var clientUnloadedState = { ClientRemoveDriver: [], isLoading: false };
 var reducer = function (state, incomingAction) {
     if (state === undefined) {
         return unloadedState;
@@ -51,4 +66,23 @@ var reducer = function (state, incomingAction) {
     return state;
 };
 exports.reducer = reducer;
+var clientReducer = function (state, incomingAction) {
+    if (state === undefined) {
+        return clientUnloadedState;
+    }
+    var action = incomingAction;
+    switch (action.type) {
+        case 'REQUEST_REMOVE_CLIENT_DRIVERS':
+            return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { ClientRemoveDriver: state.ClientRemoveDriver, isLoading: true });
+        case 'RECEIVE_REMOVE_CLIENT_DRIVERS':
+            // Only accept the incoming data if it matches the most recent request. This ensures we correctly
+            // handle out-of-order responses.
+            if (action.startDateIndex === state.startDateIndex) {
+                return __assign(__assign({ startDateIndex: action.startDateIndex }, state), { ClientRemoveDriver: action.ClientRemoveDriver, isLoading: false });
+            }
+            break;
+    }
+    return state;
+};
+exports.clientReducer = clientReducer;
 //# sourceMappingURL=RemoveDrivers.js.map

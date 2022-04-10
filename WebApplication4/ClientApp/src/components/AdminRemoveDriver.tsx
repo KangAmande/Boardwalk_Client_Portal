@@ -26,7 +26,7 @@ class AdminRemoveDriver extends React.PureComponent<RemoveDriversProps>{
         console.log(this.props.RemoveDriver);
         return (
             <div>
-                <table>
+                <table className="table table-bordered">
                     <tr>
                         <th>ID</th>
                         <th>Client ID</th>

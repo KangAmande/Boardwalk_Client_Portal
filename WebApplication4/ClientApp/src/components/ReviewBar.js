@@ -34,11 +34,13 @@ var ReviewBar = /** @class */ (function (_super) {
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/review-remove-vehicles" }, "Remove Vehicles"),
             React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/review-add-drivers" }, "Add Drivers"),
+            React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/review-remove-drivers" }, "Remove Drivers"),
             React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/review-add-locations" }, "Add Locations"),
             React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/review-remove-locations" }, "Remove Locations"),
+            React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/review-add-equipments" }, "Add Equipments"),
             React.createElement("br", null),
             React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/review-remove-equipments" }, "Remove Equipments")));

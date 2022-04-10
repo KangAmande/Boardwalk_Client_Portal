@@ -29,6 +29,18 @@ namespace Boardwalk.Controllers
         {
             return getPolicies.GetRemoveLocation();
         }
+        [HttpGet]
+        [Route("api/ClientBuildingInfo/ClientAddLocation")]
+        public IEnumerable<AddLocationRequests> ClientAddLocation()
+        {
+            return getPolicies.ClientAddLocation();
+        }
+        [HttpGet]
+        [Route("api/ClientBuildingInfo/ClientRemoveLocation")]
+        public IEnumerable<RemoveLocationRequests> ClientRemoveLocation()
+        {
+            return getPolicies.ClientRemoveLocation();
+        }
         [HttpPost]
         [Route("api/ClientBuildingInfo/addLocation/{buildingType}/{street}/{city}/{postalCode}/{province}/{primaryOp}/{buildingConstr}/{wallConstr}/{floorConstr}/{sprinklered}/{deckConstr}/{roofCovering}/{sizeSqft}/{storeyNumber}/{yearBuilt}/{constrType}/{alarm}/{mortgage}")]
         public void addLocation(string buildingType, string street, string city, string postalCode, string province, string primaryOp, string buildingConstr, string wallConstr,

@@ -43,8 +43,12 @@ var underReview = /** @class */ (function (_super) {
                 React.createElement("div", { className: 'col-4' },
                     React.createElement(ReviewBar_1.default, null)),
                 React.createElement("div", { className: 'col-8' },
+                    React.createElement("h1", null, "Add Driver requests"),
                     React.createElement("div", null, this.props.ClientAddVehicle.map(function (d, index) {
                         return React.createElement("div", { key: index },
+                            React.createElement("h3", null,
+                                "Request ",
+                                index + 1),
                             React.createElement("p", null,
                                 "Type: ",
                                 d.type),

@@ -41,5 +41,18 @@ namespace Boardwalk.Controllers
         {
             return getPolicies.ClientRemoveDrivers();
         }
+        [HttpPost]
+        [Route("api/Drivers/addDriver/{firstName}/{lastName}/{birthDate}/{driverTrain}/{licenseNumber}/{conviction}/{licenseYear}")]
+        public void addDriver(string firstName, string lastName, DateTime birthDate, string driverTrain, string licenseNumber, string conviction, string licenseYear)
+        {
+            getPolicies.addDriver( firstName,  lastName,  birthDate,  driverTrain,  licenseNumber,  conviction,  licenseYear);
+        }
+        [HttpPost]
+        [Route("api/Drivers/removeDriver/{id}")]
+        public void removeDriver(int id)
+        {
+            Console.WriteLine("*************Controller: " + id);
+            getPolicies.removeDriver(id);
+        }
     }
 }
