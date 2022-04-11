@@ -1,9 +1,5 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
-import { Link, Route } from 'react-router-dom';
-import { NavLink } from 'reactstrap';
-import homepageLayout from './Layout';
-import Accountsidebar from './Accountsidebar'
 import NavMenu from './NavMenu';
 class Account extends React.Component {
     render() {
@@ -12,11 +8,14 @@ class Account extends React.Component {
                 <NavMenu/>
                 <div className='row'>
                     <div className='col-4'>
-                        <Accountsidebar />
                     </div>
                     <div className='col-8'>
-                        <p>user name:</p>
-                        <p>city</p>
+                        <p>First Name:</p>
+                        <p>Last Name:</p>
+                        <p>Business:</p>
+                        <p>Email:</p>
+                        <p>Password:</p>
+                        <p>Insurance start Date:</p>
                     </div>
                 </div>
             </React.Fragment>

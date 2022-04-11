@@ -37,8 +37,13 @@ class scheduledEquipments extends React.PureComponent<EquipmentsProps> {
             <div>
                 {this.props.Equipment.map((d: EquipmentsStore.Equipments, index) =>
                     <div>
-                        <CustomAccordion key={index} title={"Equipment " + d.id}
-                            content={<div><p>{d.model}</p><p>{d.serialNumber}</p><p>{d.value}</p><p>{d.year}</p>
+                        <CustomAccordion key={index} title={"Equipment " + (index+1)}
+                            content={<div>
+                                <p>Id: { d.id}</p>
+                                <p>Model: {d.model}</p>
+                                <p>Serial Number: {d.serialNumber}</p>
+                                <p>Value: {d.value}</p>
+                                <p>Year: {d.year}</p>
                                 <button onClick={(e)=>this.removeEquipment(d.id)}>Remove</button>
                                 
                             </div>} />

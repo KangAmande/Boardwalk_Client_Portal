@@ -63,6 +63,29 @@ namespace Boardwalk.Models
                 throw;
             }
         }
+        public CertificateRequests GetCertificateRequests(int id)
+        {
+            try
+            {
+                CertificateRequests CertificateRequests = db.CertificateRequests.Find(id);
+                return CertificateRequests;
+            }
+            catch
+            {
+                throw;
+            }
+        }
+        public IEnumerable<CertificateRequests> GetAllCertificateRequests()
+        {
+            try
+            {
+                return db.CertificateRequests.Where(d => d.ClientId == 10).ToList();
+            }
+            catch
+            {
+                throw;
+            }
+        }
         public IEnumerable<AddDriverRequests> GetAddDrivers()
         {
             try
@@ -294,8 +317,11 @@ namespace Boardwalk.Models
                     ClientId = 10,
                     RequestTime = DateTime.Now
                 };
-                db.RemoveEquipmentRequests.Add(e);
-                db.SaveChanges();
+                if (!db.RemoveEquipmentRequests.Contains(e))
+                {
+                    db.RemoveEquipmentRequests.Add(e);
+                    db.SaveChanges();
+                }
             }
             catch
             {
@@ -318,7 +344,7 @@ namespace Boardwalk.Models
                     PrimaryDriver = primaryDriver,
                     OccassionDriver = occassionDriver,
                     ListPrice = listPrice,
-                    Class = classs,
+                    Classs = classs,
                     Weight = weight,
                     RequestTime = DateTime.Now
                 };
@@ -340,8 +366,12 @@ namespace Boardwalk.Models
                     ClientId = 10,
                     RequestTime = DateTime.Now
                 };
-                db.RemoveVehicleRequests.Add(e);
-                db.SaveChanges();
+                if (!db.RemoveVehicleRequests.Contains(e))
+                {
+                    db.RemoveVehicleRequests.Add(e);
+                    db.SaveChanges();
+                }
+                    
             }
             catch
             {
@@ -382,8 +412,12 @@ namespace Boardwalk.Models
                     ClientId = 10,
                     RequestTime = DateTime.Now
                 };
-                db.RemoveDriverRequests.Add(e);
-                db.SaveChanges();
+                if (!db.RemoveDriverRequests.Contains(e))
+                {
+                    db.RemoveDriverRequests.Add(e);
+                    db.SaveChanges();
+                }
+                    
             }
             catch
             {
@@ -436,8 +470,11 @@ namespace Boardwalk.Models
                     ClientId=10,
                     RequestTime = DateTime.Now
                 };
-                db.RemoveLocationRequests.Add(e);
-                db.SaveChanges();
+                if (!db.RemoveLocationRequests.Contains(e))
+                {
+                    db.RemoveLocationRequests.Add(e);
+                    db.SaveChanges();
+                }
             }
             catch
             {

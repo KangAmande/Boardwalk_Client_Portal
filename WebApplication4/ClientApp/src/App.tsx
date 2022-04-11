@@ -33,6 +33,8 @@ import AdminAddEquipment from './components/AdminAddEquipment';
 import AdminRemoveEquipment from './components/AdminRemoveEquipment';
 import AdminAddLocation from './components/AdminAddLocation';
 import AdminRemoveLocation from './components/AdminRemoveLocation';
+import AdminUploadedDocs from './components/AdminUploadedDocs';
+import AdminAccount from './components/AdminAccount';
 import ReviewAddVehicles from './components/underReview';
 import ReviewRemoveVehicles from './components/ReviewRemoveVehicles';
 import ReviewAddDrivers from './components/ReviewAddDrivers';
@@ -75,6 +77,8 @@ export default () => (
             <Route path='/admin-remove-equip' component={AdminRemoveEquipment} />
             <Route path='/admin-add-location' component={AdminAddLocation} />
             <Route path='/admin-remove-location' component={AdminRemoveLocation} />
+            <Route path='/admin-upload-docs' component={AdminUploadedDocs} />
+            <Route path='/admin-account' component={AdminAccount} />
             <Route path='/under-review' component={ReviewAddVehicles} />
             <Route path='/review-remove-vehicles' component={ReviewRemoveVehicles} />
             <Route path='/review-add-drivers' component={ReviewAddDrivers} />

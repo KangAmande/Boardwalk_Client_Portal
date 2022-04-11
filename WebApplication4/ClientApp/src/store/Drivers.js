@@ -27,6 +27,27 @@ exports.actionCreators = {
             });
             dispatch({ type: 'REQUEST_DRIVERS', startDateIndex: startDateIndex });
         }
+    }; },
+    addDrivers: function (firstName, lastName, birthDate, driverTrain, licenseNumber, conviction, licenseYear) { return function (dispatch) {
+        fetch("api/Drivers/addDriver/" + firstName + "/" + lastName + "/" + birthDate + "/" + driverTrain + "/" + licenseNumber + "/" + conviction + "/" + licenseYear, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ firstName: firstName, lastName: lastName, birthDate: birthDate, driverTrain: driverTrain, licenseNumber: licenseNumber, conviction: conviction, licenseYear: licenseYear })
+        }).
+            then(function (response) { return console.log(response); });
+    }; },
+    removeDrivers: function (id) { return function (dispatch) {
+        fetch("api/Drivers/removeDriver/" + id, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        }).then();
     }; }
 };
 // ----------------

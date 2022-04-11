@@ -56,6 +56,27 @@ export const actionCreators = {
 
             dispatch({ type: 'REQUEST_DRIVERS', startDateIndex: startDateIndex });
         }
+    },
+    addDrivers: (firstName: string, lastName: string, birthDate: DateConstructor, driverTrain: string, licenseNumber: string, conviction: string, licenseYear: string): AppThunkAction<KnownAction> => (dispatch) => {
+        fetch(`api/Drivers/addDriver/` + firstName + `/` + lastName + `/` + birthDate + `/` + driverTrain + `/` + licenseNumber + `/` + conviction + `/` + licenseYear, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ firstName: firstName, lastName: lastName, birthDate: birthDate, driverTrain: driverTrain, licenseNumber: licenseNumber, conviction: conviction, licenseYear: licenseYear })
+        }).
+            then(response => console.log(response));
+    },
+    removeDrivers: (id: number): AppThunkAction<KnownAction> => (dispatch) => {
+        fetch(`api/Drivers/removeDriver/` + id, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        }).then();
     }
 };
 

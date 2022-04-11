@@ -260,7 +260,7 @@ namespace Boardwalk.Models
             {
                 entity.Property(e => e.Id).HasColumnName("id");
 
-                entity.Property(e => e.Class)
+                entity.Property(e => e.Classs)
                     .HasColumnName("class")
                     .HasColumnType("varchar(50)")
                     .HasCharSet("utf8mb4")

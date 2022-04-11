@@ -47,7 +47,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\src\components\Account.tsx" />
-    <None Remove="ClientApp\src\components\Accountsidebar.tsx" />
+    <None Remove="ClientApp\src\components\AdminAccount.tsx" />
     <None Remove="ClientApp\src\components\AdminAddEquipment.tsx" />
     <None Remove="ClientApp\src\components\AdminAddLocation.tsx" />
     <None Remove="ClientApp\src\components\AdminCertRequests.tsx" />
@@ -58,6 +58,7 @@
     <None Remove="ClientApp\src\components\AdminRemoveEquipment.tsx" />
     <None Remove="ClientApp\src\components\AdminRemoveLocation.tsx" />
     <None Remove="ClientApp\src\components\AdminRemoveVehicle.tsx" />
+    <None Remove="ClientApp\src\components\AdminUploadedDocs.tsx" />
     <None Remove="ClientApp\src\components\CertInsur.tsx" />
     <None Remove="ClientApp\src\components\Counter.tsx" />
     <None Remove="ClientApp\src\components\FetchData.tsx" />
@@ -84,14 +85,6 @@
     <None Remove="ClientApp\src\components\Sidebar.tsx" />
     <None Remove="ClientApp\src\components\signDoc.tsx" />
     <None Remove="ClientApp\src\components\SignDocs.tsx" />
-    <None Remove="ClientApp\src\Routes\AccountRoute.tsx" />
-    <None Remove="ClientApp\src\Routes\addDriver.tsx" />
-    <None Remove="ClientApp\src\Routes\addVehicle.tsx" />
-    <None Remove="ClientApp\src\Routes\changeMailingAddress.tsx" />
-    <None Remove="ClientApp\src\Routes\RequestRoute.tsx" />
-    <None Remove="ClientApp\src\Routes\under-reviewRoute.js" />
-    <None Remove="ClientApp\src\Routes\under-reviewRoute.js.map" />
-    <None Remove="ClientApp\src\Routes\under-reviewRoute.tsx" />
     <None Remove="ClientApp\src\store\AddDrivers.ts" />
     <None Remove="ClientApp\src\store\AddEquipments.ts" />
     <None Remove="ClientApp\src\store\AddLocations.ts" />
@@ -117,8 +110,7 @@
     <TypeScriptCompile Remove="ClientApp\src\components\requestsidebar.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\signDoc.tsx" />
     <TypeScriptCompile Remove="ClientApp\src\components\VehicleInsured.tsx" />
-    <TypeScriptCompile Remove="ClientApp\src\Routes\Helppage.tsx" />
-    <TypeScriptCompile Remove="ClientApp\src\Routes\under-reviewRoute.tsx" />
+    <TypeScriptCompile Remove="ClientApp\src\store\CertificateRequests.ts" />
     <TypeScriptCompile Remove="ClientApp\src\store\Drivers.ts" />
     <TypeScriptCompile Remove="ClientApp\src\store\Equipments.ts" />
     <TypeScriptCompile Remove="ClientApp\src\store\Policies.ts" />

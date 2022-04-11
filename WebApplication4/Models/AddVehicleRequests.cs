@@ -20,7 +20,7 @@ namespace Boardwalk.Models
         public string PrimaryDriver { get; set; }
         public string OccassionDriver { get; set; }
         public decimal? ListPrice { get; set; }
-        public string Class { get; set; }
+        public string Classs { get; set; }
         public string Weight { get; set; }
         public DateTime? RequestTime { get; set; }
     }

@@ -17,26 +17,21 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
-var NavMenu_1 = require("./NavMenu");
-var Account = /** @class */ (function (_super) {
-    __extends(Account, _super);
-    function Account() {
+var AdminNavMenu_1 = require("./AdminNavMenu");
+var AdminUploadedDocs = /** @class */ (function (_super) {
+    __extends(AdminUploadedDocs, _super);
+    function AdminUploadedDocs() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Account.prototype.render = function () {
+    AdminUploadedDocs.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
-            React.createElement(NavMenu_1.default, null),
-            React.createElement("div", { className: 'row' },
-                React.createElement("div", { className: 'col-4' }),
-                React.createElement("div", { className: 'col-8' },
-                    React.createElement("p", null, "First Name:"),
-                    React.createElement("p", null, "Last Name:"),
-                    React.createElement("p", null, "Business:"),
-                    React.createElement("p", null, "Email:"),
-                    React.createElement("p", null, "Password:"),
-                    React.createElement("p", null, "Insurance start Date:")))));
+            React.createElement(AdminNavMenu_1.default, null),
+            React.createElement("div", { className: "row" },
+                React.createElement("div", { className: "col-4" }),
+                React.createElement("div", { className: "col-8" },
+                    React.createElement("h1", null, "Uploaded Documents Requests")))));
     };
-    return Account;
-}(React.Component));
-exports.default = (0, react_redux_1.connect)()(Account);
-//# sourceMappingURL=Account.js.map
+    return AdminUploadedDocs;
+}(React.PureComponent));
+exports.default = (0, react_redux_1.connect)()(AdminUploadedDocs);
+//# sourceMappingURL=AdminUploadedDocs.js.map

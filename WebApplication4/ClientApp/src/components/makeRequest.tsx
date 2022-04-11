@@ -34,11 +34,12 @@ class makeRequest extends React.PureComponent<ClientBuildingInfoProps> {
         <div>
                 {this.props.ClientBuildingInfo.map((d: ClientBuildingInfoStore.ClientBuildingInfo, index) =>
                     <div>
-                        <CustomAccordion key={index} title={"Location"} content={<div>
-                            <p>primary operation : {d.primaryOperation}</p>
-                            <p>city : {d.city}</p>
-                            <p>street : {d.street}</p>
-                            <p>postal code : {d.postalCode}</p>
+                        <CustomAccordion key={index} title={"Location " + (index + 1)} content={<div>
+                            <p>Id: { d.id}</p>
+                            <p>Primary operation : {d.primaryOperation}</p>
+                            <p>City : {d.city}</p>
+                            <p>Street : {d.street}</p>
+                            <p>Postal code : {d.postalCode}</p>
                             <button onClick={(e) => this.removeLocation(d.id)}>Remove</button>
                         </div>} />
                         <br/>

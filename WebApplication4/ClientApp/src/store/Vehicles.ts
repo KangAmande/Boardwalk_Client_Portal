@@ -50,6 +50,28 @@ export const actionCreators = {
 
             dispatch({ type: 'REQUEST_VEHICLES', startDateIndex: startDateIndex });
         }
+    },
+    addVehicles: (type: string, year: number, make: string, model: string, radius: string, vin: string, primaryDriver: string, occassionDriver: string, listPrice: number, classs: string, weight: string): AppThunkAction<KnownAction> => (dispatch) => {
+        console.log(make);
+        fetch(`api/Vehicles/addVehicle/` + type + `/` + year + `/` + make + `/` + model + `/` + radius + `/` + vin + `/` + primaryDriver + `/` + occassionDriver + `/` + listPrice + `/` + classs + `/` + weight, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ type: type, year: year, make: make, model: model, radius: radius, vin: vin, primaryDriver: primaryDriver, occassionDriver: occassionDriver, listPrice: listPrice, classs: classs, weight: weight })
+        }).
+            then(response => console.log(response));
+    },
+    removeVehicles: (id: number): AppThunkAction<KnownAction> => (dispatch) => {
+        fetch(`api/Vehicles/removeVehicle/` + id, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        }).then();
     }
 };
 

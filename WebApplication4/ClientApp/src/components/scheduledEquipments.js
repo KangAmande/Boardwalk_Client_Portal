@@ -55,11 +55,22 @@ var scheduledEquipments = /** @class */ (function (_super) {
         console.log(this.props.Equipment);
         return (React.createElement("div", null, this.props.Equipment.map(function (d, index) {
             return React.createElement("div", null,
-                React.createElement(Accordion_1.CustomAccordion, { key: index, title: "Equipment " + d.id, content: React.createElement("div", null,
-                        React.createElement("p", null, d.model),
-                        React.createElement("p", null, d.serialNumber),
-                        React.createElement("p", null, d.value),
-                        React.createElement("p", null, d.year),
+                React.createElement(Accordion_1.CustomAccordion, { key: index, title: "Equipment " + (index + 1), content: React.createElement("div", null,
+                        React.createElement("p", null,
+                            "Id: ",
+                            d.id),
+                        React.createElement("p", null,
+                            "Model: ",
+                            d.model),
+                        React.createElement("p", null,
+                            "Serial Number: ",
+                            d.serialNumber),
+                        React.createElement("p", null,
+                            "Value: ",
+                            d.value),
+                        React.createElement("p", null,
+                            "Year: ",
+                            d.year),
                         React.createElement("button", { onClick: function (e) { return _this.removeEquipment(d.id); } }, "Remove")) }),
                 React.createElement("br", null));
         })));

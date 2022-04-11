@@ -27,6 +27,28 @@ exports.actionCreators = {
             });
             dispatch({ type: 'REQUEST_VEHICLES', startDateIndex: startDateIndex });
         }
+    }; },
+    addVehicles: function (type, year, make, model, radius, vin, primaryDriver, occassionDriver, listPrice, classs, weight) { return function (dispatch) {
+        console.log(make);
+        fetch("api/Vehicles/addVehicle/" + type + "/" + year + "/" + make + "/" + model + "/" + radius + "/" + vin + "/" + primaryDriver + "/" + occassionDriver + "/" + listPrice + "/" + classs + "/" + weight, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ type: type, year: year, make: make, model: model, radius: radius, vin: vin, primaryDriver: primaryDriver, occassionDriver: occassionDriver, listPrice: listPrice, classs: classs, weight: weight })
+        }).
+            then(function (response) { return console.log(response); });
+    }; },
+    removeVehicles: function (id) { return function (dispatch) {
+        fetch("api/Vehicles/removeVehicle/" + id, {
+            method: "post",
+            headers: {
+                'Accept': 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ id: id })
+        }).then();
     }; }
 };
 // ----------------

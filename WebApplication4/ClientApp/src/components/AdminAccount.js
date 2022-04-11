@@ -16,19 +16,22 @@ var __extends = (this && this.__extends) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
-var reactstrap_1 = require("reactstrap");
-var react_router_dom_1 = require("react-router-dom");
-var Accountsidebar = /** @class */ (function (_super) {
-    __extends(Accountsidebar, _super);
-    function Accountsidebar() {
+var react_redux_1 = require("react-redux");
+var AdminNavMenu_1 = require("./AdminNavMenu");
+var AdminUploadedDocs = /** @class */ (function (_super) {
+    __extends(AdminUploadedDocs, _super);
+    function AdminUploadedDocs() {
         return _super !== null && _super.apply(this, arguments) || this;
     }
-    Accountsidebar.prototype.render = function () {
-        return (React.createElement(reactstrap_1.Container, null,
-            React.createElement(reactstrap_1.NavLink, { className: "menu-item", tag: react_router_dom_1.Link, to: "/Account" }, "Account info"),
-            React.createElement("br", null)));
+    AdminUploadedDocs.prototype.render = function () {
+        return (React.createElement(React.Fragment, null,
+            React.createElement(AdminNavMenu_1.default, null),
+            React.createElement("div", { className: "row" },
+                React.createElement("div", { className: "col-4" }),
+                React.createElement("div", { className: "col-8" },
+                    React.createElement("h1", null, "Account")))));
     };
-    return Accountsidebar;
+    return AdminUploadedDocs;
 }(React.PureComponent));
-exports.default = Accountsidebar;
-//# sourceMappingURL=Accountsidebar.js.map
+exports.default = (0, react_redux_1.connect)()(AdminUploadedDocs);
+//# sourceMappingURL=AdminAccount.js.map

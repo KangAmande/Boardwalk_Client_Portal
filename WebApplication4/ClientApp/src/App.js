@@ -35,6 +35,8 @@ var AdminAddEquipment_1 = require("./components/AdminAddEquipment");
 var AdminRemoveEquipment_1 = require("./components/AdminRemoveEquipment");
 var AdminAddLocation_1 = require("./components/AdminAddLocation");
 var AdminRemoveLocation_1 = require("./components/AdminRemoveLocation");
+var AdminUploadedDocs_1 = require("./components/AdminUploadedDocs");
+var AdminAccount_1 = require("./components/AdminAccount");
 var underReview_1 = require("./components/underReview");
 var ReviewRemoveVehicles_1 = require("./components/ReviewRemoveVehicles");
 var ReviewAddDrivers_1 = require("./components/ReviewAddDrivers");
@@ -76,6 +78,8 @@ exports.default = (function () { return (React.createElement("div", null,
         React.createElement(react_router_1.Route, { path: '/admin-remove-equip', component: AdminRemoveEquipment_1.default }),
         React.createElement(react_router_1.Route, { path: '/admin-add-location', component: AdminAddLocation_1.default }),
         React.createElement(react_router_1.Route, { path: '/admin-remove-location', component: AdminRemoveLocation_1.default }),
+        React.createElement(react_router_1.Route, { path: '/admin-upload-docs', component: AdminUploadedDocs_1.default }),
+        React.createElement(react_router_1.Route, { path: '/admin-account', component: AdminAccount_1.default }),
         React.createElement(react_router_1.Route, { path: '/under-review', component: underReview_1.default }),
         React.createElement(react_router_1.Route, { path: '/review-remove-vehicles', component: ReviewRemoveVehicles_1.default }),
         React.createElement(react_router_1.Route, { path: '/review-add-drivers', component: ReviewAddDrivers_1.default }),
