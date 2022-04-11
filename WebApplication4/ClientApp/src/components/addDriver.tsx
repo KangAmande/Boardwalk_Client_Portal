@@ -1,4 +1,6 @@
-﻿import * as React from 'react';
+﻿// This Component is used to add Driver in client's policy.
+// It will have Few details asked in a form to be filled out by clint.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { CustomAccordion } from './Accordion';
 import Sidebarmr from './Sidebarmr';

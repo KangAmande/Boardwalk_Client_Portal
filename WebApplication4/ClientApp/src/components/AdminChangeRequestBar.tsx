@@ -1,4 +1,6 @@
-﻿import * as React from 'react';
+﻿// This is admin side view for seeing change request side bar by client.
+
+import * as React from 'react';
 import { Container, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 

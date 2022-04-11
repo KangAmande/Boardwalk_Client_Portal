@@ -1,3 +1,5 @@
+// This is admin side view for seeing requests of add vehicles by client.
+// Admin can accept or reject the request.
 import * as React from 'react';
 import { connect } from 'react-redux';
 import AdminNavMenu from './AdminNavMenu';

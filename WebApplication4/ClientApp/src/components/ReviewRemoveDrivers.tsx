@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// this is to view add/remove drivers requests which are under review.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import NavMenu from './NavMenu';
 import { RouteComponentProps } from 'react-router';

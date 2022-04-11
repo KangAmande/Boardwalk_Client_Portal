@@ -1,4 +1,6 @@
-﻿import * as React from 'react';
+﻿// This is admin side view for seeing requests of add equipments by client.
+// Admin can accept or reject the request.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import AdminNavMenu from './AdminNavMenu';
 import AdminChangeRequestBar from './AdminChangeRequestBar';

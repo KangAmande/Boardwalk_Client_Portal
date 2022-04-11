@@ -13,6 +13,7 @@ import * as AddVehicles from './AddVehicles';
 import * as RemoveVehicles from './RemoveVehicles';
 // The top-level state object
 export interface ApplicationState {
+    CertificateRequests: CertificateRequests.CertificateRequestsState | undefined;
     ClientBuildingInfo: ClientBuildingInfo.ClientBuildingInfoState | undefined;
     Policies: Policies.PoliciesState | undefined;
     Drivers: Drivers.DriversState | undefined;

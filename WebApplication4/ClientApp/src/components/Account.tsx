@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// This component will display Client's information such as their username and city.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import { Link, Route } from 'react-router-dom';
 import { NavLink } from 'reactstrap';

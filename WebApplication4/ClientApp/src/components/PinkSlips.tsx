@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// This is make request components to view pink slips of clients for clients.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebar from './Sidebar';
 import { Popup } from './Popup';
