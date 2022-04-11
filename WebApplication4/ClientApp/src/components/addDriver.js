@@ -13,6 +13,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
+// This Component is used to add Driver in client's policy.
+// It will have Few details asked in a form to be filled out by clint.
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Accordion_1 = require("./Accordion");
@@ -45,7 +47,8 @@ var addDriver = /** @class */ (function (_super) {
                             d.fullName),
                         React.createElement("p", null,
                             "Driver License : ",
-                            d.driverLicense)) }),
+                            d.driverLicense),
+                        React.createElement("p", null)) }),
                 React.createElement("br", null));
         })));
     };
@@ -80,7 +83,6 @@ var addDriver = /** @class */ (function (_super) {
                         React.createElement("br", null),
                         React.createElement("br", null),
                         React.createElement("input", { type: 'submit', value: 'submit' })),
-                    React.createElement("br", null),
                     React.createElement("br", null),
                     React.createElement("br", null),
                     this.showDrivers()))));

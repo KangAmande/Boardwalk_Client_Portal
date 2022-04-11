@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// This is component is make to view Policy Limits and Deductibles for clients.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import InfoBar from './InfoBar';
 import { RouteComponentProps } from 'react-router';

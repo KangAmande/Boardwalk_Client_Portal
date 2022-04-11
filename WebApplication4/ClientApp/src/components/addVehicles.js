@@ -13,6 +13,8 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 exports.__esModule = true;
+// This Component is used add vehicles in client's policy.
+// It will have Few details asked in a form to be filled out by clint.
 var React = require("react");
 var react_redux_1 = require("react-redux");
 var Accordion_1 = require("./Accordion");

@@ -1,4 +1,6 @@
-﻿import * as React from 'react';
+﻿// This is admin side view for navigation bar.
+
+import * as React from 'react';
 import { Collapse, Container, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import './NavMenu.css';

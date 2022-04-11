@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// This is client side view for info bar for client.
+import * as React from 'react';
 import { Container, NavLink } from 'reactstrap';
 import { Link } from 'react-router-dom';
 

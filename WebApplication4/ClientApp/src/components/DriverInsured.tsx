@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// This is client side view for List of Drivers insured under auto policy for clients.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import InfoBar from './InfoBar';
 import { RouteComponentProps } from 'react-router';

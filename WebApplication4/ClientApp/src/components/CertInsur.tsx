@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// This component will display Certificate of Insurances to client.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebar from './Sidebar';
 import { Popup } from './Popup';

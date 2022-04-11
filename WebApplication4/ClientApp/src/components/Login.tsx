@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// This is client side view for Login page which client will see.
+import * as React from 'react';
 import { Link, Switch,Route } from 'react-router-dom';
 import { Container, NavLink } from 'reactstrap';
 import './login.css';

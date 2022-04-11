@@ -1,3 +1,4 @@
+// This is make request components to Add New Location/Building for clients.
 import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';

@@ -18,6 +18,7 @@ import * as BindingInfos from './BindingInfos';
 
 // The top-level state object
 export interface ApplicationState {
+    CertificateRequests: CertificateRequests.CertificateRequestsState | undefined;
     ClientBuildingInfo: ClientBuildingInfo.ClientBuildingInfoState | undefined;
     Policies: Policies.PoliciesState | undefined;
     Drivers: Drivers.DriversState | undefined;

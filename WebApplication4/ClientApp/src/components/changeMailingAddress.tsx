@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// This is client side view for changing mailing address for client.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';
 import { CustomAccordion } from './Accordion';

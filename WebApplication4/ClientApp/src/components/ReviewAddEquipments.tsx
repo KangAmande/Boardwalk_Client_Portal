@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// this is to view add/remove Equipements requests which are under review.
+import * as React from 'react';
 import { connect } from 'react-redux';
 import Sidebarmr from './Sidebarmr';
 import NavMenu from './NavMenu';

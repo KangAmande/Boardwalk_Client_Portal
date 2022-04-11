@@ -1,4 +1,5 @@
-﻿import * as React from 'react';
+﻿// This File is used to make a dropdown which will be visible to Client too see their requests.
+import * as React from 'react';
 import Accordion from "@material-ui/core/Accordion";
 import AccordionDetails from "@material-ui/core/AccordionDetails";
 import Typography from "@material-ui/core/Typography";
