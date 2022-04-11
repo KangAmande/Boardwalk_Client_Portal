@@ -30,15 +30,20 @@
     <!-- Don't publish the SPA source files, but do show them in the project files list -->
     <Content Remove="$(SpaRoot)**" />
     <Content Remove="ClientApp\src\components\NewFolder\**" />
+    <Content Remove="ClientApp\src\Routes\**" />
     <None Remove="$(SpaRoot)**" />
     <None Remove="ClientApp\src\components\NewFolder\**" />
+    <None Remove="ClientApp\src\Routes\**" />
     <None Include="$(SpaRoot)**" Exclude="$(SpaRoot)node_modules\**" />
   </ItemGroup>
 
   <ItemGroup>
     <Compile Remove="ClientApp\src\components\NewFolder\**" />
+    <Compile Remove="ClientApp\src\Routes\**" />
     <EmbeddedResource Remove="ClientApp\src\components\NewFolder\**" />
+    <EmbeddedResource Remove="ClientApp\src\Routes\**" />
     <TypeScriptCompile Remove="ClientApp\src\components\NewFolder\**" />
+    <TypeScriptCompile Remove="ClientApp\src\Routes\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -85,6 +90,9 @@
     <None Remove="ClientApp\src\components\Sidebar.tsx" />
     <None Remove="ClientApp\src\components\signDoc.tsx" />
     <None Remove="ClientApp\src\components\SignDocs.tsx" />
+    <None Remove="ClientApp\src\Routes\Changepwd.js" />
+    <None Remove="ClientApp\src\Routes\Changepwd.js.map" />
+    <None Remove="ClientApp\src\Routes\Changepwd.tsx" />
     <None Remove="ClientApp\src\store\AddDrivers.ts" />
     <None Remove="ClientApp\src\store\AddEquipments.ts" />
     <None Remove="ClientApp\src\store\AddLocations.ts" />

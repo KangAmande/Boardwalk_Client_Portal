@@ -1,14 +1,10 @@
 ﻿import * as React from 'react';
 import { connect } from 'react-redux';
-import { Link, Route } from 'react-router-dom';
-import { NavLink } from 'reactstrap';
-import homepageLayout from './Layout';
-import Accountsidebar from './Accountsidebar';
 import { RouteComponentProps } from 'react-router';
 import { ApplicationState } from '../store';
 import * as AccountsStore from '../store/Accounts';
+import NavMenu from './NavMenu';
 
-var nodemailer = require('nodemailer');
 type AccountsProps =
     AccountsStore.AccountsState// ... state we've requested from the Redux store
     & typeof AccountsStore.actionCreators // ... plus action creators we've requested
@@ -18,9 +14,10 @@ class Changepassword extends React.PureComponent<AccountsProps> {
     render() {
         return (
             <React.Fragment>
+                <NavMenu />
                 <div className='row'>
                     <div className='col-4'>
-                        <Accountsidebar />
+                        Change Password
                     </div>
                     <div className='col-8'>
                         <div>

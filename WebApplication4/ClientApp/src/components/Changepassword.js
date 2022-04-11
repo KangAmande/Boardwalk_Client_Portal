@@ -17,9 +17,8 @@ var __extends = (this && this.__extends) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 var React = require("react");
 var react_redux_1 = require("react-redux");
-var Accountsidebar_1 = require("./Accountsidebar");
 var AccountsStore = require("../store/Accounts");
-var nodemailer = require('nodemailer');
+var NavMenu_1 = require("./NavMenu");
 var Changepassword = /** @class */ (function (_super) {
     __extends(Changepassword, _super);
     function Changepassword() {
@@ -27,9 +26,9 @@ var Changepassword = /** @class */ (function (_super) {
     }
     Changepassword.prototype.render = function () {
         return (React.createElement(React.Fragment, null,
+            React.createElement(NavMenu_1.default, null),
             React.createElement("div", { className: 'row' },
-                React.createElement("div", { className: 'col-4' },
-                    React.createElement(Accountsidebar_1.default, null)),
+                React.createElement("div", { className: 'col-4' }, "Change Password"),
                 React.createElement("div", { className: 'col-8' },
                     React.createElement("div", null,
                         "New Password:",

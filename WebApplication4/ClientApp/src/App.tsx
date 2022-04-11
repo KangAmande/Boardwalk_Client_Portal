@@ -23,6 +23,7 @@ import addDriver from './components/addDriver';
 import changeMailingAddress from './components/changeMailingAddress';
 import helppage from './components/Helppage';
 import Account from './components/Account';
+import Changepassword from './components/Changepassword';
 import AdminCertRequests from './components/AdminCertRequests';
 import AdminChangeMailAdd from './components/AdminChangeMailAdd';
 import AdminAddDriver from './components/AdminAddDriver';
@@ -67,6 +68,7 @@ export default () => (
             <Route path='/changeMailingAddress' component={changeMailingAddress} />
             <Route path='/help' component={helppage} />
             <Route path='/Account' component={Account} />
+            <Route path='/change-pass' component={Changepassword} />
             <Route path='/admin-cert-requests' component={AdminCertRequests} />
             <Route path='/admin-change-mail-add' component={AdminChangeMailAdd} />
             <Route path='/admin-add-drivers' component={AdminAddDriver} />
