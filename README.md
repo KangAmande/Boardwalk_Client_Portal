@@ -1,1 +1,1 @@
-
+This application is a client portal prototype designed for an insurance business where the clients can access all insurance information and can make any change requests to the business. The business company can then view any changes or requests made on the side of client
